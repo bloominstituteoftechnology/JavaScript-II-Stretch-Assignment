@@ -1,10 +1,11 @@
 # Advanced JavaScript
 
 ## Instructions
-## Do not use any of the built in Javascript Array methods like .forEach .map etc. If you'd like feel free to reuse any of your functions along the way though! 
-#### Fork and clone this repo.
+
+* Fork and clone this repo.
 * Run the command `npm i` to install needed node packages.
-* Run the command `npm test` to run the tests.
+* Run the command `npm test <filename>` to run the tests. (Example: `npm test prototype`)
 * Work through the files and make the tests pass.
-* Suggested order: `es6.js`, `arrays.js`, `objects.js`, `this.js`, `class.js`, `closure.js`, and then `recursion.js`.
-* Submit a pull request when you are finished and we will review your code.
+* Suggested order: `prototype.js`, `class.js`, `recursion.js`, `this.js`.
+* When you are finished submit a pull request.
+* Make commits often.  A good practice would be to make a commit when you get a test, or set of tests, to pass.
