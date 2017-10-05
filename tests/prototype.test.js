@@ -1,8 +1,4 @@
-const {
-  GameObject,
-  NPC,
-  Humanoid,
-} = require('../src/prototype');
+import { GameObject, NPC, Humanoid } from '../src/prototype'
 
 /* eslint-disable no-undef */
 
@@ -16,7 +12,7 @@ describe('prototype', () => {
         height: 15,
       },
     });
-    it('', () => {});
+    it('', () => { });
     it('should create an object with the properties: createdAt and dimensions', () => {
       expect(Object.prototype.hasOwnProperty.call(gameObject, 'createdAt')).toBe(true);
       expect(gameObject.createdAt instanceof Date).toBe(true);

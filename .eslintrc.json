@@ -15,6 +15,9 @@
       "arrow-body-style": 0,
       "no-unused-vars": 0,
       "no-useless-constructor": 0,
-      "import/no-unresolved": 0
+      "import/no-unresolved": 0,
+      "semi": [0, "never"],
+      "func-names": 0,
+      "comma-dangle": 0
     }
 }

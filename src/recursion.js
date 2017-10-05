@@ -1,25 +1,37 @@
 // Complete the following functions.
+/* eslint-disable arrow-parens, no-underscore-dangle,  comma-dangle, no-console */
+const flattenValues = require('./flatternValues').flattenValues;
 
-const nFibonacci = (n) => {
+const nFibonacci = n => {
   // fibonacci sequence: 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+  if (n < 2) return 1
+  return nFibonacci(n - 1) + nFibonacci(n - 2)
 };
 
-const nFactorial = (n) => {
+const nFactorial = n => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
-};
+  if (n === 1) return 1
+  return n * nFactorial(n - 1)
+}
 
 /* Extra Credit */
-const checkMatchingLeaves = (obj) => {
+const checkMatchingLeaves = obj => {
   // return true if every property on `obj` is the same
   // otherwise return false
-};
+  const flattened = flattenValues(Object.values(obj))
+  const set = new Set()
+  flattened.forEach(v => {
+    set.add(v)
+  })
+  return set.size === 1
+}
 
 /* eslint-enable no-unused-vars */
 
 module.exports = {
   nFibonacci,
   nFactorial,
-  checkMatchingLeaves,
+  checkMatchingLeaves
 };
