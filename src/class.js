@@ -23,6 +23,36 @@
 
 /* eslint-disable no-undef */
 
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(pw) {
+    return pw === this.password;
+  }
+}
+
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+    this.age = options.age;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
+
 module.exports = {
   User,
   Cat,
