@@ -1,4 +1,4 @@
-# Advanced JavaScript
+# JavaScript II
 
 ## Topics
 
