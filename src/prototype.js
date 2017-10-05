@@ -51,6 +51,80 @@
 
 /* eslint-disable no-undef */
 
+function GameObject(gameObjProps) {
+  this.createdAt = gameObjProps.createdAt;
+  this.dimensions = gameObjProps.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+const someGameObj = new GameObject({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+});
+
+function NPC(gameObjProps) {
+  GameObject.call(this, gameObjProps);
+  this.hp = gameObjProps.hp;
+  this.name = gameObjProps.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+const someNpcObj = new NPC({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+});
+
+someNpcObj.takeDamage();
+
+function Humanoid(gameObjProps) {
+  NPC.call(this, gameObjProps);
+  this.faction = gameObjProps.faction;
+  this.weapons = gameObjProps.weapons;
+  this.language = gameObjProps.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
+const hamsterHuey = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: [
+    'bubblegum',
+  ],
+  language: 'Hamsterish',
+});
+
+hamsterHuey.greet();
+
 module.exports = {
   GameObject,
   NPC,
