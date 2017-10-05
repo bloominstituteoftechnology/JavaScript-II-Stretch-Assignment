@@ -48,6 +48,43 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+// go to Piazza and find spreadsheet file (top left)
+// contains everything about prototype...
+// instead of cube, adapt to humanoid
+// each class (humanoid, gameObject, NPC) needs a new child 
+// -> const classChild = new className(options);
+function GameObject {
+  constructor() {
+    createdAt: ;
+    dimensions: ;
+  }
+  destroy() {
+    return 'Game object was removed from the game.';
+  }
+}
+
+function NPC {
+  constructor() {
+    hp: ;
+    name: ;
+  }
+  takeDamage() {
+    return '${object name} took damage.';
+  }  // inherits destroy() from GameObject's prototype
+}
+
+function Humanoid {
+  constructor() {
+    faction: ;
+    weapons: ;
+    language: ;
+  }
+greet() {
+  return '<object name> offers a greeting in <object language>.';
+}  // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+// should inherit destroy() from GameObject through NPC
+// should inherit takeDamage() from NPC
+}
 
 /* eslint-disable no-undef */
 
