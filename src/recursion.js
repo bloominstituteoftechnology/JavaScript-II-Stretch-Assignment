@@ -20,6 +20,17 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  let res = true;
+  const keys = Object.keys(obj);
+  for (let i = 0; i < keys.length - 1; i++) {
+    if (!(obj[keys[i]] === 'object')) {
+      res = checkMatchingLeaves(obj[keys[i]]);
+    }
+    if (obj[keys[i]] !== obj[keys[i + 1]]) {
+      res = false;
+    }
+  }
+  return res;
 };
 
 /* eslint-enable no-unused-vars */
