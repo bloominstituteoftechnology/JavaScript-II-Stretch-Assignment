@@ -23,8 +23,8 @@ function Humanoid(options) {
   this.language = options.language;
 }
 Humanoid.prototype = Object.create(NPC.prototype);
-Humanoid.prototype = function () {
-  return `${this.name} offers a greeting in ${this.language}`;
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
 };
 
 /*
