@@ -8,6 +8,7 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 // code here
+const User = {};
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
