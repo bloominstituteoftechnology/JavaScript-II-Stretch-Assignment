@@ -49,12 +49,6 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
-/*
-  GameObject
-    createdAt
-    dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-*/
 function GameObject(options) {
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
@@ -63,13 +57,6 @@ GameObject.prototype.destroy = function () {
   return 'Game object was removed from the game.';
 };
 
-/*
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    // should inherit destroy() from GameObject's prototype
-*/
 function NPC(options) {
   GameObject.call(this, options);
   this.hp = options.hp;
@@ -80,15 +67,6 @@ NPC.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
 };
 
-/*
-  Humanoid
-    faction
-    weapons
-    language
-    greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    // should inherit destroy() from GameObject through NPC
-    // should inherit takeDamage() from NPC
-*/
 function Humanoid(options) {
   NPC.call(this, options);
   this.faction = options.faction;
