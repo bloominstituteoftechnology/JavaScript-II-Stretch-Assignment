@@ -6,23 +6,49 @@
   GameObject
     createdAt
     dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
-  NPC
+    destroy() // prototype method -> returns the string 'Game object was removed from the game.' */
+function GameObject(stats) {
+  this.createdAt = new Date();
+  this.dimensions = stats.dimensions;
+}
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+}; // in this notation format, the function must be created outside of the object
+// strings not incorporating methods from the Object must use '', not ``
+  /* NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    // should inherit destroy() from GameObject's prototype
-
-  Humanoid
+    // should inherit destroy() from GameObject's prototype */
+function NPC(stats) {
+  GameObject.call(this, stats);
+  this.hp = stats.hp;
+  this.name = stats.name;
+}
+NPC.prototype = Object.create(GameObject.prototype);
+// ^^ you must complete the prototype chain here in order for it to work see p2 of your notes, the
+// example item doesn't stop at the first page
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`; // this line can use `` because it's calling a method
+};
+/*  Humanoid
     faction
     weapons
     language
     greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     // should inherit destroy() from GameObject through NPC
-    // should inherit takeDamage() from NPC
-
-  Inheritance chain: Humanoid -> NPC -> GameObject
+    // should inherit takeDamage() from NPC */
+function Humanoid(stats) {
+  NPC.call(this, stats);
+  this.faction = stats.faction;
+  this.weapons = stats.weapons;
+  this.language = stats.language;
+}
+Humanoid.prototype = Object.create(NPC.prototype); // don't forget to finish the prototype chain...
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+  /* Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
 
