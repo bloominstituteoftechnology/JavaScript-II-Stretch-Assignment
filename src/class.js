@@ -38,6 +38,7 @@ class Animal {
     this.age = options.age;
   }
   growOlder() {
+    this.age += 1;
     return this.age;
   }
 }
