@@ -51,6 +51,34 @@
 
 /* eslint-disable no-undef */
 
+const GameObject = function (object) {
+  this.createdAt = object.createdAt;
+  this.dimensions = object.dimensions;
+};
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+const NPC = function (object) {
+  GameObject.call(this, object);
+  this.width = object.width;
+  this.hp = object.hp;
+  this.name = object.name;
+};
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+const Humanoid = function (object) {
+  NPC.call(this, object);
+  this.height = object.height;
+  this.faction = object.faction;
+  this.weapons = object.weapons;
+  this.language = object.language;
+};
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 module.exports = {
   GameObject,
   NPC,
