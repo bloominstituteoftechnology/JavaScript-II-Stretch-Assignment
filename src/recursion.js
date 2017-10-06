@@ -15,17 +15,57 @@ const nFactorial = (n) => {
 };
 
 /* Extra Credit */
+const obj = [
+  1,
+  1,
+  1,
+  [
+    [
+      1,
+      1,
+      [
+        1,
+        [
+          1,
+          [
+            [
+              1,
+            ],
+            2,
+          ],
+          1,
+        ],
+        1,
+      ],
+    ],
+    1,
+    1,
+  ],
+  1,
+  1,
+  [
+    1,
+    1,
+    1,
+  ],
+];
+console.log(obj);
 const checkMatchingLeaves = (obj) => {
-  if (Object.getOwnPropertyNames(obj)) {
-    if (obj != null && typeof obj === 'object') {
-      checkMatchingLeaves(obj);
-    } else {
-      return Object.getOwnPropertyNames(obj).toString() === Object.keys(obj)[0];
+  let arr = [];
+  if (Array.isArray(obj)) {
+    obj.forEach((item) => {
+      return checkMatchingLeaves(item);
+      arr = item;
     }
+  );
+}
+  arr.reduce(function(a, b) {
+    return (a === b);
   }
+};
   // return true if every property on `obj` is the same
   // otherwise return false
-};
+
 
   /* eslint-enable no-unused-vars */
 
