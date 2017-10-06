@@ -23,8 +23,32 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  // return true if every property on `obj` is the same
-  // otherwise return false
+  const vals = Object.values(obj);
+  let flattened = [];
+  let tempVal;
+  let allSame = true;
+
+  const flatten = (elements) => {
+    let newArr = [];
+    for (let i = 0; i < elements.length; i++) {
+      if (typeof elements[i] === 'object') {
+        const temp = Object.values(elements[i]);
+        newArr = newArr.concat(flatten(Object.values(temp)));
+      } else {
+        newArr.push(elements[i]);
+      }
+    }
+    return newArr;
+  };
+
+  flattened = flatten(vals);
+
+  flattened.forEach((i) => {
+    tempVal = flattened[0];
+    if (i !== tempVal) allSame = false;
+  });
+
+  return allSame;
 };
 
 /* eslint-enable no-unused-vars */
