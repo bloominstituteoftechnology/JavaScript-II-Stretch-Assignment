@@ -3,11 +3,18 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+  // fibonacci = Fn-1 + Fn-2
+  // if (n === 0 || n === undefined || n === null) return 0;
+  // if (n === 1) return 1;
+  if (n === 1 || n === 0) return 1;
+  return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  if (n === 1) return 1;
+  return n * nFactorial(n - 1);
 };
 
 /* Extra Credit */
