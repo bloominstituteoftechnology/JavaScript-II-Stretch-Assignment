@@ -5,6 +5,10 @@ const nFibonacci = (n) => {
   // return the nth number in the sequence
   // if n = 3 then it is 1 + 2;
   // if n = 4 then it is 2 + 3 returning 5;
+  if (n <= 2) {
+    return n;
+  }
+  return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
 const nFactorial = (n) => {
