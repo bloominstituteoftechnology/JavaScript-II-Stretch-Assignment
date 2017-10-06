@@ -1,3 +1,6 @@
+/* Reviewed the code in detail, posted code in slack, recieved help to resolve a few errors
+but was not able to get this one to pass, and I cannot figure out what my issue is.
+*/
 // Part 1
 // Create a class called User using the ES6 class keyword.
 // The constructor of the class should have a parameter called `options`.
@@ -8,13 +11,14 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 // code here
-
-function User(options) {
-  this.email = options.email;
-  this.password = options.password;
-  this.comparePasswords = function comparePasswords(passwordCheck) {
-    return (this.password === passwordCheck);
-  };
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+    this.comparePasswords = function comparePasswords(passwordCheck) {
+      return (this.password === passwordCheck);
+    };
+  }
 }
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
