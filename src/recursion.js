@@ -1,20 +1,26 @@
 // Complete the following functions.
 
+// const nFibonacci = (n) => {
+//   // fibonacci sequence: 1 2 3 5 8 13 ...
+//   // return the nth number in the sequence
+//   let result = 1;
+//   let prevNum = 1;
+//   const helper = (num) => {
+//     if (n === 0) return;
+//     prevNum = result;
+//     result = num;
+//     n -= 1;
+//     return helper(result + prevNum);
+//   };
+//   helper(result);
+//   return result;
+// };
+
+// or if I were math genius
 const nFibonacci = (n) => {
-  // fibonacci sequence: 1 2 3 5 8 13 ...
-  // return the nth number in the sequence
-  let result = 1;
-  let prevNum = 1;
-  const helper = (num) => {
-    if (n === 0) return;
-    prevNum = result;
-    result = num;
-    n -= 1;
-    return helper(result + prevNum);
-  };
-  helper(result);
-  return result;
+  return n < 2 ? 1 : nFibonacci(n - 2) + nFibonacci(n - 1);
 };
+
 
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
@@ -38,7 +44,6 @@ const checkMatchingLeaves = (obj) => {
     });
   };
   helper(obj);
-  console.log(vals);
   return vals.every(val => val === vals[0]);
 };
 
