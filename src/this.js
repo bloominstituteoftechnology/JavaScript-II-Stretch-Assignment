@@ -43,4 +43,4 @@ checkPassword.call(me, 'correcthorsebatterystaple');
 // .apply
 checkPassword.apply(me, ['correcthorsebatterystaple']);
 // .bind
-checkPassword.bind(me)(passwordToCompare);
+checkPassword.bind(me)(checkPassword);

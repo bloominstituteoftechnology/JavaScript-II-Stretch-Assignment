@@ -18,7 +18,22 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  // Iterate through the object, and if nested, reduce to non-nested form
+  // check to see if all elements match.
+  const array = [];
+  const nestedObject = (item) => {
+    Object.keys(item).forEach((value) => {
+      if (typeof item[value] === 'object') {
+        nestedObject(item[value]);
+      } array.push(item[value]);
+    });
+  };
+  nestedObject(obj);
 
+  for (let i = 1; i < array.length; i++) {
+    const start = array[0];
+    if (array[i] !== start) return false;
+  } return true;
 };
 
 /* eslint-enable no-unused-vars */
