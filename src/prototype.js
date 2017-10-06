@@ -48,7 +48,43 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+// humanoid to npc to object inheritance
+/*
 
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+  // this.destroy() = options.destroy();
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game Object was removed from the game.';
+};
+
+
+function Npc(options) {
+  this.hp = options.hp;
+  this.name = options.name;
+  GameObject.call(this, createdAt, dimensions);
+}
+
+Npc.prototype.takeDamage = function () {
+  return `this ${this.name} took damage.`;
+};
+
+
+function Humanoid(options) {
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+  Npc.call(this, createdAt, dimensions, hp, name);
+}
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}`;
+};
+
+*/
 /* eslint-disable no-undef */
 
 module.exports = {
