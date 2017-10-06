@@ -12,7 +12,7 @@
 function User(options) {
   this.email = options.email;
   this.password = options.password;
-  this.comparePassword = function comparePassword(passwordCheck) {
+  this.comparePasswords = function comparePasswords(passwordCheck) {
     return (this.password === passwordCheck);
   };
 }
@@ -27,6 +27,24 @@ function User(options) {
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+    this.growOlder = function growOlder() {
+      return (this.age + 1);
+    };
+  }
+}
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+    this.meow = function meow() {
+      return (`${this.name} meowed`);
+    };
+  }
+}
 
 /* eslint-disable no-undef */
 
