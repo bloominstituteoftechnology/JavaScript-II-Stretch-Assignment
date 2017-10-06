@@ -87,3 +87,11 @@ module.exports = {
   NPC,
   Humanoid,
 };
+/* eslint-disable no-undef */
+
+
+module.exports = {
+  GameObject,
+  NPC,
+  Humanoid,
+};
