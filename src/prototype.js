@@ -48,31 +48,35 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
-function GameObject(createdAt, dimensions) {
-  this.createdAt = createdAt;
-  this.dimensions = dimensions;
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
 }
 
-function NPC(createdAt, dimensions, hp, name, takeDamage) {
-  GameObject.call(this, createdAt, dimensions);
-  this.hp = hp;
-  this.name = name;
-}
-
-function Humanoid(createdAt, dimensions, hp, name, takeDamage, faction, weapons, language) {
-  NPC.call(this, createdAt, dimensions, hp, name, takeDamage);
-  this.faction = faction;
-  this.weapons = weapons;
-  this.language = language;
-}
-
-Humanoid.prototype.destroy = function () {
+GameObject.prototype.destroy = function () {
   return 'Game object was removed from the game.';
 };
 
-Humanoid.prototype.takeDamage = function () {
+function NPC(options) {
+  GameObject.call(this, options);
+  this.hp = options.hp;
+  this.name = options.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
 };
+
+function Humanoid(options) {
+  NPC.call(this, options);
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
 
 Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}.`;
