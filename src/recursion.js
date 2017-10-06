@@ -16,6 +16,25 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const array = [];
+  const flatten = (obj2) => {
+    Object.keys(obj2).forEach((key) => {
+      if (typeof obj2[key] === 'object') {
+        flatten(obj2[key]);
+      } else {
+        array.push(obj2[key]);
+      }
+    });
+  };
+  flatten(obj);
+
+  for (let i = 1; i < array.length; i++) {
+    const memo = array[0];
+    if (array[i] !== memo) {
+      return false; // return false on very first false
+    }
+  }
+  return true;
 };
 
 /* eslint-enable no-unused-vars */
