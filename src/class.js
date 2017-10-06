@@ -9,6 +9,13 @@
 
 // code here
 
+function User(options) {
+  this.email = options.email;
+  this.password = options.password;
+  this.comparePassword = function comparePassword(passwordCheck) {
+    return (this.password === passwordCheck);
+  };
+}
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
