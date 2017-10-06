@@ -41,5 +41,5 @@ checkPassword.call(me, 'correcthorsebatterystaple');
 // .call
 checkPassword.apply(me, ['correcthorsebatterystaple']);
 // .apply
-checkPassword.bind (me)('correcthorsebatterystaple')
+checkPassword.bind(me)('correcthorsebatterystaple');
 // .bind

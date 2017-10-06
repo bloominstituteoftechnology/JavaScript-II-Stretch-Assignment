@@ -16,6 +16,13 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
+  if (Object.getOwnPropertyNames(obj)) {
+    if (obj != null && typeof obj === 'object') {
+      checkMatchingLeaves(obj);
+    } else {
+      return Object.getOwnPropertyNames(obj).toString() === Object.keys(obj)[0];
+    }
+  }
   // return true if every property on `obj` is the same
   // otherwise return false
 };
