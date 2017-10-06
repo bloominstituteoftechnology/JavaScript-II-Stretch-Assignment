@@ -16,8 +16,20 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  // return true if every property on `obj` is the same
-  // otherwise return false
+  let prevProp = Object.values(obj)[0];
+  let isTrue = true;
+  Object.values(obj).forEach((key) => {
+   /* if (typeof key === 'object'){  // this is testing correctly
+       checkMatchingLeaves(key);     // but it's not recurring properly, something to do with the variable names?
+       } */
+    if (typeof key !== 'object') {
+      console.log(key);             // just using the console lines to check that this if statement
+      console.log(`prev -  ${prevProp}`);      // is getting the correct input, which it is.
+      if (key !== prevProp) return isTrue = false;
+      prevProp = key;
+    }
+  });
+  return isTrue;
 };
 
 /* eslint-enable no-unused-vars */

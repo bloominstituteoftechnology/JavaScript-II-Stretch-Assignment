@@ -9,7 +9,7 @@ class User {
     this.username = options.username;
     this.password = options.password;
   }
-  checkPassword (passwordToCheck) {
+  checkPassword(passwordToCheck) {
     return passwordToCheck === this.password;
   }
 }
@@ -29,8 +29,6 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 };
 
 checkPassword.call(me, 'correcthorsebatterystaple');
-checkPassword.apply(me, ["correcthorsebatterystaple"]);
+checkPassword.apply(me, ['correcthorsebatterystaple']);
 const boundPassCheck = checkPassword.bind(me);
 boundPassCheck('correcthorsebatterystaple');
-
-
