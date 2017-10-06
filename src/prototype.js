@@ -49,11 +49,11 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 function GameObject(options) {
-  this.createdBy = options.createdBy;
-  this.dimension = options.dimension;
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
 }
 GameObject.prototype.destroy = function () {
-  return 'Game object was removed from the game';
+  return 'Game object was removed from the game.';
 };
 
 function NPC(options) {
@@ -70,7 +70,7 @@ function Humanoid(options) {
   NPC.call(this, options);
   this.faction = options.faction;
   this.language = options.language;
-  this.weapon = options.weapon;
+  this.weapons = options.weapons;
 }
 Humanoid.prototype = Object.create(NPC.prototype);
 Humanoid.prototype.greet = function () {
