@@ -75,10 +75,6 @@ function Humanoid(options) {
   this.weapons = options.weapons;
   this.language = options.language;
 }
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
-
 Humanoid.prototype.destroy = function () {
   return 'Game object was removed from the game.';
 };
@@ -88,6 +84,10 @@ Humanoid.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
 };
 Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 
 /* eslint-disable no-undef */
