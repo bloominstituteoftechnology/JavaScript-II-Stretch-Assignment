@@ -10,7 +10,7 @@
 // code here
 class User {
   // Make sure options is first parameter
-  constructor(options, email, password) {
+  constructor(options) {
     this.email = options.email;
     this.password = options.password;
   }
@@ -34,6 +34,7 @@ class Animal {
     this.age = options.age;
   }
   growOlder() {
+    // increment age
     return ++this.age;
   }
 }
@@ -44,9 +45,7 @@ class Cat extends Animal {
     this.name = name;
   }
   meow() {
-    const name = this.name;
-    const newString = '<name> meowed!';
-    return newString;
+    return this.name.concat(' meowed!');
   }
 }
 

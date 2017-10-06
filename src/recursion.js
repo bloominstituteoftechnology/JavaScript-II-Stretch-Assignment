@@ -3,15 +3,8 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 2 3 5 8 13 ...
   // return the nth number in the sequence
-  // if n = 3 then it is  1 + 2;
-  // if n = 4 then it is  2 + 3 returning 5;
-  if (n === 1 || n === 2) {
-    return n;
-  }
-  else {
-    
-  }
-  return 2 + nFibonacci(n - 1);
+  // if n = 3 then it is 1 + 2;
+  // if n = 4 then it is 2 + 3 returning 5;
 };
 
 const nFactorial = (n) => {
