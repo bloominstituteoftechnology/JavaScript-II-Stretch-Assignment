@@ -17,11 +17,21 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  // return true if every property on `obj` is the same
-  // otherwise return false
-  const checkValue = Object.keys(obj)[0];
-  return checkValue === Object.values(obj).forEach((checkMatchingLeaves(obj.length - (obj.length - 1))) => { return //???});
-  return checkValue === /* compare to ??? for boolean value */
+  const flattenArray = (objToFlatten) => {
+    let newArr = [];
+    Object.values(objToFlatten).forEach((element) => {
+      if (typeof element === 'object' && element !== null) {
+        newArr = newArr.concat(flattenArray(element));
+      } else { newArr.push(element); }
+    });
+    return newArr;
+  };
+
+  const flattened = flattenArray(obj);
+  for (let i = 1; i < flattened.length; i++) {
+    if (flattened[0] !== flattened[i]) return false;
+  }
+  return true;
 };
 
 /* eslint-enable no-unused-vars */
