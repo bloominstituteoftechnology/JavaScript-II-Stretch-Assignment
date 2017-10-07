@@ -20,17 +20,36 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  let res = true;
-  const keys = Object.keys(obj);
-  for (let i = 0; i < keys.length - 1; i++) {
-    if (!(obj[keys[i]] === 'object')) {
-      res = checkMatchingLeaves(obj[keys[i]]);
-    }
-    if (obj[keys[i]] !== obj[keys[i + 1]]) {
-      res = false;
-    }
+    // Flattens a nested array (the nesting can be to any depth).
+    // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
+  //   const temp = [];
+  //   elements.forEach((val) => {
+  //     if (typeof obj[val] === 'object' && !Array.isArray(obj[val]) && obj[val] !== null) {
+  //       temp.push(...flatten(Object.keys(obj[val])));
+  //     } else {
+  //       temp.push(obj[val]);
+  //     }
+  //   });
+  //   return temp;
+  // };
+
+  const flatten = (object) => {
+    const elements = Object.keys(object);
+    const flattenedArr = elements.reduce((memo, item) => {
+      if (typeof object[item] === 'object') {
+        return memo.concat(flatten(object[item]));
+      }
+      return memo.concat(object[item]);
+    }, []);
+    return flattenedArr;
+  };
+
+  const temp = flatten(obj);
+
+  for (let i = 0; i < temp.length - 1; i++) {
+    if (temp[i] !== temp[i + 1]) return false;
   }
-  return res;
+  return true;
 };
 
 /* eslint-enable no-unused-vars */
