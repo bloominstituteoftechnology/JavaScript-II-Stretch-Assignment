@@ -7,7 +7,34 @@
 // for a potential password that will be compared to the `password` property.
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
-// code here
+// Part 1:
+// Old way just for practice.
+
+function User(options) {
+  this.email = options.email;
+  this.password = options.password;
+}
+
+User.prototype.comparePasswords = function (newPassword) {
+  return(this.password === newPassword);
+};
+
+const user = new User('asdf@asdf.com', 'asdf')
+
+const result = user.comparePasswords('qwer');
+console.log(result)
+
+// New way.
+
+Class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(newPassword) {
+    return(this.password === newPassword);
+  }
+}
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
@@ -19,7 +46,26 @@
 // `meow` that should return the string `<name> meowed!` where `<name>` is the `name`
 // property set on the Cat instance.
 
-// code here
+// Part 2:
+
+Class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return(this.age);
+  }
+}
+
+Class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  moew() {
+    return(`${this.name} meowed!`)
+  }
+}
 
 /* eslint-disable no-undef */
 
