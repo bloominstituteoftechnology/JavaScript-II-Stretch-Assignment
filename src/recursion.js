@@ -18,20 +18,36 @@ const nFactorial = (n) => {
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
   const flattenArray = (objToFlatten) => {
-    let newArr = [];
+    let newArray = [];
     Object.values(objToFlatten).forEach((element) => {
       if (typeof element === 'object' && element !== null) {
-        newArr = newArr.concat(flattenArray(element));
-      } else { newArr.push(element); }
+        newArray = newArray.concat(flattenArray(element));
+      } else { newArray.push(element); }
     });
-    return newArr;
+    return newArray;
   };
 
   const flattened = flattenArray(obj);
-  for (let i = 1; i < flattened.length; i++) {
-    if (flattened[0] !== flattened[i]) return false;
-  }
-  return true;
+  //
+  // --- Fourth test: reduce --- works in repl.it in all cases except some objects with boolean values, so it was rejected
+  // --- also, the linter doesn't like it ;-) ---
+  // return !!(flattened.reduce((baseValue, testValue) => baseValue === testValue ? baseValue : false));
+
+  // --- Third test: filter --- >>> Works! <<<
+  return flattened.filter(testValue => flattened[0] !== testValue).length === 0;
+
+  // --- Second test: forEach --- >>> Works! <<<
+  // let test = true;
+  // flattened.forEach((testValue) => {
+    //   if (testValue !== flattened[0]) test = false;
+  // });
+  // return test;
+
+  // --- Original test --- >>> Works! <<<
+  // for (let i = 1; i < flattened.length; i++) {
+  //   if (flattened[0] !== flattened[i]) return false;
+  // }
+  // return true;
 };
 
 /* eslint-enable no-unused-vars */
