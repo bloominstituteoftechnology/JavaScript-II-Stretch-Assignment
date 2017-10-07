@@ -78,8 +78,7 @@ function Humanoid(obj) {
 
 Humanoid.prototype = Object.create(NPC.prototype);
 Humanoid.prototype.greet = function () {
-  const greeting = `${this.name} offers a greeting in ${this.language}.`;
-  return greeting;
+  return `${this.name} offers a greeting in ${this.language}.`;
 };
 /* eslint-disable no-undef */
 
