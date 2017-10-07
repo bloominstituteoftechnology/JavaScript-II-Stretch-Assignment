@@ -18,13 +18,15 @@ const nFactorial = (n) => {
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
   const flattenArray = (objToFlatten) => {
-    let newArray = [];
+    let newArr = [];
     Object.values(objToFlatten).forEach((element) => {
       if (typeof element === 'object' && element !== null) {
-        newArray = newArray.concat(flattenArray(element));
-      } else { newArray.push(element); }
+        newArr = newArr.concat(flattenArray(element));
+        return;
+      }
+      newArr.push(element);
     });
-    return newArray;
+    return newArr;
   };
 
   const flattened = flattenArray(obj);
