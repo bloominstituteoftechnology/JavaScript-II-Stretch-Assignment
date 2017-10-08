@@ -18,6 +18,14 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const getObjProperty = (ob, arr = []) => {
+    Object.keys(ob).forEach((key) => {
+      if (typeof ob[key] === 'object') getObjProperty(ob[key], arr);
+      else arr.push(ob[key]);
+    });
+    return arr;
+  };
+  return (Array.from(new Set(getObjProperty(obj))).length === 1);
 };
 
 /* eslint-enable no-unused-vars */
