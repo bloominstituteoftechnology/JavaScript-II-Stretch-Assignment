@@ -52,7 +52,7 @@ function GameObject(options) { // constructs a class
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
 }
-// adds destroy method into GameObject prototype (do first)
+// creates a destroy method on GameObject prototype (do first)
 GameObject.prototype.destroy = function a() {
   return 'Game object was removed from the game.';
 };
@@ -78,7 +78,7 @@ function NPC(options) { // constructs a class
 // links NPC & GameObject prototypes (do first)
 // inherits destroy() from GameObject's prototype
 NPC.prototype = Object.create(GameObject.prototype);
-// adds takeDamage method to NPC prototype (do second)
+// creates takeDamage method on NPC prototype (do second)
 NPC.prototype.takeDamage = function b() {
   return `${this.name} took damage.`;
 };
@@ -96,7 +96,7 @@ function Humanoid(options) { // constructs a class
 // links Humaniod & NPC prototypes (do first)
 // inherits destroy() & takesDamage from (GameObject through) NPC
 Humanoid.prototype = Object.create(NPC.prototype);
-// adds greet method to Humanoid prototype (do second)
+// creates a greet method on Humanoid prototype (do second)
 Humanoid.prototype.greet = function c() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
