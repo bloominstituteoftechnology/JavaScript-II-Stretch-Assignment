@@ -31,8 +31,8 @@ const checkMatchingLeaves = (obj) => {
   const vals = [];
   const helper = (newObj) => {
     const props = Object.keys(newObj);
-    props.forEach((prop) => {
-      if (typeof newObj[prop] === 'object' && newObj[prop] !== null) {
+    props.forEach((prop) => { // or !!newObj[prop] && newObj[prop].constructor === Object or Object(newObj[prop]) === newObj[prop]
+      if (typeof newObj[prop] === 'object' && newObj[prop] !== null && !Array.isArray(newObj[prop])) {
         helper(newObj[prop]);
         return;
       }
