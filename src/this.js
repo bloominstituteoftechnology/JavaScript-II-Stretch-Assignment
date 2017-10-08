@@ -43,4 +43,3 @@ checkPassword.call(me, 'correcthorsebatterystaple');
 checkPassword.apply(me, ['correcthorsebatterystaple']);
 const boundCheckPassword = checkPassword.bind(me);
 boundCheckPassword('correcthorsebatterystaple');
-console.log(result);
