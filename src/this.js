@@ -49,10 +49,10 @@ const u3PasswordCheck = checkPassword.bind(user_3, 'iamsogreatreallyreally385');
 // .bind
 
 const callUsers = console.log( '>>> this.js console output obj: [keys] [values] [test results]',
-  '\n' + 'user_1:', Object.keys(user_0), Object.values(user_0), user_0.checkPassword('ninjaturtles'), 'with prototype.',
+  '\n' + 'user_0:', Object.keys(user_0), Object.values(user_0), user_0.checkPassword('ninjaturtles'), 'with prototype.',
   '\n' + 'user_1:', Object.keys(user_1), Object.values(user_1), checkPassword.call(user_1, 'ihateyousomuch'), 'with call.',
   '\n' + 'user_2:', Object.keys(user_2), Object.values(user_2), checkPassword.apply(user_2, ['password']), 'with apply.',
-  '\n' + 'user_3:', Object.keys(user_3), Object.values(user_3), u3PasswordCheck(), 'with bind.'
+  '\n' + 'user_3:', Object.keys(user_3), Object.values(user_3), u3PasswordCheck(), 'with bind.' // password can be passed here instead aswell
 );
 
 callUsers;
