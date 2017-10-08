@@ -6,17 +6,6 @@ const nFibonacci = (n) => {
   return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
-
-console.log(nFibonacci(1));
-
-console.log(nFibonacci(2));
-
-console.log(nFibonacci(3));
-
-console.log(nFibonacci(4));
-
-console.log(nFibonacci(5));
-
 // nFibonacci(4);
 
 const nFactorial = (n) => {
@@ -25,26 +14,27 @@ const nFactorial = (n) => {
   if (n == 1) return 1;
   return n * nFactorial(n - 1);
 };
-console.log(nFactorial(4));
+
 /* Extra Credit */
+
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  const closure = {};
-  Object.keys(obj).forEach((key, value) => {
-  	if (typeof key === 'object') checkMatchingLeaves(key);
-  	if (closure[key] === ) return true;
-  	closure.push(key);
-  	console.log('>>> obj in for each', Object.keys(obj));
-  });
-  return closure;
+  
+  const objKey = Object.keys(obj);
+  const log1 = new Set(Object.keys(obj));
+  const log1KeyLen = log1.size; /// ?
+  console.log(`
+objKey >>> ${objKey}
+log1 >>> ${log1}
+log1KeyLen >>> ${log1KeyLen}`);
+  return (log1KeyLen === objKey.length ? false: true);
 }; // not complete
 
-console.log(checkMatchingLeaves({
-	asd: 'asd',
-	asd: 'asd',
-	asd: 'asd'
-}));
+console.log(checkMatchingLeaves(new Object({
+  age: 1,
+  age: 'foofy' // should be false
+})));
 
 /* eslint-enable no-unused-vars */
 
