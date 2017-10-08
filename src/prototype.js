@@ -1,53 +1,56 @@
-/*
-  Object oriented design is commonly used in video games.  For this part of the assignment
-  you will be implementing several classes with their correct inheritance heirarchy.
+// Lambda School - CS4 - Jeff Schock
 
-  In this file you will be creating three classes:
-  GameObject
-    createdAt
-    dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+class GameObject{
+  constructor(options){
+    this.createdAt = new Date();
+    this.dimensions = {};
+    this.dimensions.length = options.dimensions.length;
+    this.dimensions.width = options.dimensions.width;
+    this.dimensions.height = options.dimensions.height;
+}}; // tested
 
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    // should inherit destroy() from GameObject's prototype
+GameObject.prototype.destroy = function destroy(){
+  this.destroyedAt = new Date();
+  return `${this.name} was removed from the game.`;
+}; // tested
 
-  Humanoid
-    faction
-    weapons
-    language
-    greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    // should inherit destroy() from GameObject through NPC
-    // should inherit takeDamage() from NPC
+class NPC extends GameObject {
+  constructor(options){
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+}}; // tested
 
-  Inheritance chain: Humanoid -> NPC -> GameObject
-  Instances of Humanoid should have all of the same properties as NPC and GameObject.
-  Instances of NPC should have all of the same properties as GameObject.
+NPC.prototype.takeDamage = function takeDamage(){
+  return `${this.name} took damage.`};
 
-  Example:
+class Humanoid extends NPC {
+  constructor(options){
+    super(options);  
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+}}; // tested
 
-  const hamsterHuey = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Hamster Huey',
-    faction: 'Gooey Kablooie',
-    weapons: [
-      'bubblegum',
-    ],
-    language: 'Hamsterish',
-  });
+Humanoid.prototype.greet = function greet(){
+  return `${this.name} offers a greeting in ${this.language}.`;}
 
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
+const hamsterHuey = new Humanoid({
+  hp: 0,
+  name: 'Ondori',
+  faction: 'BlueGartr',
+  weapons: 'Longbow',
+  language: 'English',
+  dimensions: {
+    length: 0.3,
+    width: 0.3,
+    height: 0.3 // default test 10
+}});
+
+console.log(`>>> `, hamsterHuey.greet());
+console.log(`>>> `, hamsterHuey.takeDamage());
+console.log(`>>> `, hamsterHuey.destroy());
+console.log(`>>> `, hamsterHuey);
 
 /* eslint-disable no-undef */
 
