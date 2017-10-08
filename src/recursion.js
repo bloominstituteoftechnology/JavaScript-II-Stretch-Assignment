@@ -22,7 +22,7 @@ const checkMatchingLeaves = (obj) => {
   // otherwise return false
   
   const objKey = Object.keys(obj);
-  const log1 = new Set(Object.keys(obj));
+  const log1 = new Set(objKey);
   const log1KeyLen = log1.size; /// ?
   console.log(`
 objKey >>> ${objKey}
