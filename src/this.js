@@ -6,34 +6,53 @@
 
 class User {
   constructor(options) {
-    // set a username and password property on the user object that is created
+    this.username = options.username;
+    this.password = options.password;
   }
-  // create a method on the User class called `checkPassword`
-  // this method should take in a string and compare it to the object's password property
-  // return `true` if they match, otherwise return `false`
-}
+  checkPassword(passwordToCompare) {
+    return (passwordToCompare === this.password ? true: false)
+}};
 
-const me = new User({
-  username: 'LambdaSchool',
-  password: 'correcthorsebatterystaple',
+const user_0 = new User({
+  username: 'Ronin',
+  password: 'ninjaturtles'
 });
 
-const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
+const user_1 = new User({
+  username: 'Jeff',
+  password: 'ihateyousomuch'
+});
+
+const user_2 = new User({
+  username: 'guest',
+  password: 'password'
+});
+
+const user_3 = new User({
+  username: 'therealpres',
+  password: 'iamsogreatreallyreally385'
+});
 
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
-  // recreate the `checkPassword` method that you made on the `User` class
-  // use `this` to access the object's `password` property.
-  // do not modify this function's parameters
-  // note that we use the `function` keyword and not `=>`
-};
+  return (passwordToCompare === this.password ? true: false)};
+
+// function method target parameter call(this, arg) apply(this, array)
+
+const u3PasswordCheck = checkPassword.bind(user_3, 'iamsogreatreallyreally385');
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
-
 // .call
-
 // .apply
-
 // .bind
+
+const callUsers = console.log( '>>> this.js console output obj: [keys] [values] [test results]',
+  '\n' + 'user_1:', Object.keys(user_0), Object.values(user_0), user_0.checkPassword('ninjaturtles'), 'with prototype.',
+  '\n' + 'user_1:', Object.keys(user_1), Object.values(user_1), checkPassword.call(user_1, 'ihateyousomuch'), 'with call.',
+  '\n' + 'user_2:', Object.keys(user_2), Object.values(user_2), checkPassword.apply(user_2, ['password']), 'with apply.',
+  '\n' + 'user_3:', Object.keys(user_3), Object.values(user_3), u3PasswordCheck(), 'with bind.'
+);
+
+callUsers;
