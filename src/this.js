@@ -23,9 +23,6 @@ const me = new User({
   password: 'correcthorsebatterystaple',
 });
 
-const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
-console.log(result);
-
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
@@ -40,6 +37,7 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
+// if viewed as 25, strong. if viewed as four, not so much ;-p
 console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
 // .apply
 console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
