@@ -29,19 +29,24 @@ const me = new User({
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 
 /* part 2 */
-
+//must complete!!
 const checkPassword = function comparePasswords(passwordToCompare) {
   // recreate the `checkPassword` method that you made on the `User` class
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
-  // note that we use the `function` keyword and not `=>`
+  // note that we use the `function` keyw ord and not `=>`
+  if (this.password === passwordToCompare) {
+    return true ? false
+  }
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
 // .call
-
+result.call(user, 'correcthorsebatterystaple');
 // .apply
-
+result.apply(user, ['correcthorsebatterystaple']);
 // .bind
+const boundPassword = User.bind(result);
+boundPassword('correcthorsebatterystaple');
