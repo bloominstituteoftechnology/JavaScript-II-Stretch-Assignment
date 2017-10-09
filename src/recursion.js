@@ -24,15 +24,27 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  let val;
+  let allMatch = true;
+  const checkLeaves = (object) => {
+    Object.keys(object).forEach((key) => {
+      if (val === undefined && typeof key !== 'object') {
+        val = object[key];
+        return;
+      }
 
-  let objProperty = false;
-  for (let i = 0; i < obj.length; i++) {
-    if (Array.isArray(obj[i])) {
-      checkMatchingLeaves(obj[i]);
-      objProperty = true;
-    }
-  }
-  return objProperty;
+      if (typeof object[key] === 'object') {
+        return checkLeaves(object[key]);
+      }
+      if (object[key !== val]) {
+        allMatch = false;
+        return;
+      }
+      return;
+    });
+  };
+  checkLeaves(obj);
+  return allMatch;
 };
 
 /* eslint-enable no-unused-vars */
