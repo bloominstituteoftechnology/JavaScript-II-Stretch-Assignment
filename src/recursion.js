@@ -18,21 +18,10 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  // return true if every property on `obj` is the same
-  // otherwise return false
-    // Flattens a nested array (the nesting can be to any depth).
-    // Example: flatten([1, [2], [3, [[4]]]]); => [1, 2, 3, 4];
-  //   const temp = [];
-  //   elements.forEach((val) => {
-  //     if (typeof obj[val] === 'object' && !Array.isArray(obj[val]) && obj[val] !== null) {
-  //       temp.push(...flatten(Object.keys(obj[val])));
-  //     } else {
-  //       temp.push(obj[val]);
-  //     }
-  //   });
-  //   return temp;
-  // };
+// return true if every property on `obj` is the same
+// otherwise return false
 
+// flatten array created from obj
   const flatten = (object) => {
     const elements = Object.keys(object);
     const flattenedArr = elements.reduce((memo, item) => {
