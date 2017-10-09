@@ -49,6 +49,37 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+function GameObject(obj) {
+  this.createdAt = obj.createdAt;
+  this.dimensions = obj.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(obj) {
+  this.hp = obj.hp;
+  this.name = obj.name;
+  GameObject.call(this, obj);
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(obj) {
+  this.faction = obj.faction;
+  this.weapons = obj.weapons;
+  this.language = obj.language;
+  NPC.call(this, obj);
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 /* eslint-disable no-undef */
 
 module.exports = {
