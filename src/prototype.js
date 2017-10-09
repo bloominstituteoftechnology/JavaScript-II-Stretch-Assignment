@@ -49,7 +49,7 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 // humanoid to npc to object inheritance
-/*
+
 
 function GameObject(options) {
   this.createdAt = options.createdAt;
@@ -84,7 +84,7 @@ Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}`;
 };
 
-*/
+
 /* eslint-disable no-undef */
 
 module.exports = {

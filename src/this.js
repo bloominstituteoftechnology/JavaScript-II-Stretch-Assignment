@@ -15,8 +15,8 @@ class User {
   // return `true` if they match, otherwise return `false`
 
   checkPassword(str) {
-    if (str === this.password) {
-      return true;
+    if (str === this.password) { // return this.password === password;
+      return true; // Above is the same solution on one line.
     }
     return false;
   }
