@@ -1,3 +1,58 @@
+class GameObject {
+  constructor(options) {
+    this.createdAt = new Date();
+    this.dimensions = {};
+    this.dimensions.length = options.dimensions.length;
+    this.dimensions.width = options.dimensions.width;
+    this.dimensions.height = options.dimensions.height;
+  }
+}
+
+GameObject.prototype.destroy = function destroy() {
+  this.destroyedAt = new Date();
+  return `${this.name} was removed from the game.`;
+};
+
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+}
+
+NPC.prototype.takeDamage = function takeDamage() {
+  return `${this.name} took damage.`;
+};
+
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+}
+
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
+const lambdaSchool = new Humanoid({
+  hp: 0,
+  name: 'Ben Nelson',
+  faction: 'Teacher',
+  weapons: 'JavaScript',
+  language: 'Lambdadian',
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 4,
+  },
+});
+(lambdaSchool.greet());
+(lambdaSchool.takeDamage());
+(lambdaSchool.destroy());
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
