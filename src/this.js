@@ -13,9 +13,9 @@ class User {
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
-coomparePasswords (password) {
-  return this.password === password;
-}
+  comparePasswords(password) {
+    return this.password === password;
+  }
 }
 
 const me = new User({
@@ -24,8 +24,7 @@ const me = new User({
 });
 
 const result = me.comparePasswords('correcthorsebatterystaple'); // should return `true`
-console.log(result)
-
+console.log(result);
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
@@ -44,9 +43,9 @@ const correctPassword = 'correcthorsebatterystaple';
 (checkPassword.call(me, correctPassword));
 // .apply
 // same as call except takes an array instead
-checkPassword.apply(me, [correctPasswords, 'LambdaSchool']);
+checkPassword.apply(me, [correctPassword, 'LambdaSchool']);
 
 // .bind
 // binds the reference
 const boundCheckPassword = checkPassword.bind(me);
-console.log (boundCheckPassword(correctPassword));
+console.log(boundCheckPassword(correctPassword));
