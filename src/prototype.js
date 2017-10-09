@@ -8,6 +8,7 @@
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
 
+
   NPC
     hp
     name
@@ -50,7 +51,51 @@
 */
 
 /* eslint-disable no-undef */
-
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return 'Game object was removed from the game.';
+  }
+}
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  damage() {
+    return `${this.name} has taken damage`;
+  }
+}
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in {this.language}`;
+  }
+}
+const hamsterHuey = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: [
+    'bubblegum',
+  ],
+  language: 'Hamsterish',
+});
 module.exports = {
   GameObject,
   NPC,
