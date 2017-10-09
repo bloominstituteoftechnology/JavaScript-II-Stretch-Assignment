@@ -48,7 +48,49 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+// class GameObject {
+//   constructor(options) {
+//     this.createdAt = options.createdAt;
+//     this.dimensions = options.dimensions;
+//   }
+//   // prototypes:
+//   destroy() {
+//     return 'Game object removed from the game.';
+//   }
+// }
 
+function GameObject(options) {
+  this.createdAt = new Date();
+  this.dimensions = options.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(options) {
+  GameObject.call(this, options); // --> calibrates 'this'
+  this.hp = options.hp;
+  this.name = options.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype); // --> inherits prototype methods
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(options) {
+  NPC.call(this, options); // --> calibrates 'this'
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+}
+Humanoid.prototype = Object.create(NPC.prototype); // --> inherits prototype methods
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 /* eslint-disable no-undef */
 
 module.exports = {

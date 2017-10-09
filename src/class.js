@@ -20,7 +20,33 @@
 // property set on the Cat instance.
 
 // code here
-
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(password) {
+    if (this.password === password) return true;
+    return false;
+  }
+}
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder(options) {
+    return ++this.age;
+  }
+}
+class Cat extends Animal {
+  constructor(age, growOlder) {
+    super(age, growOlder);
+    this.name = Cat.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
 /* eslint-disable no-undef */
 
 module.exports = {
