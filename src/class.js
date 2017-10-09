@@ -8,7 +8,16 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 // code here
-
+class User {
+  // Make sure options is first parameter
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(checkPass) {
+    return this.password === checkPass;
+  }
+}
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -20,6 +29,25 @@
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options, age) {
+    this.age = options.age;
+  }
+  growOlder() {
+    // increment age
+    return ++this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(options, name) {
+    super(options);
+    this.name = name;
+  }
+  meow() {
+    return this.name.concat(' meowed!');
+  }
+}
 
 /* eslint-disable no-undef */
 
