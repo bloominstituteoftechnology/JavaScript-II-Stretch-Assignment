@@ -22,14 +22,14 @@ const checkMatchingLeaves = ((obj) => {
     Object.keys(object).forEach((key) => {
       if (leafToCheck === undefined && key instanceof Object !== true) {
         leafToCheck = object[key];
-        return undefined;
+        return;
       }
-      if ((object[key]) instanceof Object === true) return leafChecker(object[key]);
+      if ((object[key]) instanceof Object === true && (object[key]) !== null) return leafChecker(object[key]);
       if ((object[key]) !== leafToCheck) {
         leavesMatch = false;
-        return undefined;
+        return;
       }
-      return undefined;
+      return;
     });
   };
   leafChecker(obj);
