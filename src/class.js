@@ -8,6 +8,13 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 // code here
+function User(options) {
+  this.email = options.email;
+  this.password = options.password;
+}
+User.prototype.comparePasswords = function (password) {
+  return this.password === password;
+};
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
@@ -20,7 +27,21 @@
 // property set on the Cat instance.
 
 // code here
+function Animal(options) {
+  this.age = options.age;
+}
+Animal.prototype.growOlder = function () {
+  return ++this.age;
+};
 
+function Cat(options) {
+  this.name = options.name;
+  Animal.call(this, options);
+}
+Cat.prototype = Object.create(Animal.prototype);
+Cat.prototype.meow = function () {
+  return `${this.name} meowed!`;
+};
 /* eslint-disable no-undef */
 
 module.exports = {
