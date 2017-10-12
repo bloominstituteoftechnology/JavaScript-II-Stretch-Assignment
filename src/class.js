@@ -27,3 +27,35 @@ module.exports = {
   User,
   Cat,
 };
+
+
+
+Class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePassword(newPassword) {
+    return(this.password === newPassword);
+  } 
+} 
+
+
+Class Aniaml {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return(++this.age);
+  }
+}
+
+Class Cat extends Aniaml {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  moew() {
+    return(`${this.name} meowed!`)
+  }
+} 
