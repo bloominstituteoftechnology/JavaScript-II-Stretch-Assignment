@@ -1,7 +1,4 @@
-const {
-  User,
-  Cat,
-} = require('../src/class');
+const { User, Cat } = require('../src/class');
 
 /* eslint-disable no-undef */
 describe('classes', () => {
@@ -50,7 +47,12 @@ describe('classes', () => {
         name: 'Snowball II',
         age: 5,
       });
-      expect(Object.prototype.hasOwnProperty.call(Object.getPrototypeOf(snowball), 'growOlder')).toBe(false);
+      expect(
+        Object.prototype.hasOwnProperty.call(
+          Object.getPrototypeOf(snowball),
+          'growOlder',
+        ),
+      ).toBe(false);
       expect(snowball.age).toBe(5);
       expect(snowball.growOlder()).toBe(6);
     });
