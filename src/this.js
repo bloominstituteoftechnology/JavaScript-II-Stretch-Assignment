@@ -25,6 +25,8 @@ const me = new User({
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 
+
+
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
