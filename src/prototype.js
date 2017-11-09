@@ -73,6 +73,18 @@ NPC.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
 };
 
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+}
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}`;
+};
 module.exports = {
   GameObject,
   NPC,
