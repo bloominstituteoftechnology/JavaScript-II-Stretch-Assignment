@@ -29,7 +29,7 @@ const checkMatchingLeaves = (obj, testCase) => {
 const checkMatchingLeaves = (obj) => {
   const testCase = obj[Object.keys(obj)[0]];
   const x = (o, tC) => {
-    const obKey = Object.keys(o);
+  const obKey = Object.keys(o);
     for (let i = 0; i < obKey.length; i++) {
       if (typeof o[obKey[i]] === 'object') return x(o[obKey[i]], tC);
       if (testCase !== o[obKey[i]]) return false;
