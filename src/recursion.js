@@ -12,11 +12,15 @@ const nFactorial = (num = 1) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  const tempObj = Object.values(obj);
-  for (let i = 1; i < tempObj.length; i++) {
-    if (tempObj[i] === tempObj[0]) return true;
-  } return false;
+  const keys = Object.keys(obj);
+  if (typeof obj[keys[0]] === 'object') { checkMatchingLeaves(obj[keys[0]]); }
+  for (let i = 1; i < keys.length; i++) {
+    if (typeof obj[keys[i]] === 'object') { checkMatchingLeaves(obj[keys[i]]); }
+    if (obj[keys[i]] !== obj[keys[0]] && typeof obj[keys[i]] !== 'object') { return false; }
+  } return true;
 };
+
+// console.log(checkMatchingLeaves({ a: 10, e:{ c: { d: 10 } }, b: 10 }));
 
 /* eslint-enable no-unused-vars */
 
