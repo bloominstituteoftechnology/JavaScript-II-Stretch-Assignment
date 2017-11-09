@@ -18,6 +18,15 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const flat = (myObj) => {
+    // TODO
+    const vals = Object.keys(myObj).map((key) => {
+      return (typeof myObj[key] === 'object' ? flat(myObj[key]) : myObj[key]);
+    });
+    return [].concat(...vals); // flat function returns nested array, flatten it
+  };
+  const result = flat(obj);
+  return result.every(x => x === result[0]);
 };
 
 /* eslint-enable no-unused-vars */
