@@ -14,7 +14,7 @@ class User {
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
   checkPassword(password) {
-    return password === this.password; 
+    return password === this.password;
   }
 }
 
@@ -39,8 +39,8 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-checkPassword.call(me,'correcthorsebatterystaple');
+checkPassword.call(me, 'correcthorsebatterystaple');
 // .apply
-checkPassword.apply(me,['correcthorsebatterystaple']);
+checkPassword.apply(me, ['correcthorsebatterystaple']);
 // .bind
 checkPassword.bind(me)('correcthorsebatterystaple');

@@ -56,7 +56,7 @@ class GameObject {
     this.dimensions = options.dimensions;
   }
   destroy() {
-    return this.message = 'Game object was removed from the game.';
+    return (this.message = 'Game object was removed from the game.');
   }
 }
 

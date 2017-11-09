@@ -45,7 +45,7 @@ class Cat extends Animal {
     this.name = options.name;
   }
   meow() {
-    return (`${this.name} meowed!`);
+    return `${this.name} meowed!`;
   }
 }
 

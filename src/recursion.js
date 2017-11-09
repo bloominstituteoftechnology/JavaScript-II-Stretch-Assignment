@@ -1,13 +1,13 @@
 // Complete the following functions.
 
-const nFibonacci = (n) => {
+const nFibonacci = n => {
   // fibonacci sequence: 1 2 3 5 8 13 ...
   // return the nth number in the sequence
   if (n <= 1) return 1;
   return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
-const nFactorial = (n) => {
+const nFactorial = n => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
   if (n === 0) return 1;
@@ -15,13 +15,16 @@ const nFactorial = (n) => {
 };
 
 /* Extra Credit */
-const checkMatchingLeaves = (obj) => {
+const checkMatchingLeaves = obj => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  const combineObj = (...params) => { // Pass in an object to be combined into an array
+  const combineObj = (...params) => {
+    // Pass in an object to be combined into an array
     let newArr = [];
-    Object.values(...params).forEach((objectValue) => { // Iterate over an array of the object's values
-      if (typeof objectValue === 'object' && objectValue !== null) { // for every objectValue that happens to be also a nested object and has values.
+    Object.values(...params).forEach(objectValue => {
+      // Iterate over an array of the object's values
+      if (typeof objectValue === 'object' && objectValue !== null) {
+        // for every objectValue that happens to be also a nested object and has values.
         newArr = newArr.concat(combineObj(objectValue));
         return; // exit loop
       }
@@ -32,7 +35,9 @@ const checkMatchingLeaves = (obj) => {
 
   const objectToArray = combineObj(obj);
 
-  const returnVal = objectToArray.filter(testValue => objectToArray[0] !== testValue);
+  const returnVal = objectToArray.filter(
+    testValue => objectToArray[0] !== testValue,
+  );
 
   return returnVal.length === 0;
 };
