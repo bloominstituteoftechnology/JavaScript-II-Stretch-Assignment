@@ -27,7 +27,6 @@
   Instances of NPC should have all of the same properties as GameObject.
 
   Example:
-
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
     dimensions: {
@@ -43,7 +42,6 @@
     ],
     language: 'Hamsterish',
   });
-
   hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
@@ -51,44 +49,46 @@
 
 /* eslint-disable no-undef */
 
- class GameObject {
-  constructor(options) {
-   this.createdAt = options.createdAt;
-   this.dimensions = options.dimensions;
- }
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
 
- GameObject.prototype.destroy = function destroy() {
-   console.log('Game Object was removed from the game');
- };
+GameObject.prototype.destroy = function destroy() {
+  return 'Game object was removed from the game.';
+};
 
- class NPC {
-   constructor(options) {
-    super(options);
-     this.hp = options.hp;
-     this.name = options.name;
-   }
-  }
+function NPC(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+  this.hp = options.hp;
+  this.name = options.name;
+}
 
- NPC.prototype.takeDamage = function takeDamage() {
-   console.log(`${this.name} took damage`);
- };
+NPC.prototype = Object.create(GameObject.prototype);
 
- NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function takeDamage() {
+  return `${this.name} took damage.`;
+};
 
- class Humanoid {
-   constructor(options) {
-     this.faction = options.faction;
-     this.weapons = options.weapons;
-     this.language = options.langauge;
-   }
-  }
+function Humanoid(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+  this.hp = options.hp;
+  this.name = options.name;
+}
 
- Humanoid.prototype.greet = function greet() {
-   console.log(`${this.name} offers a greeting in ${this.langauge}`);
- };
+Humanoid.prototype = Object.create(NPC.prototype);
 
- module.exports = {
-   GameObject,
-   NPC,
-   Humanoid,
- };
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
+module.exports = {
+  GameObject,
+  NPC,
+  Humanoid,
+};
