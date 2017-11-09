@@ -61,6 +61,14 @@ GameObject.prototype.destroy = function () {
   return 'Game object was removed from the game.';
 };
 
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+}
+
 module.exports = {
   GameObject,
   NPC,
