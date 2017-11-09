@@ -11,11 +11,7 @@
 class GameObject {
   constructor(options) {
     this.createdAt = options.createdAt;
-    this.dimensions = {
-      length: options.length,
-      height: options.height,
-      width: options.width,
-    };
+    this.dimensions = options.dimensions;
   }
   destroy() {
     this.message = 'Game object was removed from the game.';
