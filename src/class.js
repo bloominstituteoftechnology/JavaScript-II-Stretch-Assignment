@@ -13,13 +13,21 @@ class User {
     this.email = options.email;
     this.password = options.password;
   }
-  comparePasswords(inputPasswd) {
-    if (inputPasswd === this.password) {
+  comparePasswords(password) {
+    if (password === this.password) {
       return true;
     }
     return false;
   }
 }
+const newUser = new User ({
+  email: 'someone@somemail.com',
+  password: '123p',
+});
+
+newUser.comparePasswords('123p');
+newUser.comparePasswords('thr');
+
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -36,7 +44,7 @@ class Animal {
     this.age = options.age;
     // this.name = options.name;
   }
-  growOlder() {
+  growOlder(options) {
     return (`${this.age}`);
   }
 }
@@ -45,15 +53,17 @@ class Cat extends Animal {
     super(options);
     this.name = options.name;
   }
-  meow() {
+  meow(options) {
     return (`${this.name} meowed!`);
   }
 }
 const myCat = new Cat({
   name: 'Foofie',
+  age: 10,
 });
 myCat.meow();
-myCat.growOlder(5);
+myCat.growOlder();
+// myCat.growOlder(5);
 // /* eslint-disable no-undef */
 
 module.exports = {
