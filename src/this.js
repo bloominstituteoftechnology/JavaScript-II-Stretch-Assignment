@@ -16,9 +16,7 @@ class User {
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
   checkPassword(str) {
-    if (str === this.password) {
-      return true;
-    }
+    return (str === this.password);
   }
 }
 
@@ -37,9 +35,7 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
-  if (this.password === passwordToCompare) {
-    return true;
-  }
+  return (this.password === passwordToCompare);
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
