@@ -2,8 +2,8 @@
 
 ## Topics
 
-* recursion
-* base case
+* recursion - when it function calls itself until it doesn't
+* base case - 
 * constructors
 * `new`
 * `prototype`
