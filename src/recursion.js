@@ -1,8 +1,9 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  // fibonacci sequence: 1 2 3 5 8 13 ...
+  // fibonacci sequence: 0 1 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+  //fibonacci #s found by adding up the two numbers before it
 };
 
 const nFactorial = (n) => {
