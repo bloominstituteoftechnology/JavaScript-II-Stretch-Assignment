@@ -23,15 +23,27 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  const keyRing = obj.keys();
-  for (int i = 0; i < keyRing; i++ ){
-    if (typeof keyRing[i] === 'object') {
-      checkMatchingLeaves(keyRing[i]);
-    } else {
-      if(){}
-    }
-  }
-  return true;
+  let val;
+  let flag = true;
+  const traverseTree = (tree) => {
+    Object.keys(tree).forEach((key) => {
+      if (typeof key !== 'object' && val === undefined) {
+        val = tree[key];
+        return undefined;
+      }
+      if (typeof tree[key] === 'object') {
+        return traverseTree(tree[key]);
+      }
+      if (tree[key] !== val) {
+        flag = false;
+        return undefined;
+      }
+      return undefined;
+    });
+    return flag;
+  };
+  return traverseTree(obj);
+
   // return true if every property on `obj` is the same
   // otherwise return false
 };
