@@ -2,15 +2,24 @@
 // There are no tests for this file.
 // To verify your code works you can run this file using `node this.js` while in the `/src` folder
 
+
+// reading material suggested by P. Collins https://medium.com/@fknussel/making-sense-out-of-context-in-javascript-66fffe4054c9
 /* part 1 */
 
 class User {
   constructor(options) {
     // set a username and password property on the user object that is created
+    this.username = options.username;
+    this.password = options.password;
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
+  checkPassword(str) {
+    if (str === this.password) {
+      return true;
+    }
+  }
 }
 
 const me = new User({
@@ -19,6 +28,7 @@ const me = new User({
 });
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
+console.log(result);  // if you don't console.log, you will see nothing when you run node this.js
 
 /* part 2 */
 
