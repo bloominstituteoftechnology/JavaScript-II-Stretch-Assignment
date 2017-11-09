@@ -20,7 +20,7 @@ class User {
     return false;
   }
 }
-const newUser = new User ({
+const newUser = new User({
   email: 'someone@somemail.com',
   password: '123p',
 });
