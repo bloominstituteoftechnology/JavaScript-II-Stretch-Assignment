@@ -8,10 +8,7 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 class User {
-  constructor(options) {
-    this.email = options.email;
-    this.password = options.password;
-  }
+  constructor(options) { this.email = options.email; this.password = options.password; }
   comparePasswords(checkedPassword) {
     if (this.password === checkedPassword) return true;
     return false;
@@ -34,10 +31,7 @@ class Animal {
 }
 
 class Cat extends Animal {
-  constructor(options) {
-    super(options);
-    this.name = options.name;
-  }
+  constructor(options) { super(options); this.name = options.name; }
   meow() { console.log(`${this.name} meowed!`); }
 }
 
