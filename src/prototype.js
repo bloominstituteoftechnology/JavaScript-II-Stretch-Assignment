@@ -1,58 +1,58 @@
-/*
-  Object oriented design is commonly used in video games.  For this part of the assignment
-  you will be implementing several classes with their correct inheritance heirarchy.
 
-  In this file you will be creating three classes:
-  GameObject
-    createdAt
-    dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+//   Object oriented design is commonly used in video games.  For this part of the assignment
+//   you will be implementing several classes with their correct inheritance heirarchy.
 
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    // should inherit destroy() from GameObject's prototype
+//   In this file you will be creating three classes:
+//   GameObject
+//     createdAt
+//     dimensions
+//     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
 
-  Humanoid
-    faction
-    weapons
-    language
-    greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    // should inherit destroy() from GameObject through NPC
-    // should inherit takeDamage() from NPC
+//   NPC
+//     hp
+//     name
+//     takeDamage() // prototype method -> returns the string '<object name> took damage.'
+//     // should inherit destroy() from GameObject's prototype
 
-  Inheritance chain: Humanoid -> NPC -> GameObject
-  Instances of Humanoid should have all of the same properties as NPC and GameObject.
-  Instances of NPC should have all of the same properties as GameObject.
+//   Humanoid
+//     faction
+//     weapons
+//     language
+//     greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+//     // should inherit destroy() from GameObject through NPC
+//     // should inherit takeDamage() from NPC
 
-  Example:
+//   Inheritance chain: Humanoid -> NPC -> GameObject
+//   Instances of Humanoid should have all of the same properties as NPC and GameObject.
+//   Instances of NPC should have all of the same properties as GameObject.
 
-  const hamsterHuey = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Hamster Huey',
-    faction: 'Gooey Kablooie',
-    weapons: [
-      'bubblegum',
-    ],
-    language: 'Hamsterish',
-  });
+//   Example:
 
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
+//   const hamsterHuey = new Humanoid({
+//     createdAt: new Date(),
+//     dimensions: {
+//       length: 2,
+//       width: 1,
+//       height: 1,
+//     },
+//     hp: 5,
+//     name: 'Hamster Huey',
+//     faction: 'Gooey Kablooie',
+//     weapons: [
+//       'bubblegum',
+//     ],
+//     language: 'Hamsterish',
+//   });
 
-/* eslint-disable no-undef */
+//   hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
+//   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
+//   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+
+// /* eslint-disable no-undef */
+
+// module.exports = {
+//   GameObject,
+//   NPC,
+//   Humanoid,
+// };

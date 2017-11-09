@@ -6,17 +6,17 @@ const nFibonacci = (n) => {
 };
 
 const nFactorial = (num = 1) => {
-	if (num === 1) { return num; }
-	return num * nFactorial(--num);
-}
+  if (num === 1) { return num; }
+  return num * nFactorial(--num);
+};
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  const _obj = Object.values(obj);
-  for (var i = 1; i < _obj.length; i++) {
-  	if (_obj[i] === _obj[0]) return true;
+  const tempObj = Object.values(obj);
+  for (let i = 1; i < tempObj.length; i++) {
+    if (tempObj[i] === tempObj[0]) return true;
   } return false;
-}; console.log(checkMatchingLeaves({a:10,b:11}))
+};
 
 /* eslint-enable no-unused-vars */
 
