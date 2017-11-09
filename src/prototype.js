@@ -63,21 +63,40 @@ function NPC(options) {
 }
 
 NPC.prototype = Object.create(GameObject.prototype);
-
-NPC.prototype.takedamage = function damageMessage(options) {
+NPC.prototype.takeDamage = function damageMessage(options) {
   return (`${this.name} took damage.`);
 };
 
 function Humanoid(options) {
   NPC.call(this, options);
   this.faction = options.faction;
-  this.weapons = options.weapons;
+  this.language = options.language;
   this.weapons = options.weapons;
 }
 Humanoid.prototype = Object.create(NPC.prototype);
 Humanoid.prototype.greet = function greetMessage(options) {
   return (`${this.name} offers a greeting in ${this.language}.`);
 };
+
+const hamsterHuey = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: [
+    'bubblegum',
+  ],
+  language: 'Hamsterish',
+});
+
+hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
+hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
+hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 /* eslint-disable no-undef */
 
 module.exports = {
