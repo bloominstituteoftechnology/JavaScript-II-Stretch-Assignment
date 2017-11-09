@@ -2,13 +2,15 @@
 
 ## Topics
 
-* recursion
-* base case
-* constructors
-* `new`
-* `prototype`
-* `.bind`, `.call`, `.apply`
-* `this`
+* recursion - when it function calls itself until it doesn't
+* base case - a "stopper" solution that has a known solution that returns out of the function.
+* constructors - functions that create objects of the same type with set variables.
+* `new`- keyword used to create an instance of an object
+* `prototype` - 
+* `.bind`
+*`.call`, 
+*`.apply`
+* `this` - works with object literals and bind 
 * `class`
 * methods
 * inheritance
