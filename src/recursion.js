@@ -3,19 +3,52 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+  if (n <= 1) return 1;
+  return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  if (n <= 0) return 1;
+  return (n * nFactorial(n - 1));
 };
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+
+  let result = null;
+  if (obj typeof 'object') {
+    for (let i = 0; i < obj.length; i++) {
+      result = checkMatchingLeaves(obj[i]);
+      if (result === obj[i]) {
+        return true;
+      }
+    }
+  }
 };
 
+const tree1 = {
+  x: 1,
+  y: 1,
+  z: 1,
+  xa: {
+    xx: 1,
+    xy: 1,
+    xz: 1,
+    zz: {
+      a: {
+        b: {
+          z: 2,
+        },
+      },
+    },
+  },
+};
+console.log(checkMatchingLeaves(tree1));
+console.log(checkMatchingLeaves(tree1));
 /* eslint-enable no-unused-vars */
 
 module.exports = {
