@@ -7,6 +7,7 @@
 * constructors - functions that create objects of the same type with set variables.
 * `new`- keyword used to create an instance of an object
 * `prototype` - All objects inherit properties and methods from the prototype that it sits upon.
+<<<<<<< HEAD
 * `.bind` - returns a copy of the function and forces the function to reference the object where it's bound to.
 *`.call` - attaches a function to the object passed in as an arguement temporarily
 *`.apply` - allows you to the same thing as call, except you can pass in arrays for the 2nd arguement after the object.
@@ -16,6 +17,17 @@
 * inheritance - when a class extends another class and gets access to the properties and methods of the parent
 * prototype methods vs methods in the constructor (Methods that inherit via the prototype chain can be changed universally for all instances) Prototype allows you to add methods to already existing objects, while the constructor methods are made on new objects when they are instianated.
 * class vs instance - class methods require an object to be made from the class adn the method is ran on each instantiation depending on which one calls it, while static is associatd with the class and does not need an instantion. 
+=======
+* `.bind` - Test
+*`.call`, 
+*`.apply`
+* `this` - works with object literals and bind 
+* `class` - 
+* methods
+* inheritance
+* prototype methods vs methods in the constructor (Methods that inherit via the prototype chain can be changed universally for all instances)
+* class vs instance
+>>>>>>> e88a1f853373504e776691aea05d36a74eca8135
 
 
 ## Instructions
