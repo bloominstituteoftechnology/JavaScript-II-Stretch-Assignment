@@ -45,7 +45,7 @@ class Animal {
     // this.name = options.name;
   }
   growOlder(options) {
-    return (`${this.age}`);
+    return (Number(`${this.age}`));
   }
 }
 class Cat extends Animal {
