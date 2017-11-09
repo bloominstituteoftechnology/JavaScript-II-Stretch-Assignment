@@ -69,6 +69,10 @@ class NPC extends GameObject {
   }
 }
 
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
 module.exports = {
   GameObject,
   NPC,
