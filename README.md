@@ -7,7 +7,7 @@
 * constructors - functions that create objects of the same type with set variables.
 * `new`- keyword used to create an instance of an object
 * `prototype` - All objects inherit properties and methods from the prototype that it sits upon.
-* `.bind` - 
+* `.bind` - Test
 *`.call`, 
 *`.apply`
 * `this` - works with object literals and bind 
