@@ -15,7 +15,7 @@ class User {
   }
 
   comparePasswords(potentialPassword) {
-    return (potentialPassword === this.password);
+    return potentialPassword === this.password;
   }
 }
 
@@ -36,7 +36,7 @@ class Animal {
   }
 
   growOlder() {
-    return (this.age + 1);
+    return this.age + 1;
   }
 }
 
@@ -47,7 +47,7 @@ class Cat extends Animal {
   }
 
   meow() {
-    return (`${this.name} meowed!`);
+    return `${this.name} meowed!`;
   }
 }
 
