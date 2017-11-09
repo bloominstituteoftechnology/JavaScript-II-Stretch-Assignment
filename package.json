@@ -4,7 +4,7 @@
   "description": "JavaScript II",
   "main": "index.js",
   "scripts": {
-    "test": "eslint tests/*.test.js && eslint src/*.js && jest --verbose",
+    "test": "jest --verbose",
     "test:watch": "npm test -- --watch"
   },
   "author": "Ben Nelson",

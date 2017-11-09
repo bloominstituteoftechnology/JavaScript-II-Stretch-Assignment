@@ -6,15 +6,44 @@
   GameObject
     createdAt
     dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
+    destroy() // prototype method -> returns the string 'Game object was removed from the game.' */
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return (this.message = `Game object was removed from the game.`)
+  }
+}
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
     // should inherit destroy() from GameObject's prototype
-
-  Humanoid
+  }
+}
+/*NPC
+  hp
+  name
+  takeDamage() // prototype method -> returns the string '<object name> took damage.'
+  // should inherit destroy() from GameObject's prototype */
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+/*Humanoid
     faction
     weapons
     language
