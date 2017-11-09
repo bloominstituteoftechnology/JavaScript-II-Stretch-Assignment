@@ -23,6 +23,25 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  let testVal;
+  let litmus = true;
+  // create a test to see if the key of the object is another object. if yes, recurse
+  const checkLeaves = ((tree) => {
+    Object.keys(tree).forEach((key) => {
+      if (testVal === undefined && typeof tree[key] !== 'object') {
+        testVal = tree[key];
+        return undefined;
+      }
+      if (typeof tree[key] === 'object') return checkLeaves(tree[key]);
+      if (tree[key] !== testVal) {
+        litmus = false;
+        return undefined;
+      }
+      return undefined;
+    });
+  });
+  checkLeaves(obj);
+  return litmus;
 };
 
 /* eslint-enable no-unused-vars */
