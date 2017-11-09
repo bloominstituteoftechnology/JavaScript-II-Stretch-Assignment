@@ -19,15 +19,16 @@ const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
 
-  let result = null;
-  if (obj typeof 'object') {
+  let result = true;
+  if (obj instanceof Object) {
     for (let i = 0; i < obj.length; i++) {
       result = checkMatchingLeaves(obj[i]);
       if (result === obj[i]) {
-        return true;
+        return result;
       }
     }
   }
+  return result;
 };
 
 const tree1 = {
@@ -48,7 +49,7 @@ const tree1 = {
   },
 };
 console.log(checkMatchingLeaves(tree1));
-console.log(checkMatchingLeaves(tree1));
+
 /* eslint-enable no-unused-vars */
 
 module.exports = {
