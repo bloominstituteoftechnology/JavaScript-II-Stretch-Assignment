@@ -18,37 +18,17 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-
-  let result = true;
-  if (obj instanceof Object) {
-    for (let i = 0; i < obj.length; i++) {
-      result = checkMatchingLeaves(obj[i]);
-      if (result === obj[i]) {
-        return result;
-      }
+  const testCase = obj[Object.keys(obj)[0]];
+  const x = (o, tC) => {
+    const obKey = Object.keys(o);
+    for (let i = 0; i < obKey.length; i++) {
+      if (typeof o[obKey[i]] === 'object') return x(o[obKey[i]], tC);
+      if (testCase !== o[obKey[i]]) return false;
     }
-  }
-  return result;
+    return true;
+  };
+  return x(obj, testCase);
 };
-
-const tree1 = {
-  x: 1,
-  y: 1,
-  z: 1,
-  xa: {
-    xx: 1,
-    xy: 1,
-    xz: 1,
-    zz: {
-      a: {
-        b: {
-          z: 2,
-        },
-      },
-    },
-  },
-};
-console.log(checkMatchingLeaves(tree1));
 
 /* eslint-enable no-unused-vars */
 
