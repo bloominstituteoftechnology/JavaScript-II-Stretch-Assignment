@@ -33,6 +33,7 @@ class User {
 class Animal {
   constructor(options) {
     this.age = options.age;
+    this.name = options.name;
   }
   growOlder() {
     return this.age + 1;
@@ -42,7 +43,6 @@ class Animal {
 class Cat extends Animal {
   constructor(options) {
     super(options);
-    this.name = options.name;
   }
   meow() {
     console.log(`${this.name} meowed!`);
