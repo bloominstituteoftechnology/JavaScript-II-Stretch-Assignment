@@ -50,6 +50,12 @@
 */
 
 /* eslint-disable no-undef */
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+}
 
 module.exports = {
   GameObject,
