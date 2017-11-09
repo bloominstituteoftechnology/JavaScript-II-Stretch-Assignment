@@ -72,7 +72,6 @@ NPC.prototype.takeDamage = function takeDamage() {
   return `${this.name} took damage.`;
 };
 
-
 function Humanoid(options) {
   this.createdAt = options.createdAt;
   this.dimensions = options.dimensions;
@@ -88,8 +87,6 @@ Humanoid.prototype = Object.create(NPC.prototype);
 Humanoid.prototype.greet = function greet() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
-
-
 // const hamsterHuey = new Humanoid({
 //   createdAt: new Date(),
 //   dimensions: {
