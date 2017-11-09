@@ -12,8 +12,9 @@ class GameObject {
     this.isAlive = options.isAlive || true;
     this.dimensions = options.dimensions;
   }
-  destroy() { this.isAlive = false; return console.log(`${this.id} was removed from the game.`); }
 }
+
+GameObject.prototype.destroy = function () { this.isAlive = false; return console.log(`${this.id} was removed from the game.`); };
 
 class NPC extends GameObject {
   constructor(options) {
@@ -21,9 +22,9 @@ class NPC extends GameObject {
     this.hp = options.hp;
     this.name = options.name;
   }
-  takeDamage() { return console.log(`${this.name} took damage.`); }
-  // should inherit destroy() from GameObject's prototype
 }
+
+NPC.prototype.takeDamage = function () { return console.log(`${this.name} took damage.`); };
 
 class Humanoid extends NPC {
   constructor(options) {
@@ -32,8 +33,10 @@ class Humanoid extends NPC {
     this.weapons = options.weapons;
     this.language = options.language;
   }
-  greet() { return console.log(`${this.name} offers a greeting in ${this.language}.`); }
 }
+
+Humanoid.prototype.greet = function () { return console.log(`${this.name} offers a greeting in ${this.language}.`); };
+
 //   Inheritance chain: Humanoid -> NPC -> GameObject
 //   Instances of Humanoid should have all of the same properties as NPC and GameObject.
 //   Instances of NPC should have all of the same properties as GameObject.
