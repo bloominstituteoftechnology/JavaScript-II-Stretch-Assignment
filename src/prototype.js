@@ -97,7 +97,7 @@ const hamsterHuey = new Humanoid({
   language: 'Hamsterish',
 });
 
-console.log(hamsterHuey);
+// console.log(hamsterHuey);
 
 /* eslint-disable no-undef */
 
