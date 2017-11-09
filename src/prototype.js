@@ -51,8 +51,47 @@
 
 /* eslint-disable no-undef */
 
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
+
+GameObject.prototype.destroy = function destroy() {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+  this.hp = options.hp;
+  this.name = options.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function takeDamange() {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+  this.hp = options.hp;
+  this.name = options.name;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
 module.exports = {
   GameObject,
   NPC,
   Humanoid,
 };
+
