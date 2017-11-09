@@ -6,12 +6,12 @@
 * base case - a "stopper" solution that has a known solution that returns out of the function.
 * constructors - functions that create objects of the same type with set variables.
 * `new`- keyword used to create an instance of an object
-* `prototype` - 
-* `.bind`
+* `prototype` - All objects inherit properties and methods from the prototype that it sits upon.
+* `.bind` - 
 *`.call`, 
 *`.apply`
 * `this` - works with object literals and bind 
-* `class`
+* `class` - 
 * methods
 * inheritance
 * prototype methods vs methods in the constructor (Methods that inherit via the prototype chain can be changed universally for all instances)
