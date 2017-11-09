@@ -29,10 +29,19 @@ class Cat extends Animal {
     }
 }
 
-//const newUser = new User({email: 'designerexpert@yahoo.com', password: 'test123'})
-//console.log(newUser);
-//console.log(newUser.comparePasswords('test123'));
+// const newUser = new User({email: 'designerexpert@yahoo.com', password: 'test123'})
+// console.log(newUser);
+// console.log(newUser.comparePasswords('test123'));
 
-const newCat = new Cat({age: 4, name: 'FurBall'});
-console.log(newCat);
-console.log(newCat.growOlder())
+// const newCat = new Cat({age: 4, name: 'FurBall'});
+// console.log(newCat);
+// console.log(newCat.growOlder())
+
+const nFibonacci = (n) => {
+    // fibonacci sequence: 1 2 3 5 8 13 ...
+    // return the nth number in the sequence
+    if (n <= 1) return 1;
+    return nFibonacci(n - 1) + nFibonacci(n - 2);
+};
+
+//console.log(nFibonacci(6));
