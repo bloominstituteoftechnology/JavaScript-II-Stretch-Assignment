@@ -16,8 +16,7 @@ class User {
   checkPassword(str) {
     return str === this.password;
   }
-  }
-
+}
 
 const me = new User({
   username: 'LambdaSchool',
@@ -41,7 +40,8 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 const pwcheck1 = checkPassword.call(me, 'correctorbatterystaple');
 
 const pwcheck2 = checkPassword.apply(me, ['correctorbatterystaple']);
-const pwcheck3 = checkPassword.bind(me);
+const pwcheck3 = checkPassword.bind(me)('correctorbatterystaple');
+
 // use .call, .apply, and .bind
 // .call
 

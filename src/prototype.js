@@ -1,32 +1,47 @@
-/*
-  Object oriented design is commonly used in video games.  For this part of the assignment
-  you will be implementing several classes with their correct inheritance heirarchy.
 
-  In this file you will be creating three classes:
-  GameObject
-    createdAt
-    dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+  // ``Object oriented design is commonly used in video games.  For this part of the assignment
+  // you will be implementing several classes with their correct inheritance heirarchy.
 
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
+  // In this file you will be creating three classes:
+  function GameObject(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+     // prototype method -> returns the string 'Game object was removed from the game.'
+  }
+  GameObject.prototype.destroy = function destroy() {
+    return 'Game object was removed from the game.';
+  };
+
+  function NPC(options) {
+    GameObject.call(this, options);
+    this.hp = options.hp;
+    this.name = options.name;
+     // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+  }
+  NPC.prototype = Object.create(GameObject.prototype);
+  NPC.prototype.takeDamage = function takeDamage() {
+    return `${this.name} took damage.`;
+  };
 
-  Humanoid
-    faction
-    weapons
-    language
-    greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  function Humanoid(options) {
+    NPC.call(this, options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+    // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC
+  }
+  Humanoid.prototype = Object.create(NPC.prototype);
+  Humanoid.prototype.greet = function greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  };
+  // Inheritance chain: Humanoid -> NPC -> GameObject
+  // Instances of Humanoid should have all of the same properties as NPC and GameObject.
+  // Instances of NPC should have all of the same properties as GameObject.
 
-  Inheritance chain: Humanoid -> NPC -> GameObject
-  Instances of Humanoid should have all of the same properties as NPC and GameObject.
-  Instances of NPC should have all of the same properties as GameObject.
-
-  Example:
+ /* Example:
 
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
@@ -51,8 +66,8 @@
 
 /* eslint-disable no-undef */
 
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+  module.exports = {
+    GameObject,
+    NPC,
+    Humanoid,
+  };
