@@ -42,6 +42,7 @@ checkPassword.call(me.password, 'sdfsdsf');
 
 checkPassword.apply(me, ['sdfs']);
 // .bind
-const myCheckPassword = me.checkPassword;
+// const myCheckPassword = me.checkPassword;
 
-const bMyCheckPassword = myCheckPassword.bind(me);
+// const bMyCheckPassword = myCheckPassword.bind(me);
+checkPassword.bind(me)('correcthorsebatterystaple');
