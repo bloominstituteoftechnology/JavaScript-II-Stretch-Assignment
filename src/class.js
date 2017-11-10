@@ -15,6 +15,10 @@ class User {
   }
 }
 
+User.prototype.comparePasswords = function (psk) {
+  return (this.password === psk);
+};
+
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -24,9 +28,27 @@ class User {
 // Cat should have the property `name` that is set in the constructor and the method
 // `meow` that should return the string `<name> meowed!` where `<name>` is the `name`
 // property set on the Cat instance.
-
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+}
 
+Animal.prototype.growOlder = function () {
+  return this.age + 1;
+};
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+}
+
+Cat.prototype.meow = function () {
+  return `${this.name} meowed!`;
+};
 /* eslint-disable no-undef */
 
 module.exports = {
