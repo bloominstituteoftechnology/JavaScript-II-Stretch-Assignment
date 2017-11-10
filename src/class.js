@@ -20,13 +20,6 @@ class User {
   }
 }
 
-// const user = new User({
-//   email: 'ben@lambdaschool.com',
-//   password: 'correcthorsebatterystaple',
-// });
-
-// console.log(user);
-
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes. x
 // `Cat` should extend the `Animal` class. x
@@ -59,12 +52,6 @@ class Cat extends Animal {
     return `${this.name} meowed!`;
   }
 }
-
-// const snowball = new Cat({
-//   name: 'Snowball II',
-//   age: 5,
-// });
-
 
 /* eslint-disable no-undef */
 
