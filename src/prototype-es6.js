@@ -49,44 +49,43 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
-// GameObject
+class GameObject {
+  constructor(options) {
+    this.type = 'Game object'; // Solves error: "Expected 'this' to be used by class method 'destroy'"
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return `${this.type} was removed from the game.`;
+  }
 
-function GameObject(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+  // static destroy() {
+  //   return 'Game object was removed from the game.';
+  // }
 }
 
-GameObject.prototype.destroy = function () {
-  return 'Game object was removed from the game.';
-};
-
-// NPC
-
-function NPC(options) {
-  GameObject.call(this, options);
-  this.hp = options.hp;
-  this.name = options.name;
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-NPC.prototype = Object.create(GameObject.prototype);
-// NPC.call(GameObject);
-NPC.prototype.takeDamage = function () {
-  return `${this.name} took damage.`;
-};
-
-// Humanoid
-function Humanoid(options) {
-  NPC.call(this, options);
-  this.faction = options.faction;
-  this.weapons = options.weapons;
-  this.language = options.language;
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
-
-Humanoid.prototype = Object.create(NPC.prototype);
-
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
 
 /* eslint-disable no-undef */
 
