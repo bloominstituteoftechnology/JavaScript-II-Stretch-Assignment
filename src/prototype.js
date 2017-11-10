@@ -26,6 +26,7 @@
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
 
+
   Example:
 
   const hamsterHuey = new Humanoid({
@@ -49,7 +50,84 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
-/* eslint-disable no-undef */
+// /* eslint-disable no-undef */
+// /* eslint-disable class-methods-use-this */
+
+
+// class GameObject {
+//   constructor(options) {
+//     this.createdAt = options.createdAt;
+//     this.dimensions = options.dimensions;
+//   }
+
+//   destroy() { // prototype method
+//     return ('Game object was removed from the game.');
+//   }
+// }
+
+// class NPC extends GameObject {
+//   constructor(options) {
+//     super(options);
+//     this.hp = options.hp;
+//     this.name = options.name;
+//   }
+//   takeDamage() { // prototype method
+//     return (`${this.name} took damage.`);
+//     // should inherit destroy() from GameObject's prototype
+//   }
+// }
+
+// // should inherit destroy() from GameObject through NPC
+// // should inherit takeDamage() from NPC
+// class Humanoid extends NPC {
+//   constructor(options) {
+//     super(options);
+//     this.faction = options.faction;
+//     this.weapons = options.weapons;
+//     this.language = options.language;
+//   }
+//   greet() {
+//     return (`${this.name} offers a greeting in ${this.language}.`);
+//   }
+// }
+
+
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return ('Game object was removed from the game.');
+};
+
+function NPC(options) {
+  GameObject.call(this, options);
+  this.hp = options.hp;
+  this.name = options.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () { // prototype method
+  return (`${this.name} took damage.`);
+  // should inherit destroy() from GameObject's prototype
+};
+
+// should inherit destroy() from GameObject through NPC
+// should inherit takeDamage() from NPC
+function Humanoid(options) {
+  NPC.call(this, options);
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return (`${this.name} offers a greeting in ${this.language}.`);
+};
 
 module.exports = {
   GameObject,
