@@ -60,8 +60,7 @@ GameObject.prototype.destroy = function destroy() {
 };
 
 function NPC(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+  GameObject.call(this, options);
   this.hp = options.hp;
   this.name = options.name;
 }
@@ -73,13 +72,10 @@ NPC.prototype.takeDamage = function takeDamage() {
 };
 
 function Humanoid(options) {
-  this.createdAt = options.createdAt;
-  this.dimensions = options.dimensions;
+  NPC.call(this, options);
   this.faction = options.faction;
   this.weapons = options.weapons;
   this.language = options.language;
-  this.hp = options.hp;
-  this.name = options.name;
 }
 
 Humanoid.prototype = Object.create(NPC.prototype);
