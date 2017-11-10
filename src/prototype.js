@@ -51,6 +51,42 @@
 
 /* eslint-disable no-undef */
 
+// Main Class Blue Print
+const GameObject = function (options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+};
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+// NPC Class
+const NPC = function (options) {
+  GameObject.call(this, options);
+  this.hp = options.hp;
+  this.name = options.name;
+};
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function (options) {
+  return `${this.name} took damage.`;
+};
+
+// Humanoid Class
+const Humanoid = function (options) {
+  NPC.call(this, options);
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+};
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function (options) {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
 module.exports = {
   GameObject,
   NPC,
