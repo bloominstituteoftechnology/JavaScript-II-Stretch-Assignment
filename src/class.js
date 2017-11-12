@@ -35,7 +35,7 @@ class Animal {
     this.age = options.age;
   }
   growOlder() {
-    console.log(this.age++);
+    return this.age++;
   }
 }
 
@@ -45,7 +45,7 @@ class Cat extends Animal {
     this.name = options.name;
   }
   meow() {
-    console.log(`${this.name} meowed!`);
+    return `${this.name} meowed!`;
   }
 }
 
