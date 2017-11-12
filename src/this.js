@@ -29,22 +29,21 @@ const me = new User({
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 
 /* part 2 */
-// me.prototype = Object.create(User.prototype);
 const checkPassword = function comparePasswords(passwordToCompare) {
   // recreate the `checkPassword` method that you made on the `User` class
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
-  passwordToCompare = this.password;
+  if (passwordToCompare === this.password) return true;
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
 // .call
-checkPassword.call(me, this.password);
+me.checkPassword.call(me, 'correcthorsebatterystaple');
 // .apply
-checkPassword.apply(me, this.password);
+me.checkPassword.apply(me, this.password);
 // .bind
-checkPassword.bind(me, 'oioiouiuiou');
-
+checkPassword.bind(me, this.password); // binds method to comparePasswords
+console.log(checkPassword(this.password)); // returns true
