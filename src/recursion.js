@@ -3,17 +3,39 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+  if (n <= 1) return 1;
+  return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  if (n === 0) return 1;
+  return n * nFactorial(n - 1);
 };
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  let val;
+  let flag = true;
+  const tree = (objc) => {
+    Object.keys(objc).forEach((key) => {
+      if (val === undefined && typeof key !== 'object') {
+        val = objc[key];
+      }
+      if (typeof objc[key] === 'object') {
+        return tree(objc[key]);
+      }
+      if (objc[key] !== val) {
+        flag = false;
+        return undefined;
+      }
+    });
+  };
+  tree(obj);
+  return flag;
 };
 
 /* eslint-enable no-unused-vars */
