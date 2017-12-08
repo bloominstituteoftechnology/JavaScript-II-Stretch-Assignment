@@ -25,24 +25,24 @@ const me = {
 
 const Travis = new User(me);
 
-const result = Travis.checkPassword('thisisapassword'); 
+const result = Travis.checkPassword('thisisapassword');
 // should return `true`
 
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
-    if (passwordToCompare === this.password) return true;
-    return false;  
+  if (passwordToCompare === this.password) return true;
+  return false;
   // note that we use the `function` keyword and not `=>`
 };
 // .call
-let result2 = checkPassword.call(Travis, 'thisisapassword');
-console.log(result2);
+const result2 = checkPassword.call(Travis, 'thisisapassword');
+
 
 // .apply
-let result3 = checkPassword.apply(Travis, 'thisisapassword');
-console.log(result3);
+const result3 = checkPassword.apply(Travis, 'thisisapassword');
+
 
 // .bind
-let result4 = checkPassword.bind(Travis, 'thisisapassword');
-console.log(result4);
+const result4 = checkPassword.bind(Travis, 'thisisapassword');
+

@@ -1,21 +1,57 @@
-const monsterDemon = new Humanoid({
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    const x = '';
+    this.x = 'Game object was removed from the game.';
+    return this.x;
+  }
+}
+
+class NPC extends GameObject {
+  constructor(npcStats) {
+    super(npcStats);
+    this.hp = npcStats.hp;
+    this.name = npcStats.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage!`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humanoidStats) {
+    super(humanoidStats);
+    this.faction = humanoidStats.faction;
+    this.weapons = humanoidStats.weapons;
+    this.language = humanoidStats.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  }
+}
+
+const smallDemon = new Humanoid({
   createdAt: new Date(),
   dimensions: {
-    length: 3,
-    width: 2,
-    height: 5,
+    length: 5,
+    width: 3,
+    height: 15,
   },
-  hp: 10,
+  hp: 500,
   name: 'Xythor',
-  faction: 'Hells Gate',
+  faction: 'Hells Gates',
   weapons: [
-    'Dual Flaming Sword of Anguish',
-    'Chains of Dispair'
+    'Twin Blades of the Deceiver',
   ],
-  language: 'Demonic'
+  language: 'Demonic',
 });
 
-
+smallDemon.greet();
+smallDemon.takeDamage();
+smallDemon.destroy();
 
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
@@ -26,7 +62,7 @@ const monsterDemon = new Humanoid({
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-    
+
   NPC
     hp
     name
@@ -47,7 +83,7 @@ const monsterDemon = new Humanoid({
 
   Example:
 
-  
+
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
     dimensions: {
