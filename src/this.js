@@ -9,12 +9,12 @@ class User {
     this.username = options.username;     // set a username and password property on the
     this.password = options.password;     // user object that is created
   }
-
-  checkPassword(str) {                        // create a method on the User class called `checkPassword`
-    if (str === this.password) return true;   // this method should take in a string and compare it to
+  
+  checkPassword(str) {                        // create a method on the User class called `checkPassword`  
+    if (str === this.password) return true;   // this method should take in a string and compare it to 
     return false;                             // the object’s password property
   }                                           // return `true` if they match, otherwise return `false`v
-}
+};
 
 const me = {
   username: 'bitcoinTroy',
@@ -37,10 +37,14 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
-
+const test = troy.checkPassword('correcthorsebatterystaple');
+console.log(test);
 // .call
-const testCall = checkPassword.call(troy, 'test');
-// .apply
-const testApply = checkPassword.apply(troy, 'correcthorsebatterystaple');
+const testCall = checkPassword.call(troy, 'correcthorsebatterystaple');
+console.log(testCall);
 // .bind
-const testBind = checkPassword.bind(troy, 'test');
+const testBind = checkPassword.bind(troy, 'correcthorsebatterystaple');
+console.log(testBind);
+// .apply
+const testApply = troy.checkPassword.apply(troy, ['correcthorsebatterystaple']);
+console.log(testApply);
