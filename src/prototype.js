@@ -1,3 +1,22 @@
+const monsterDemon = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 3,
+    width: 2,
+    height: 5,
+  },
+  hp: 10,
+  name: 'Xythor',
+  faction: 'Hells Gate',
+  weapons: [
+    'Dual Flaming Sword of Anguish',
+    'Chains of Dispair'
+  ],
+  language: 'Demonic'
+});
+
+
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
@@ -7,7 +26,7 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
+    
   NPC
     hp
     name
@@ -28,6 +47,7 @@
 
   Example:
 
+  
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
     dimensions: {
