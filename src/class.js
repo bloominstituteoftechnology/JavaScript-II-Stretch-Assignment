@@ -13,8 +13,8 @@ class User {
     this.password = options.password;
   }
 
-  comparedPasswords(sens) {
-    return this.password === sens;
+  comparePasswords(sens) {
+    return (this.password === sens);
   }
 }
 

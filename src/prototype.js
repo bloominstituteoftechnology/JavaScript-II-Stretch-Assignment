@@ -1,57 +1,33 @@
-class GameObject {
-  constructor(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
-  }
-  destroy() {
-    const x = '';
-    this.x = 'Game object was removed from the game.';
-    return this.x;
-  }
+function GameObject(option) {
+  this.createdAt = option.createdAt;
+  this.dimensions = option.dimensions;
 }
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
 
-class NPC extends GameObject {
-  constructor(npcStats) {
-    super(npcStats);
-    this.hp = npcStats.hp;
-    this.name = npcStats.name;
-  }
-  takeDamage() {
-    return `${this.name} took damage!`;
-  }
+function NPC(option) {
+  GameObject.call(this, option);
+  this.hp = option.hp;
+  this.name = option.name;
 }
+NPC.prototype = Object.create(GameObject.prototype);
 
-class Humanoid extends NPC {
-  constructor(humanoidStats) {
-    super(humanoidStats);
-    this.faction = humanoidStats.faction;
-    this.weapons = humanoidStats.weapons;
-    this.language = humanoidStats.language;
-  }
-  greet() {
-    return `${this.name} offers a greeting in ${this.language}`;
-  }
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(char) {
+  NPC.call(this, char);
+  this.faction = char.faction;
+  this.weapons = char.weapons;
+  this.language = char.language;
 }
+Humanoid.prototype = Object.create(NPC.prototype);
 
-const smallDemon = new Humanoid({
-  createdAt: new Date(),
-  dimensions: {
-    length: 5,
-    width: 3,
-    height: 15,
-  },
-  hp: 500,
-  name: 'Xythor',
-  faction: 'Hells Gates',
-  weapons: [
-    'Twin Blades of the Deceiver',
-  ],
-  language: 'Demonic',
-});
-
-smallDemon.greet();
-smallDemon.takeDamage();
-smallDemon.destroy();
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment

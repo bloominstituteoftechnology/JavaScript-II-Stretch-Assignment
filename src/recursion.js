@@ -13,21 +13,26 @@ const nFactorial = (num) => {
 };
 
 /* Extra Credit */
-const checkMatchingLeaves = (obj, result = false) => {
+const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  const checker = Object.values(obj)[0];
-  result = true;
-  const a = Object.keys(obj);
-
-  a.forEach((el) => {
-    if (obj[el] !== checker && Object.values(obj[el]).length < 1) {
-      result = false;
-    } else if (Object.values(obj[el]).length > 0) {
-      result = checkMatchingLeaves(obj[el], checker, result);
-    }
-  });
-  return result;
+  let tester;
+  let flag = true;
+  const checkLeaves = (object) => {
+    Object.keys(object).forEach((elem) => {
+      if (tester === undefined && typeof elem !== 'object') {
+        tester = object[elem];
+      }
+      if (typeof object[elem] === 'object') {
+        return checkLeaves(object[elem]);
+      }
+      if (object[elem] !== tester) {
+        flag = false;
+      }
+    });
+  };
+  checkLeaves(obj);
+  return flag;
 };
 
 /* eslint-enable no-unused-vars */
