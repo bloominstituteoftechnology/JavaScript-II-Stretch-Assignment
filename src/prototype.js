@@ -25,6 +25,40 @@
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
+*/
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return this.destroy = 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(npc) {
+    super(npc);
+    this.hp = npc.hp;
+    this.name = npc.name;
+  }
+  takeDamage() {
+    return this.takeDamage = `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(human) {
+    super(human);
+    this.faction = human.faction;
+    this.weapons = human.weapons;
+    this.language = human.language;
+  }
+  greet() {
+    return this.greet = `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+/*
 
   Example:
 
@@ -50,7 +84,6 @@
 */
 
 /* eslint-disable no-undef */
-
 module.exports = {
   GameObject,
   NPC,
