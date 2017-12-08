@@ -25,28 +25,68 @@
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
+*/
 
+class GameObject {
+  constructor(attributes) {
+    this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
+  }
+}
+
+GameObject.prototype.destroy = function destroy() {
+  return `${this.GameObject} was removed from the game.`;
+};
+
+class NPC extends GameObject {
+  constructor(npcAttributes) {
+    super(npcAttributes);
+    this.hp = npcAttributes.hp;
+    this.name = npcAttributes.name;
+  }
+}
+// NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function takeDamage() {
+  return `${this.name} took damage.`;
+};
+
+class Humanoid extends NPC {
+  constructor(humanoidAttributes) {
+    super(humanoidAttributes);
+    this.faction = humanoidAttributes.faction;
+    this.weapons = humanoidAttributes.weapons;
+    this.language = humanoidAttributes.language;
+  }
+}
+
+// Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}`;
+};
+
+
+/*
   Example:
 
-  const hamsterHuey = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Hamster Huey',
-    faction: 'Gooey Kablooie',
-    weapons: [
-      'bubblegum',
-    ],
-    language: 'Hamsterish',
-  });
+const hamsterHuey = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: [
+    'bubblegum',
+  ],
+  language: 'Hamsterish',
+});
 
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
+hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
+hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
+hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
 /* eslint-disable no-undef */
