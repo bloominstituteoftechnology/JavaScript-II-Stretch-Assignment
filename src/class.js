@@ -22,7 +22,38 @@
 // code here
 
 /* eslint-disable no-undef */
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(somePassword) {
+    return somePassword === this.password;
+  }
+}
 
+class Animal {
+  constructor(options, age) {
+    this.options = options;
+    this.age = options.age;
+  }
+    growOlder() {
+    this.age = this.age + 1;
+    return this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(options, name, age) {
+    super(options, name, age);
+    this.options = options;
+    this.name = options.name;
+    this.age = options.age;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
 module.exports = {
   User,
   Cat,
