@@ -50,6 +50,41 @@
 */
 
 /* eslint-disable no-undef */
+class GameObject {
+  constructor(props) {
+    this.createdAt = props.createdAt;
+    this.dimensions = props.dimensions;
+  }
+}
+
+class NPC extends GameObject {
+  constructor(props) {
+    super(props);
+    this.hp = props.hp;
+    this.name = props.name;
+  }
+
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(props) {
+    super(props);
+    this.faction = props.faction;
+    this.weapons = props.weapons;
+    this.language = props.language;
+  }
+
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+GameObject.prototype.destroy = () => {
+  return 'Game object was removed from the game.';
+};
 
 module.exports = {
   GameObject,
