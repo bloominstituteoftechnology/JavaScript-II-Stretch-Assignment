@@ -25,6 +25,7 @@ const me = new User({
 });
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
+console.log('result: ', result);
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
@@ -41,10 +42,10 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // .call
 const callResult = checkPassword.call(me, 'correcthorsebatterystaple');
-console.log(callResult);
+console.log('callResult: ', callResult);
 // .apply
 const applyResult = checkPassword.apply(me, ['correcthorsebatterystaple']);
-console.log(applyResult);
+console.log('applyResult: ', applyResult);
 // .bind
 const userCheckPassword = checkPassword.bind(me);
-console.log(userCheckPassword('correcthorsebatterystaple'));
+console.log('userCheckPassword: ', userCheckPassword('correcthorsebatterystaple'));
