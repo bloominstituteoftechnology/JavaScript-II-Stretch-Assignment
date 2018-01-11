@@ -51,6 +51,31 @@
 
 /* eslint-disable no-undef */
 
+const first = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  destroy(),
+});
+
+//
+
+const second = new Humanoid({
+  hp: 4,
+  name: ,
+  takeDamage(),
+});
+
+const third = new Humanoid({
+  faction: 4,
+  weapons: ,
+  language,
+  greet(),
+});
+
 module.exports = {
   GameObject,
   NPC,
