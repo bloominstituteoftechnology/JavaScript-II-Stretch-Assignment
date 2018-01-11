@@ -51,39 +51,38 @@
 
 /* eslint-disable no-undef */
 
-class GameObject {
-  constructor(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
-  }
-  destroy() {
-    const whyDoIHaveToAssignThis = `${this.name}`;
-    return 'Game object was removed from the game.';
-  }
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
 }
 
-class NPC extends GameObject {
-  constructor(options) {
-    super(options);
-    this.hp = options.hp;
-    this.name = options.name;
-  }
-  takeDamage() {
-    return `${this.name} took damage.`;
-  }
+GameObject.prototype.destroy = () => {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(npcOptions) {
+  GameObject.call(this, npcOptions);
+  this.hp = npcOptions.hp;
+  this.name = npcOptions.name;
 }
 
-class Humanoid extends NPC {
-  constructor(options) {
-    super(options);
-    this.faction = options.faction;
-    this.weapons = options.weapons;
-    this.language = options.language;
-  }
-  greet() {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  }
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function takeDamage() {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(humanoidOptions) {
+  NPC.call(this, humanoidOptions);
+  this.faction = humanoidOptions.faction;
+  this.weapons = humanoidOptions.weapons;
+  this.language = humanoidOptions.language;
 }
+
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 const leroy = new Humanoid({
   createdAt: new Date(),
