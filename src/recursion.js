@@ -1,7 +1,7 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  return n < 2 ? 1 : nFibonacci(n - 1) + nFibonacci(n - 2);
+  return n < 2 ? n : nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
 const nFactorial = (n) => {
