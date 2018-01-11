@@ -12,7 +12,7 @@ class GameObject {
 class NPC extends GameObject {
   constructor(npcOptions) {
     super(npcOptions);
-    this.hp = npcOptions.npc;
+    this.hp = npcOptions.hp;
     this.name = npcOptions.name;
   }
   takeDamage(npc) {
