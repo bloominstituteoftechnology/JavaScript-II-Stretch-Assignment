@@ -1,13 +1,13 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  // fibonacci sequence: 1 1 2 3 5 8 13 ...
-  // return the nth number in the sequence
   if (n <= 2) return 1;
   --n;
   if (n <= 3) return 2;
   return (n - 2) + (n - 1);
 };
+  // fibonacci sequence: 1 1 2 3 5 8 13 ...
+  // return the nth number in the sequence
 
 const nFactorial = (n) => {
   if (n <= 1) return 1;

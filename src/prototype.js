@@ -51,6 +51,60 @@
 
 /* eslint-disable no-undef */
 
+function GameObject(gameOptions) {
+  this.createdAt = gameOptions.createdAt;
+  this.dimensions = gameOptions.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(NPCoptions) {
+  this.hp = NPCoptions.hp;
+  this.name = NPCoptions.name;
+  GameObject.call(this, NPCoptions);
+}
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(humanoidOptions) {
+  this.factions = humanoidOptions.factions;
+  this.weapons = humanoidOptions.weapons;
+  this.language = humanoidOptions.language;
+  NPC.call(this, humanoidOptions);
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}`;
+};
+
+const newHumanoid = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 4,
+    width: 2,
+    height: 6,
+  },
+  hp: 1,
+  name: 'Tony the Tiger',
+  faction: 'Kellogs',
+  weapons: [
+    'spaghetti code',
+    'plaintext passwords',
+  ],
+  language: 'JavaScript',
+});
+
+newHumanoid.greet();
+console.log(newHumanoid.dimensions);
+// prototype method -> returns the string '<object name> took damage.'
+// should inherit destroy() from GameObject's prototype
 module.exports = {
   GameObject,
   NPC,
