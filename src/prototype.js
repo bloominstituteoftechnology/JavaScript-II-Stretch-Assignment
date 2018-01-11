@@ -51,6 +51,56 @@
 
 /* eslint-disable no-undef */
 
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    const whyDoIHaveToAssignThis = `${this.name}`;
+    return 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+const leroy = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 5,
+    width: 6,
+    height: 7,
+  },
+  hp: 9001,
+  name: 'Leroy Jenkins',
+  faction: 'Alliance',
+  weapons: [
+    'Thunderfury, Blessed Blade of the Windseeker',
+  ],
+  language: 'Common',
+});
+
 module.exports = {
   GameObject,
   NPC,
