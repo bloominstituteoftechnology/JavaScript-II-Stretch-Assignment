@@ -8,6 +8,16 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 // code here
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(input) {
+    if (input === this.password) return true;
+    return false;
+  }
+}
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
@@ -25,5 +35,5 @@
 
 module.exports = {
   User,
-  Cat,
+  // Cat,
 };
