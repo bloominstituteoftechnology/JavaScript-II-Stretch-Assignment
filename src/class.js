@@ -49,6 +49,7 @@ class Cat extends Animal {
     return `${this.name} meowed!`;
   }
 }
+
 /* eslint-disable no-undef */
 
 module.exports = {
