@@ -17,11 +17,12 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  // return true if every property on `obj` is the same
-  // otherwise return false
-  Object.keys(obj).forEach((key) => {
-    
-  })
+  let areSame = true;
+  const refProp = Object.values(obj)[0];
+  Object.values(obj).forEach((value) => {
+    if (value !== refProp) areSame = false;
+  });
+  return areSame;
 };
 
 /* eslint-enable no-unused-vars */
