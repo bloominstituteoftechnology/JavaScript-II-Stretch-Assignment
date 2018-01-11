@@ -1,7 +1,7 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  // fibonacci sequence: 1 2 3 5 8 13 ...
+  // fibonacci sequence: 1 1 2 3 5 8 13 ...
   // return the nth number in the sequence
   if (n <= 1) {
     return 1;
@@ -22,8 +22,24 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const array = [];
+  const flatten = (item) => {
+    Object.keys(item).forEach((value) => { // Object flattened one level into an array of strings (same as objects.js) and iterated over
+      if (typeof item[value] === 'object') { // If item is an object, then it is recursively passed through 'nestedObject'
+        flatten(item[value]);
+      } else {
+        array.push(item[value]); // If its is not an object, but a string, then it will push the item to 'array' array
+      }
+    });
+  };
+  flatten(obj); // Returns the obj as a flattened array of strings.
 
-
+  for (let i = 1; i < array.length; i++) { // for loop iterates over array
+    const memo = array[0];
+    if (array[i] !== memo) {
+      return false; // if any of the elements in the array are not equal to array[0], then return false.
+    }
+  } return true;
 };
 
 /* eslint-enable no-unused-vars */
