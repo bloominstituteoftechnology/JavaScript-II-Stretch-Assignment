@@ -16,11 +16,6 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  const objProps = Object.getOwnPropertyNames(obj);
-  //  if (obj.length > 0) {
-  return (obj[0])
-}
-
   // return true if every property on `obj` is the same
   // otherwise return false
 };
