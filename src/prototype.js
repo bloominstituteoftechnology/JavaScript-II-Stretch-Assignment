@@ -4,8 +4,8 @@ class GameObject {
     this.dimensions = gameObjectOptions.dimensions;
   }
   destroy(gameObject) {
-    const name = this.name;
-    return ('Game object was removed from the game.');
+    this.message = ('Game object was removed from the game.');
+    return this.message;
   }
 }
 
