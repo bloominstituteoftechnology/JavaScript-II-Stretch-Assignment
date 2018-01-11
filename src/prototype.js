@@ -70,19 +70,19 @@ function Humanoid(humanoidTraits) {
 }
 
 
-GameObject.prototype.destroy = function() {
-  return `Game object was removed from the game`;
+GameObject.prototype.destroy = function destroy() {
+  return 'Game object was removed from the game.';
 };
 
 
 NPC.prototype = Object.create(GameObject.prototype);
-NPC.prototype.takeDamage = function() {
-  return `${this.name} took damage`;
+NPC.prototype.takeDamage = function takeDamage() {
+  return `${this.name} took damage.`;
 };
 
 Humanoid.prototype = Object.create(NPC.prototype);
-Humanoid.prototype.greet = function() {
-  return `${this.name} offers a greeting in ${this.language}`;
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}.`;
 };
 
 const hamsterHuey = new Humanoid({
@@ -100,9 +100,6 @@ const hamsterHuey = new Humanoid({
   ],
   language: 'Hamsterish',
 });
-
-console.log(hamsterHuey.takeDamage());
-console.log(hamsterHuey);
 
 module.exports = {
   GameObject,
