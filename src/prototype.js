@@ -7,13 +7,34 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
+  */
+function GameObject(data) {
+  this.createdAt = data.createdAt;
+  this.dimensions = data.dimensions;
+}
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game';
+}
+  /*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+  */
+function NPC  (data) {
+  GameObject.call(this, data);
+  this.hp = data.hp;
+  this.name = data.name;
+}
 
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage`;
+}
+
+  /*
   Humanoid
     faction
     weapons
@@ -25,8 +46,22 @@
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
+  */
+function Humanoid (data) {
+  NPC.call(this, data);
+  this.faction = data.faction;
+  this.weapons = data.weapons;
+  this.language = data.language;
+}
 
-  Example:
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}`; 
+}
+
+  //Example:
+
 
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
@@ -47,7 +82,7 @@
   hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
+
 
 /* eslint-disable no-undef */
 
