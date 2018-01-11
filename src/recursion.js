@@ -24,16 +24,24 @@ const nFactorial = (n) => {
 };
 
 /* Extra Credit */
-const checkMatchingLeaves = (obj) => {
+const checkMatchingLeaves = (obj, initialProperty) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  // REALLY UGGGGGGLY, haahahah
   let count = 0;
-  const keys = Object.keys(obj)
-  const property = keys[0];
-  while (count < keys.length) {
+  const values = Object.values(obj);
+  if (typeof values[0] === 'number') initialProperty = values[0];
+  while (count < values.length) {
+    const currentValue = values[count];
+    if (typeof currentValue === 'object') {
+      const firstVal = Object.values(currentValue)[0];
+      if (typeof firstVal === 'number' && firstVal !== initialProperty) return false;
+      if (!checkMatchingLeaves(currentValue, initialProperty)) return false;
+    }
+    if (typeof currentValue !== 'object' && currentValue !== initialProperty) return false;
     count++;
-    if()
   }
+  return true;
 };
 
 /* eslint-enable no-unused-vars */
