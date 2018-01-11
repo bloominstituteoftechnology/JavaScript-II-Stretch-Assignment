@@ -48,7 +48,15 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
-
+class GameObject {
+  constructor(createdAt, dimensions) {
+    this.createdAt = createdAt;
+    this.dimensions = dimensions;
+  }
+  destroy() {
+    return `Game object was removed from the game.`
+  }
+}
 /* eslint-disable no-undef */
 
 module.exports = {
