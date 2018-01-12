@@ -20,8 +20,7 @@ const checkMatchingLeaves = (obj) => {
   // otherwise return false
   const buffer = [];
   const check = (arg) => {
-    const values = Object.values(arg);
-    values.forEach((val) => {
+    Object.values(arg).forEach((val) => {
       if (typeof val === 'object') check(val);
       if (typeof val === 'string' || typeof val === 'number') buffer.push(val);
     });
