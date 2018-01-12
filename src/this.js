@@ -7,6 +7,15 @@
 class User {
   constructor(options) {
     // set a username and password property on the user object that is created
+    this.username = 'LambdaSchool';
+    this.password = 'correcthorsebatterystaple';
+  }
+  checkPassword (inputPassword){
+    if(this.password === inputPassword){
+      return true;
+    }else{
+      return false;
+    }
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
@@ -27,13 +36,24 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
+  if(this.password === passwordToCompare){
+    return true;
+  }else{
+    return false;
+  }
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
 // .call
+checkPassword.call(me, 'correcthorsebatterystaple');
 
 // .apply
+checkPassword.apply(me, ['correcthorsebatterystaple']);
 
 // .bind
+const confirmPassword = checkPassword.bind(me);
+confirmPassword('correcthorsebatterystaple');
+
+
