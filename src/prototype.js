@@ -1,6 +1,42 @@
+
+
+function GameObject(x) {
+  this.createdAt = x.createdAt;
+  this.dimensions = x.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(x) {
+  GameObject.call(this, x);
+  this.hp = x.hp;
+  this.name = x.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function () {
+  return (`${this.name} took damage.`);
+};
+
+function Humanoid(x) {
+  NPC.call(this, x);
+  this.faction = x.faction;
+  this.weapons = x.weapons;
+  this.language = x.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function () {
+  return (`${this.name} offers a greeting in ${this.language}.`);
+};
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
+
+  const GameObject =
 
   In this file you will be creating three classes:
   GameObject
