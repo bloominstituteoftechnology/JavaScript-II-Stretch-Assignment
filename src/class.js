@@ -30,7 +30,25 @@ class User {
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    this.age++;
+    return this.age;
+  }
+}
 
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  meow() {
+    return `${this.name} meow!`;
+  }
+}
 /* eslint-disable no-undef */
 
 module.exports = {
