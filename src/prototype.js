@@ -51,30 +51,39 @@
 
 /* eslint-disable no-undef */
 
-const first = new Humanoid({
-  createdAt: new Date(),
-  dimensions: {
-    length: 2,
-    width: 1,
-    height: 1,
-  },
-  destroy(),
-});
+class GameObject {
+  constructor(options) {
+    this.createdAt = new Date();
+    this.dimensions = options.dimensions;
+    this.message = 'Game object was removed from the game.';
+  }
+  destroy() {
+    return this.message;
+  }
+}
 
-//
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
 
-const second = new Humanoid({
-  hp: 4,
-  name: ,
-  takeDamage(),
-});
-
-const third = new Humanoid({
-  faction: 4,
-  weapons: ,
-  language,
-  greet(),
-});
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
 
 module.exports = {
   GameObject,

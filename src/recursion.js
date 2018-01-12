@@ -16,6 +16,20 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
+  const array = [];
+  const nestedObject = (item) => {
+    Object.keys(item).forEach((value) => {
+      if (typeof item[value] === 'object') {
+        nestedObject(item[value]);
+      } array.push(item[value]);
+    });
+  };
+  nestedObject(obj);
+
+  for (let i = 1; i < array.length; i++) {
+    const start = array[0];
+    if (array[i] !== start) return false;
+  } return true;
   // return true if every property on `obj` is the same
   // otherwise return false
 };
