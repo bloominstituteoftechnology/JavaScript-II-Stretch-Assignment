@@ -19,34 +19,30 @@ const nFactorial = (n) => {
 };
 
 /* Extra Credit */
-/* const checkMatchingLeaves = (obj) => {
+const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
   const objKeys = Object.keys(obj);
   const firstKey = objKeys[0];
 
-    for (let i = 1; i < objKeys.length; i++) {
-      console.log('1');
-      if (firstKey !== objKeys[i]) {
-        console.log('2');
-        return false;
-      }
-      console.log('3');
+  for (let i = 1; i < objKeys.length; i++) {
+    if (firstKey !== objKeys[i]) {
+      return false;
     }
-
+  }
 };
-*/
+
 const testobjT = {
   test: 0,
-  test: 1,
-  test: 2,
-}
+  test2: 1,
+  test3: 2,
+};
 
 const testobjF = {
   test1: 0,
   test2: 1,
   test3: 2,
-}
+};
 
 /* eslint-enable no-unused-vars */
 

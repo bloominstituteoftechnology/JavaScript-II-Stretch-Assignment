@@ -56,7 +56,7 @@ class GameObject {
     this.gameName = gameOptions.gameName;
   }
   destroy() {
-    return `${this.gameName} was removed from the game.`;
+    return 'Game object was removed from the game.';
   }
 }
 

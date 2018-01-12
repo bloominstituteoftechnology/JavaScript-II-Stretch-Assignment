@@ -13,7 +13,7 @@ class User {
     this.password = options.password;
   }
   comparePasswords(tryPass) {
-    if(tryPass === this.password){
+    if (tryPass === this.password) {
       return true;
     }
     return false;
@@ -35,7 +35,7 @@ class Animal {
     this.age = options.age;
   }
   growOlder() {
-    this.age++
+    return ++this.age;
   }
 }
 
@@ -45,19 +45,22 @@ class Cat extends Animal {
     this.name = options.name;
   }
   meow() {
-    return `${this.name} meowed!`
+    return `${this.name} meowed!`;
   }
 }
 
-const meowsers = new Cat ({
+const meowsers = new Cat({
   age: 3,
   name: 'Meowsers',
 });
+
+meowsers.growOlder();
 
 
 /* eslint-disable no-undef */
 
 module.exports = {
   User,
+  Animal,
   Cat,
 };
