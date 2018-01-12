@@ -51,6 +51,58 @@
 
 /* eslint-disable no-undef */
 
+class GameObject {
+  constructor(stats) {
+    this.createdAt = stats.createdAt;
+    this.dimensions = stats.dimensions;
+  }
+  destroy() {
+    this.message = 'Game object was removed from the game.';
+    return this.message;
+  }
+}
+
+class NPC extends GameObject {
+  constructor(stats) {
+    super(stats);
+    this.hp = stats.hp;
+    this.name = stats.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+
+class Humanoid extends NPC {
+  constructor(stats) {
+    super(stats);
+    this.faction = stats.faction;
+    this.weapons = stats.weapons;
+    this.language = stats.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+
+const hamsterHuey = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: [
+    'bubblegum',
+  ],
+  language: 'Hamsterish',
+});
+
 module.exports = {
   GameObject,
   NPC,
