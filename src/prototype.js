@@ -1,8 +1,42 @@
+class GameObject {
+  constructor(attrs) {
+    this.createdAt = attrs.createdAt;
+    this.dimensions = attrs.dimensions;
+  }
+  destroy() {
+    return 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(npcAttrs) {
+    super(npcAttrs);
+    this.hp = npcAttrs.hp;
+    this.name = npcAttrs.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humAttrs) {
+    super(humAttrs);
+    this.faction = humAttrs.faction;
+    this.weapons = humAttrs.weapons;
+    this.language = humAttrs.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
-  you will be implementing several classes with their correct inheritance heirarchy.
+  you will be implementing several constructor functions with their correct inheritance heirarchy.
 
-  In this file you will be creating three classes:
+  In this file you will be creating three constructor functions:
   GameObject
     createdAt
     dimensions
