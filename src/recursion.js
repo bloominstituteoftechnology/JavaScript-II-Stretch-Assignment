@@ -18,6 +18,21 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const helper = (input) => {
+    if (Object(input) !== input) return input; // check if input is object
+    const keys = Object.keys(input);  //  create array of input object keys
+    const firstValue = input[keys[0]];  //  store first value into variable
+    if (Object(firstValue) === firstValue) return helper(firstValue); //  check if Object(firstValue) is equal to firstValue
+    return firstValue; // run helper function until first values are not equal and return firstValue
+  };
+  const keys = Object.keys(obj);  // create array of keys for obj
+  const firstValue = obj[keys[0]];  // store first value of obj into variable
+  for (let i = 0; i < keys.length; i++) { //  run a for loop to iterate over the array
+    const currentValue = obj[keys[i]];  // store current value
+    if (Object(currentValue) === currentValue && !checkMatchingLeaves(currentValue)) return false;
+    if (helper(currentValue) !== helper(firstValue)) return false;
+  }
+  return true;
 };
 
 // check first object value
