@@ -30,16 +30,16 @@ class Animal {
     this.age = options.age;
   }
   growOlder() {
-    return this.age++;
+    return ++this.age;
   }
 }
 class Cat extends Animal {
-  constructor(catOptions) {
-    super(catOptions);
-    this.name = catOptions.name;
+  constructor(options) {
+    super(options);
+    this.name = options.name;
   }
   meow() {
-    return (`${this.name} meowed!`);
+    return `${this.name} meowed!`;
   }
 }
 
@@ -47,6 +47,5 @@ class Cat extends Animal {
 
 module.exports = {
   User,
-  Animal,
   Cat,
 };
