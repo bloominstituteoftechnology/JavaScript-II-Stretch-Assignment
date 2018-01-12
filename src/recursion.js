@@ -3,7 +3,7 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 1 2 3 5 8 13 ...
   // return the nth number in the sequence
-  if (n < 2) {
+  if (n <= 2) {
     return 1;
   }
   return nFibonacci(n - 2) + nFibonacci(n - 1);
@@ -19,11 +19,34 @@ const nFactorial = (n) => {
 };
 
 /* Extra Credit */
-const checkMatchingLeaves = (obj) => {
+/* const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  
+  const objKeys = Object.keys(obj);
+  const firstKey = objKeys[0];
+
+    for (let i = 1; i < objKeys.length; i++) {
+      console.log('1');
+      if (firstKey !== objKeys[i]) {
+        console.log('2');
+        return false;
+      }
+      console.log('3');
+    }
+
 };
+*/
+const testobjT = {
+  test: 0,
+  test: 1,
+  test: 2,
+}
+
+const testobjF = {
+  test1: 0,
+  test2: 1,
+  test3: 2,
+}
 
 /* eslint-enable no-unused-vars */
 
