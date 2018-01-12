@@ -19,13 +19,22 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  const reference = Object.values(obj)[0];
-  Object.values(obj).forEach((val) => {
-    if (typeof val === 'object') return checkMatchingLeaves(val);
-    if (val !== reference) return false;
-  });
+  const bank = [];
+  const myRecursion = (arg) => {
+    const arr = Object.values(arg);
+    arr.forEach((val) => {
+      if (typeof val === 'object') myRecursion(val);
+      if (typeof val === 'string' || typeof val === 'number') bank.push(val);
+    });
+  };
+  myRecursion(obj);
+  const test = bank[0];
+  for (let i = 1; i < bank.length; i += 1) {
+    if (bank[i] !== test) return false;
+  }
   return true;
 };
+
 
 /* eslint-enable no-unused-vars */
 

@@ -48,7 +48,7 @@ const testApply = checkPassword.apply(me, ['correcthorsebatterystaple']);
 const testBind = checkPassword.bind(me, 'correcthorsebatterystaple');
 
 function init() {
-  return (result, testCall, testApply, testBind());
+  console.log(result, testCall, testApply, testBind());
 }
 
 init();
