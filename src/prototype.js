@@ -3,26 +3,87 @@
   you will be implementing several classes with their correct inheritance heirarchy.
 
   In this file you will be creating three classes:
-  GameObject
     createdAt
     dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+    destroy() // prototype method -> returns the string 'Game object was removed from the game.' */
 
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    // should inherit destroy() from GameObject's prototype
+/* GameObject */
 
-  Humanoid
-    faction
-    weapons
-    language
-    greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-    // should inherit destroy() from GameObject through NPC
-    // should inherit takeDamage() from NPC
+class GameObject {
+  constructor(gameTraits) {
+    this.createdAt = gameTraits.createdAt;
+    this.dimensions = gameTraits.dimensions;
+  }
+  destroy() {
+    this.message = 'Game object was removed from the game.';
+    return this.message;
+  }
+}
 
-  Inheritance chain: Humanoid -> NPC -> GameObject
+  /* NPC */
+
+class NPC extends GameObject {
+  constructor(npcTraits) {
+    super(npcTraits);
+    this.hp = npcTraits.hp;
+    this.name = npcTraits.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+  /* Humanoid */
+
+class Humanoid extends NPC {
+  constructor(humanTraits) {
+    super(humanTraits);
+    this.faction = humanTraits.faction;
+    this.weapons = humanTraits.weapons;
+    this.language = humanTraits.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+// function GameObject(gameTraits) {
+//   this.createdAt = gameTraits.createdAt;
+//   this.dimensions = gameTraits.dimensions;
+// }
+
+// GameObject.prototype.destroy = function destroy() {
+//   return 'Game object was removed from the game.';
+// };
+
+//   /* NPC */
+
+// function NPC(npcTraits) {
+//   GameObject.call(this, npcTraits);
+//   this.hp = npcTraits.hp;
+//   this.name = npcTraits.name;
+// }
+
+// NPC.prototype = Object.create(GameObject.prototype);
+// NPC.prototype.takeDamage = function takeDamage() {
+//   return `${this.name} took damage.`;
+// };
+
+//   /* Humanoid */
+
+// function Humanoid(humanTraits) {
+//   NPC.call(this, humanTraits);
+//   this.faction = humanTraits.faction;
+//   this.weapons = humanTraits.weapons;
+//   this.language = humanTraits.language;
+// }
+
+// Humanoid.prototype = Object.create(NPC.prototype);
+// Humanoid.prototype.greet = function greet() {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+  /* Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
 
