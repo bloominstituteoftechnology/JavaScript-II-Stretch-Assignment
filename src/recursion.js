@@ -16,8 +16,29 @@ const nFactorial = (n) => {
 
 /* Extra Stretchy Stretch Problem of Stretchiness */
 const checkMatchingLeaves = (obj) => {
-  // return true if every property on `obj` is the same
-  // otherwise return false
+  let result = true;
+  const testArr = [];
+
+  const recur = (objGiven) => {
+    Object.keys(objGiven).forEach((key) => {
+      if (typeof objGiven[key] === 'number' || typeof objGiven[key] === 'string') {
+        testArr.push(objGiven[key]);
+      }
+      if (typeof objGiven[key] === 'object') {
+        recur(objGiven[key]);
+      }
+    });
+  };
+
+  recur(obj);
+
+  testArr.reduce((memo, i) => {
+    if (memo !== i) {
+      result = false;
+    }
+    return i;
+  });
+  return result;
 };
 
 /* eslint-enable no-unused-vars */
