@@ -18,6 +18,19 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const buffer = [];
+  const check = (arg) => {
+    const values = Object.values(arg);
+    values.forEach((val) => {
+      if (typeof val === 'object') check(val);
+      if (typeof val === 'string' || typeof val === 'number') buffer.push(val);
+    });
+  };
+  check(obj);
+  for (let i = 1; i < buffer.length; i += 1) {
+    if (buffer[i] !== buffer[0]) return false;
+  }
+  return true;
 };
 
 /* eslint-enable no-unused-vars */
