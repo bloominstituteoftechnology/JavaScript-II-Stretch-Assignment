@@ -25,10 +25,26 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
+  const firstKey = Object.keys(obj)[0];
+    for (let i = 1; i < Object.keys(obj).length; i++) {
+      if (firstKey !== Object.keys(obj)[i]) {
+        return false;
+      }
+    return true;
+    }
+  }
+}
+    if firstKey ===
+  }
+  const looper = () => {
+    for (let i = 0; i < Object.keys(obj).length; i++);
+  }
+  
+    if (i === Object.keys(i))
   // return true if every property on `obj` is the same
   // otherwise return false
 };
-
+  // const objChecker = () => {
 /* eslint-enable no-unused-vars */
 
 module.exports = {
