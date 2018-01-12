@@ -3,18 +3,38 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+  if (n <= 2) return 1;
+  return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  let final = n;
+  if (n <= 1) return 1;
+  return final *= nFactorial(n - 1);
 };
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const bank = [];
+  const myRecursion = (arg) => {
+    const arr = Object.values(arg);
+    arr.forEach((val) => {
+      if (typeof val === 'object') myRecursion(val);
+      if (typeof val === 'string' || typeof val === 'number') bank.push(val);
+    });
+  };
+  myRecursion(obj);
+  const test = bank[0];
+  for (let i = 1; i < bank.length; i += 1) {
+    if (bank[i] !== test) return false;
+  }
+  return true;
 };
+
 
 /* eslint-enable no-unused-vars */
 
