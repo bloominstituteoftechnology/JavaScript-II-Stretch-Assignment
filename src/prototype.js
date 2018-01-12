@@ -51,6 +51,62 @@
 
 /* eslint-disable no-undef */
 
+class GameObject {
+  constructor(gameOptions) {
+    this.createdAt = gameOptions.createdAt;
+    this.dimensions = gameOptions.dimensions;
+    this.gameName = gameOptions.gameName;
+  }
+  destroy() {
+    return `${this.gameName} was removed from the game.`;
+  }
+}
+
+class NPC extends GameObject {
+  constructor(npcOptions) {
+    super(npcOptions);
+    this.hp = npcOptions.hp;
+    this.name = npcOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.factions = humanoidOptions.factions;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  }
+}
+
+const newHumanoid = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 4,
+    width: 2,
+    height: 6,
+  },
+  gameName: 'Game Object',
+  hp: 1,
+  name: 'Tony the Tiger',
+  faction: 'Kellogs',
+  weapons: [
+    'spaghetti code',
+    'plaintext passwords',
+  ],
+  language: 'JavaScript',
+});
+
+newHumanoid.greet();
+console.log(newHumanoid.dimensions);
+// prototype method -> returns the string '<object name> took damage.'
+// should inherit destroy() from GameObject's prototype
 module.exports = {
   GameObject,
   NPC,
