@@ -49,6 +49,62 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+class GameObject {
+  constructor(gameOptions) {
+    this.createdAt = gameOptions.createdAt;
+    this.dimensions = gameOptions.dimensions;
+    this.gameName = gameOptions.gameName;
+  }
+  destroy() {
+    return 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(npcOptions) {
+    super(npcOptions);
+    this.hp = npcOptions.hp;
+    this.name = npcOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humanOptions) {
+    super(humanOptions);
+    this.faction = humanOptions.faction;
+    this.weapons = humanOptions.weapons;
+    this.language = humanOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+const newHumanObject = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 4,
+    width: 4,
+    height: 2,
+  },
+  gameName: 'Game Object',
+  hp: 5,
+  name: 'Jaffar Regina',
+  faction: 'Kellogs',
+  weapons: [
+    'spaghetti code',
+    'plaintext passwords',
+  ],
+  language: 'Javascript',
+});
+
+newHumanObject.greet();
+newHumanObject.takeDamage();
+newHumanObject.destroy();
+
 /* eslint-disable no-undef */
 
 module.exports = {
