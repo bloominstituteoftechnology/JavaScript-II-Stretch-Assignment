@@ -1,3 +1,4 @@
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
@@ -48,6 +49,38 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+class GameObject {
+  constructor(objAttr) {
+    this.createdAt = objAttr.createdAt;
+    this.dimensions = objAttr.dimensions;
+  }
+  destroy() {
+    const name = this.name;
+    return 'Game object was removed from the game.';
+  }
+}
+class NPC extends GameObject {
+  constructor(npcAttr) {
+    super(npcAttr);
+    this.hp = npcAttr.hp;
+    this.name = npcAttr.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humAttr) {
+    super(humAttr);
+    this.faction = humAttr.faction;
+    this.weapons = humAttr.weapons;
+    this.language = humAttr.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
 
 /* eslint-disable no-undef */
 
