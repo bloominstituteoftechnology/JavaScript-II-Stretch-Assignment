@@ -51,38 +51,39 @@
 
 /* eslint-disable no-undef */
 
-function GameObject(gameOptions) {
-  this.createdAt = gameOptions.createdAt;
-  this.dimensions = gameOptions.dimensions;
+class GameObject {
+  constructor(gameOptions) {
+    this.createdAt = gameOptions.createdAt;
+    this.dimensions = gameOptions.dimensions;
+    this.gameName = gameOptions.gameName;
+  }
+  destroy() {
+    return `${this.gameName} was removed from the game.`;
+  }
 }
 
-GameObject.prototype.destroy = function () {
-  return 'Game object was removed from the game.';
-};
-
-function NPC(NPCoptions) {
-  this.hp = NPCoptions.hp;
-  this.name = NPCoptions.name;
-  GameObject.call(this, NPCoptions);
-}
-NPC.prototype = Object.create(GameObject.prototype);
-
-NPC.prototype.takeDamage = function () {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(humanoidOptions) {
-  this.factions = humanoidOptions.factions;
-  this.weapons = humanoidOptions.weapons;
-  this.language = humanoidOptions.language;
-  NPC.call(this, humanoidOptions);
+class NPC extends GameObject {
+  constructor(npcOptions) {
+    super(npcOptions);
+    this.hp = npcOptions.hp;
+    this.name = npcOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
 
-Humanoid.prototype = Object.create(NPC.prototype);
-
-Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in ${this.language}`;
-};
+class Humanoid extends NPC {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.factions = humanoidOptions.factions;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}`;
+  }
+}
 
 const newHumanoid = new Humanoid({
   createdAt: new Date(),
@@ -91,6 +92,7 @@ const newHumanoid = new Humanoid({
     width: 2,
     height: 6,
   },
+  gameName: 'Game Object',
   hp: 1,
   name: 'Tony the Tiger',
   faction: 'Kellogs',
