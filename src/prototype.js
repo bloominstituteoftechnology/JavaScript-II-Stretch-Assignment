@@ -1,3 +1,39 @@
+class GameObject {
+  constructor(attrs) {
+    this.createdAt = attrs.createdAt;
+    this.dimensions = attrs.dimensions;
+  }
+  destroy() {
+    this.message = 'Game object was removed from the game.';
+    return this.message;
+  }
+}
+
+
+class NPC extends GameObject {
+  constructor(npcAttrs) {
+    super(npcAttrs);
+    this.hp = npcAttrs.hp;
+    this.name = npcAttrs.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+
+class Humanoid extends NPC {
+  constructor(humAttrs) {
+    super(humAttrs);
+    this.faction = humAttrs.faction;
+    this.weapons = humAttrs.weapons;
+    this.language = humAttrs.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
@@ -28,25 +64,25 @@
 
   Example:
 
-  const hamsterHuey = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Hamster Huey',
-    faction: 'Gooey Kablooie',
-    weapons: [
-      'bubblegum',
-    ],
-    language: 'Hamsterish',
-  });
+const hamsterHuey = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: [
+    'bubblegum',
+  ],
+  language: 'Hamsterish',
+});
 
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
+hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
+hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
+hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
 /* eslint-disable no-undef */
