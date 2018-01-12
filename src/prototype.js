@@ -1,3 +1,74 @@
+class GameObject {
+  constructor(gameObjectOptions) {
+    this.createdAt = gameObjectOptions.createdAt;
+    this.dimensions = gameObjectOptions.dimensions;
+  }
+  destroy(gameObject) {
+    this.message = ('Game object was removed from the game.');
+    return this.message;
+  }
+}
+
+class NPC extends GameObject {
+  constructor(npcOptions) {
+    super(npcOptions);
+    this.hp = npcOptions.hp;
+    this.name = npcOptions.name;
+  }
+  takeDamage(npc) {
+    return (`${this.name} took damage.`);
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet(humanoid) {
+    return (`${this.name} offers a greeting in ${this.language}.`);
+  }
+}
+
+// GameObject
+// function GameObject(gameObjectOptions) {
+//   this.createdAt = gameObjectOptions.createdAt;
+//   this.dimensions = gameObjectOptions.dimensions;
+// }
+
+// GameObject.prototype.destroy = function destroy() {
+//   return ('Game object was removed from the game.');
+// };
+
+// // NPC
+// function NPC(npcOptions) {
+//   GameObject.call(this, npcOptions);
+//   this.hp = npcOptions.hp;
+//   this.name = npcOptions.name;
+// }
+
+// NPC.prototype = Object.create(GameObject.prototype);
+
+// NPC.prototype.takeDamage = function takeDamage() {
+//   return (`${this.name} took damage.`);
+// };
+
+// // Humanoid
+// function Humanoid(humanoidOptions) {
+//   NPC.call(this, humanoidOptions);
+//   this.faction = humanoidOptions.faction;
+//   this.weapons = humanoidOptions.weapons;
+//   this.language = humanoidOptions.language;
+// }
+
+// Humanoid.prototype = Object.create(NPC.prototype);
+
+// Humanoid.prototype.greet = function greet() {
+//   return (`${this.name} offers a greeting in ${this.language}.`);
+// };
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
