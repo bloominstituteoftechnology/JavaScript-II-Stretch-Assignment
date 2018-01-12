@@ -1,15 +1,9 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  switch (n) {
-    case 0:
-      return 0;
-    case 1:
-      return 1;
-    default:
-      return nFibonacci(n - 1) + nFibonacci(n - 2);
-  }
+  if (n <= 1) return 1;
 
+  return nFibonacci(n - 1) + nFibonacci(n - 2);
   // fibonacci sequence: 1 2 3 5 8 13 ...
   // return the nth number in the sequence
 };
