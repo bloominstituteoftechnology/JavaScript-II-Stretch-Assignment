@@ -44,6 +44,23 @@ const checkMatchingLeaves = (obj, initialProperty) => {
   return true;
 };
 
+// Michael's code
+// let singleProp = null;
+// const checkMatchingLeaves = (obj) => {
+//   // return true if every property on `obj` is the same
+//   // otherwise return false
+//   Object.keys(obj).forEach((key) => {
+//     if (typeof obj[key] === 'object') {
+//       checkMatchingLeaves(obj[key]);
+//     } else if (singleProp === null) {
+//       singleProp = obj[key];
+//     } else if (singleProp !== obj[key]) {
+//       singleProp = 99;
+//     }
+//   });
+//   return (singleProp !== 99);
+// };
+
 /* eslint-enable no-unused-vars */
 
 module.exports = {
