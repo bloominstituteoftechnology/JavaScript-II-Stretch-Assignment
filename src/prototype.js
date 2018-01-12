@@ -7,13 +7,38 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+*/
 
+class GameObject {
+  constructor(attrs) {
+    this.createdAt = new Date();
+    this.dimensions = attrs.dimensions;
+    this.str = 'Game object was removed from the game.';
+  }
+  destroy() {
+    return this.str;
+  }
+}
+
+/*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+*/
+class NPC extends GameObject {
+  constructor(NPCattrs) {
+    super(NPCattrs);
+    this.hp = NPCattrs.hp;
+    this.name = NPCattrs.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
 
+/*
   Humanoid
     faction
     weapons
@@ -25,7 +50,21 @@
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
+*/
 
+class Humanoid extends NPC {
+  constructor(HumanoidAttrs) {
+    super(HumanoidAttrs);
+    this.faction = HumanoidAttrs.faction;
+    this.weapons = HumanoidAttrs.weapons;
+    this.language = HumanoidAttrs.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+/*
   Example:
 
   const hamsterHuey = new Humanoid({

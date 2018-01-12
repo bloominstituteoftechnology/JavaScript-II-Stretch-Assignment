@@ -7,7 +7,27 @@
 // for a potential password that will be compared to the `password` property.
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
-// code here
+// code here Peter Gray's version
+class User {
+  constructor(options) {
+    // set a username and password property on the user object that is created
+    this.username = options.username;
+    this.password = options.password;
+  }
+  checkPassword(pass) {
+    return pass === this.password;
+  }
+  // create a method on the User class called `checkPassword`
+  // this method should take in a string and compare it to the object's password property
+  // return `true` if they match, otherwise return `false`
+}
+
+const me = new User({
+  username: 'LambdaSchool',
+  password: 'correcthorsebatterystaple',
+});
+
+const result = me.checkPassword('correcthorsebatterystaple');
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
