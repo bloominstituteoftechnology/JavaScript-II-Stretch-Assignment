@@ -24,6 +24,23 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  let leaf;
+  let result = true;
+  const checkMatch = (leaves) => {
+    Object.keys(leaves).forEach((key) => {
+      if (leaf === undefined && typeof leaf !== 'object') {
+        leaf = leaves[key];
+        return undefined;
+      }
+      if (typeof leaves[key] === 'object') return checkMatch(leaves[key]);
+      if (leaves[key] !== leaf) {
+        result = false;
+        return undefined;
+      }
+    });
+  };
+  checkMatch(obj);
+  return result;
 };
 
 /* eslint-enable no-unused-vars */

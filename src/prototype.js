@@ -51,10 +51,10 @@
 
 function GameObject(options) {
   this.createdAt = options.createdAt;
-  this.dimentions = options.dimentions;
+  this.dimensions = options.dimensions;
 }
 
-GameObject.prototype.destroy = function (removedFrom) {
+GameObject.prototype.destroy = function destroy() {
   return ('Game object was removed from the game.');
 };
 
@@ -65,7 +65,7 @@ function NPC(npcOptions) {
 }
 
 NPC.prototype = Object.create(GameObject.prototype);
-NPC.prototype.takeDamage = function (damageTaken) {
+NPC.prototype.takeDamage = function takeDamage() {
   return (`${this.name} took damage.`);
 };
 
@@ -77,8 +77,8 @@ function Humanoid(humanOptions) {
 }
 
 Humanoid.prototype = Object.create(NPC.prototype);
-Humanoid.prototype.greet = function (greetingOffer) {
-  return (`${this.name} offers a greeting in ${this.language}`);
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}.`;
 };
 
 const hamsterHuey = new Humanoid({
