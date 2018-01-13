@@ -18,21 +18,23 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  const helper = (input) => {
-    if (Object(input) !== input) return input; // check if input is object
-    const keys = Object.keys(input);  //  create array of input object keys
-    const firstValue = input[keys[0]];  //  store first value into variable
-    if (Object(firstValue) === firstValue) return helper(firstValue); //  check if Object(firstValue) is equal to firstValue
-    return firstValue; // run helper function until first values are not equal and return firstValue
-  };
-  const keys = Object.keys(obj);  // create array of keys for obj
-  const firstValue = obj[keys[0]];  // store first value of obj into variable
-  for (let i = 0; i < keys.length; i++) { //  run a for loop to iterate over the array
-    const currentValue = obj[keys[i]];  // store current value
-    if (Object(currentValue) === currentValue && !checkMatchingLeaves(currentValue)) return false;
-    if (helper(currentValue) !== helper(firstValue)) return false;
+  let compare;  // compare with this
+  let result = true;
+  function check(objr) {
+    Object.keys(objr).forEach((key) => {  // create array of keys from passed in object
+      if (compare === undefined && typeof key !== 'object') { // if compare is undefined and key is not an object
+        compare = objr[key];  // set compare to equal the value of the current key
+      }
+      if (typeof objr[key] === 'object') {  // if key is a nested object
+        return check(objr[key]); // run check on this current object until it is no longer a nested object
+      }
+      if (objr[key] !== compare) {  // if object key is not equal to the compare value
+        result = false;  // response is false
+      }
+    });
   }
-  return true;
+  check(obj); // invoke function on object
+  return result;
 };
 
 // check first object value
