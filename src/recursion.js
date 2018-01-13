@@ -32,6 +32,22 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+	const matchingLeaves = [];
+
+	function checkmatches(leaves) {
+		if (Object(leaves) === leaves) {
+			 Object.keys(leaves).map(key => leaves[key]).forEach(child => {
+				 checkmatches(child);
+		  }); 
+		}
+		 else 
+		 {
+			 matchingLeaves.push(leaves);
+		}
+}
+		checkmatches(obj); 
+
+		 return matchingLeaves.every(value => value === matchingLeaves[0]);
 };
 
 /* eslint-enable no-unused-vars */
