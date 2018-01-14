@@ -7,7 +7,6 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
   NPC
     hp
     name
@@ -48,6 +47,38 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(attrs) {
+  GameObject.call(this, attrs);
+  this.hp = attrs.hp;
+  this.name = attrs.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(attrs) {
+  NPC.call(this, attrs);
+  this.faction = attrs.faction;
+  this.weapons = attrs.weapons;
+  this.language = attrs.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
 
 /* eslint-disable no-undef */
 
