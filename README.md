@@ -15,7 +15,6 @@
 * prototype methods vs methods in the constructor (Methods that inherit via the prototype chain can be changed universally for all instances)
 * class vs instance
 
-
 ## Instructions
 
 * Fork and clone this repo.
