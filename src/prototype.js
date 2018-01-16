@@ -9,16 +9,14 @@
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
 */
 
-class GameObject {
-  constructor(attrs) {
-    this.createdAt = new Date();
-    this.dimensions = attrs.dimensions;
-    this.str = 'Game object was removed from the game.';
-  }
-  destroy() {
-    return this.str;
-  }
+function GameObject(attrs) {
+  this.createdAt = new Date();
+  this.dimensions = attrs.dimensions;
 }
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
 
 /*
   NPC
@@ -27,16 +25,17 @@ class GameObject {
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
 */
-class NPC extends GameObject {
-  constructor(NPCattrs) {
-    super(NPCattrs);
-    this.hp = NPCattrs.hp;
-    this.name = NPCattrs.name;
-  }
-  takeDamage() {
-    return `${this.name} took damage.`;
-  }
+
+function NPC(npcAttrs) {
+  GameObject.call(this, npcAttrs);
+  this.hp = npcAttrs.hp;
+  this.name = npcAttrs.name;
 }
+
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
 
 /*
   Humanoid
@@ -52,17 +51,18 @@ class NPC extends GameObject {
   Instances of NPC should have all of the same properties as GameObject.
 */
 
-class Humanoid extends NPC {
-  constructor(HumanoidAttrs) {
-    super(HumanoidAttrs);
-    this.faction = HumanoidAttrs.faction;
-    this.weapons = HumanoidAttrs.weapons;
-    this.language = HumanoidAttrs.language;
-  }
-  greet() {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  }
+function Humanoid(humanoidAttrs) {
+  GameObject.call(this, humanoidAttrs);
+  NPC.call(this, humanoidAttrs);
+  this.faction = humanoidAttrs.faction;
+  this.weapons = humanoidAttrs.weapons;
+  this.language = humanoidAttrs.language;
 }
+
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 /*
   Example:
