@@ -6,15 +6,47 @@
   GameObject
     createdAt
     dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+    destroy() // prototype method -> returns the string 'Game object was removed from the game.'*/
+function GameObject(attrs) {
+    this.createdAt = new Date();
+    this.dimensions = attrs.dimensions;
 
-  NPC
+  }
+
+  GameObject.prototype.destroy = function () {
+    return 'Game object was removed from the game.';
+  };
+
+  function NPC(npcAttrs) {
+    GameObject.call(this, npcAttrs);
+    this.hp = npcAttrs.hp;
+    this.name = npcAttrs.name;
+  }
+
+  NPC.prototype = Object.create(GameObject.prototype);
+   NPC.prototype.takeDamage = function () {
+   return `${this.name} took damage.`;
+ };
+
+  function Humanoid(humanoidAttrs) {
+   GameObject.call(this, humanoidAttrs);
+   NPC.call(this, humanoidAttrs);
+   this.faction = humanoidAttrs.faction;
+   this.weapons = humanoidAttrs.weapons;
+   this.language = humanoidAttrs.language;
+  }		
+
+  Humanoid.prototype = Object.create(NPC.prototype);
+    Humanoid.prototype.greet = function () {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  };
+/*NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    // should inherit destroy() from GameObject's prototype
+    // should inherit destroy() from GameObject's prototype*/
 
-  Humanoid
+/* Humanoid
     faction
     weapons
     language
