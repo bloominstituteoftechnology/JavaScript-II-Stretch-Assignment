@@ -6,8 +6,8 @@ describe('recursion', () => {
       const fib1 = recursiveMethods.nFibonacci(5);
       const fib2 = recursiveMethods.nFibonacci(3);
       const fib3 = recursiveMethods.nFibonacci(1);
-      expect(fib1).toBe(8);
-      expect(fib2).toBe(3);
+      expect(fib1).toBe(5);
+      expect(fib2).toBe(2);
       expect(fib3).toBe(1);
     });
   });

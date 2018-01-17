@@ -1,8 +1,7 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  // fibonacci sequence: 1 1 2 3 5 8 13 ...		    // fibonacci sequence: 1 1 2 3 5 8 13 ...
-  // return the nth number in the sequence		    // return the nth number in the sequence
+  
  if (n <= 2) return 1;
  return nFibonacci(n - 2) + nFibonacci(n - 1);
 };		 
@@ -29,7 +28,9 @@ const checkMatchingLeaves = (obj) => {
       leaves.push(value);
     }
   });
-};
+
+ };
+  
 
   findLeaves(obj);
   return leaves.every(x => x === leaves[0]);
