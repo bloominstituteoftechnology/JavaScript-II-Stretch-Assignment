@@ -14,6 +14,9 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+
+  // Hint? Not sure if this is going to help...
+  //Object.prototype.toString.call(obj) === '[object Object]'
 };
 
 /* eslint-enable no-unused-vars */
