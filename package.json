@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint tests/*.test.js && eslint src/*.js && jest --verbose",
-    "test:watch": "npm test -- --watch"
+    "test:watch": "npm test -- --watch",
+    "mytest": "jest --verbose",
+    "mytest:watch": "npm run mytest -- --watch"
   },
   "author": "Ben Nelson",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/javascript-ii.git"
-  },  
+  },
   "devDependencies": {
     "babel-jest": "^19.0.0",
     "eslint": "^3.17.1",

@@ -51,6 +51,46 @@
 
 /* eslint-disable no-undef */
 
+class GameObject {
+  constructor({ createdAt, dimensions }) {
+    this.createdAt = createdAt
+    this.dimensions = dimensions
+  }
+
+  destroy() {
+    return 'Game object was removed from the game.'
+  }
+}
+
+// NPC needs to inherit destroy() from GameObject
+// I think by extending GameObject, that's all we need to do?
+// Or do we need to have this.createdAt and this.dimensions properties as well?
+class NPC extends GameObject {
+  constructor({ createdAt, dimensions, name, hp }) {
+    super({ createdAt, dimensions })
+
+    this.name = name
+    this.hp = hp
+  }
+
+  takeDamage() {
+    return `${this.name} took damage.`
+  }
+}
+
+class Humanoid extends NPC {
+  constructor({ createdAt, dimensions, hp, name, faction, weapons, language }) {
+    super({ createdAt, dimensions, hp, name })
+    this.faction = faction
+    this.weapons = weapons
+    this.language = language
+  }
+
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`
+  }
+}
+
 module.exports = {
   GameObject,
   NPC,
