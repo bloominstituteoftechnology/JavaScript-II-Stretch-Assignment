@@ -34,20 +34,18 @@ class User {
 /* eslint-disable no-undef */
 
 class Animal {
-  constructor(options) {
-    this.age = options.age
+  constructor(age) {
+    this.age = age
   }
   growOlder() {
-    this.age = this.age + 1
-    return this.age
+    return ++this.age
   }
 }
 
 class Cat extends Animal {
-  constructor(options) {
-    super(options)
-    this.name = options.name
-    console.log(this)
+  constructor({ name, age }) {
+    super(age)
+    this.name = name
   }
   meow() {
     return `${this.name} meowed!`
