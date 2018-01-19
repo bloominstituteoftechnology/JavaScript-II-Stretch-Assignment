@@ -54,9 +54,6 @@ class GameObject {
     this.dimensions = options.dimensions;
     const thing = this;
   }
-  destroy() {
-    return `${this}Game object was removed from the game.`;
-  }
 }
 
 GameObject.prototype.destroy = function () {
