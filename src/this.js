@@ -27,6 +27,8 @@ const me = new User({
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 console.log(result); // => true
 
+
+
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
@@ -48,9 +50,9 @@ console.log(checkPassword.call(me, 'correcthorsebatterystaple')); // => true
 console.log(checkPassword.apply(me, ['correcthorsebatterystaple'])); // => true
 
 // .bind
-
 /* bind returns a function that we have to call with the argument later,
  * so to get this to work we have to assign the function it returns to
  * a value and then call that value, passing in the password to check: */
 const check = checkPassword.bind(me);
 console.log(check('correcthorsebatterystaple')); // => true
+

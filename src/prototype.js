@@ -57,7 +57,7 @@ function GameObject(options) {
 }
 GameObject.prototype.destroy = function () {
   return 'Game object was removed from the game.';
-}
+};
 
 function NPC(options) {
   GameObject.call(this, options);
@@ -68,7 +68,7 @@ function NPC(options) {
 NPC.prototype = Object.create(GameObject.prototype);
 NPC.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
-}
+};
 
 function Humanoid(options) {
   NPC.call(this, options);
@@ -80,7 +80,7 @@ function Humanoid(options) {
 Humanoid.prototype = Object.create(NPC.prototype);
 Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}.`;
-}
+};
 
 // SOLUTION USING ES6 CLASSES & DESTRUCTURING:
 

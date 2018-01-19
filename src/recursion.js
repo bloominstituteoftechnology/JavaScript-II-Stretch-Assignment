@@ -23,24 +23,21 @@ const nFactorial = n => (
  * 4. else return true
  */
 const checkMatchingLeaves = (obj) => {
-  let result = [];
+  const result = [];
 
-  function _helper(obj) {
-    Object.keys(obj).forEach(key => {
-    if (typeof obj[key] === 'object') {
-      _helper(obj[key]);
-    }
-    else result.push(obj[key]);
+  function helper(innerObj) {
+    Object.keys(innerObj).forEach((key) => {
+      if (typeof innerObj[key] === 'object') helper(innerObj[key]);
+      else result.push(innerObj[key]);
     });
   }
 
-  _helper(obj);
+  helper(obj);
 
-  return !!result.reduce(function(a, b) {
-    return (a === b)
+  return !!result.reduce((a, b) => (
+    a === b
       ? a
-      : false;
-  });
+      : false));
 };
 
 /* eslint-enable no-unused-vars */
