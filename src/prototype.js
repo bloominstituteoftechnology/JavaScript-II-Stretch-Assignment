@@ -54,11 +54,11 @@ class GameObject {
     this.dimensions = options.dimensions;
     const thing = this;
   }
+  destroy() {
+    const x = this;
+    return 'Game object was removed from the game.';
+  }
 }
-
-GameObject.prototype.destroy = function () {
-  return 'Game object was removed from the game.';
-};
 
 class NPC extends GameObject {
   constructor(options) {

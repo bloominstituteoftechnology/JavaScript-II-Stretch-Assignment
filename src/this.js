@@ -39,8 +39,9 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-me.checkPassword.call('password');
+checkPassword.call(me, 'correcthorsebatterystaple');
 // .apply
-me.checkPassword.apply('password');
+checkPassword.apply(me, ['correcthorsebatterystaple']);
 // .bind
-const test = me.checkPassword.bind(me.password);
+const test = checkPassword.bind(me);
+test('correcthorsebatterystaple');
