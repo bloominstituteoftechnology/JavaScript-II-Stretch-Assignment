@@ -9,12 +9,12 @@
 
 class User {
   constructor(options) {
-    this.email = options.email
-    this.password = options.password
+    this.email = options.email;
+    this.password = options.password;
   }
   comparePasswords(testPw) {
-    if(testPw === this.password) return true
-    return false
+    if (testPw === this.password) return true;
+    return false;
   }
 }
 
@@ -35,20 +35,20 @@ class User {
 
 class Animal {
   constructor(age) {
-    this.age = age
+    this.age = age;
   }
   growOlder() {
-    return ++this.age
+    return ++this.age;
   }
 }
 
 class Cat extends Animal {
   constructor({ name, age }) {
-    super(age)
-    this.name = name
+    super(age);
+    this.name = name;
   }
   meow() {
-    return `${this.name} meowed!`
+    return `${this.name} meowed!`;
   }
 }
 
