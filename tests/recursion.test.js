@@ -79,4 +79,4 @@ describe('recursion', () => {
   });
 });
 
-/* eslint-enable no-undef */
+/* eslint-disable no-undef */
