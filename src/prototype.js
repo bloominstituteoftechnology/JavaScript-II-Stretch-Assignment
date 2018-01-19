@@ -51,6 +51,72 @@
 
 /* eslint-disable no-undef */
 
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(options) {
+  GameObject.call(this, options);
+  this.name = options.name;
+  this.hp = options.hp;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(options) {
+  NPC.call(this, options);
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
+// SOLUTION USING ES6 CLASSES & DESTRUCTURING:
+
+// class GameObject {
+//   constructor({ createdAt, dimensions }) {
+//     this.createdAt = createdAt;
+//     this.dimensions = dimensions;
+//   }
+//   static destroy() {
+//     return 'Game object was removed from the game.';
+//   }
+// }
+
+// class NPC extends GameObject {
+//   constructor({ createdAt, dimensions, name, hp }) {
+//     super({ createdAt, dimensions });
+//     this.name = name;
+//     this.hp = hp;
+//   }
+//   takeDamage() {
+//     return `${this.name} took damage.`;
+//   }
+// }
+
+// class Humanoid extends NPC {
+//   constructor({ createdAt, dimensions, hp, name, faction, weapons, language }) {
+//     super({ createdAt, dimensions, hp, name });
+//     this.faction = faction;
+//     this.weapons = weapons;
+//     this.language = language;
+//   }
+//   greet() {
+//     return `${this.name} offers a greeting in ${this.language}.`;
+//   }
+// }
+
 module.exports = {
   GameObject,
   NPC,
