@@ -1,4 +1,16 @@
 // Part 1
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(potentialPassword) {
+    if (potentialPassword === this.password) {
+      return true;
+    }
+    return false;
+  }
+}
 // Create a class called User using the ES6 class keyword.
 // The constructor of the class should have a parameter called `options`.
 // `options` will be an object that will have the properties `email` and `password`.
@@ -10,6 +22,24 @@
 // code here
 
 // Part 2
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return this.age += 1;
+  }
+}
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
+
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
 // Animal and Cat should both have a parameter called `options` in their constructors.
