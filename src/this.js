@@ -30,7 +30,9 @@ const result = me.checkPassword('correcthorsebatterystaple'); // should return `
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
-  checkPassword(this.password);
+  if (this.password === passwordToCompare) {
+    return true;
+  } return false;
 
   // recreate the `checkPassword` method that you made on the `User` class
   // use `this` to access the object's `password` property.

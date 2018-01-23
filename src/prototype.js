@@ -2,12 +2,36 @@
 //   you will be implementing several classes with their correct inheritance heirarchy.
 class GameObject {
   constructor(options) {
-    this.createdAt = options.createdAT;
+    this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
   }
   destroy() {
     const t = this;
     return 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+
+}
+
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
 //   In this file you will be creating three classes:
