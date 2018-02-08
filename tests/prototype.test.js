@@ -16,7 +16,7 @@ describe('prototype', () => {
         height: 15,
       },
     });
-    it('', () => {});
+    // it('empty!', () => {});
     it('should create an object with the properties: createdAt and dimensions', () => {
       expect(Object.prototype.hasOwnProperty.call(gameObject, 'createdAt')).toBe(true);
       expect(gameObject.createdAt instanceof Date).toBe(true);
