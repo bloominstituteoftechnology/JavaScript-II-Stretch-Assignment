@@ -22,7 +22,7 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  // Object.key(obj) = keys   a: 12
+  // Object.key(obj) = keys   
 let key = Object.keys(obj); 
  for (let prop in obj) {
    if (obj[prop] )
