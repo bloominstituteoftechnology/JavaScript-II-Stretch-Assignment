@@ -3,7 +3,10 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 1 2 3 5 8 13 ...
   // return the nth number in the sequence
-  return
+  // 1 1 2 3 5 8   starting with 1 and 1 then add the previous two numbers to get to the Fn = F(n - 1) + F(n - 2)
+  if (n < 3) return 1;
+  const results = nFibonacci(n - 1) + nFibonacci(n - 2);
+  return results;
 };
 
 const nFactorial = (n) => {
