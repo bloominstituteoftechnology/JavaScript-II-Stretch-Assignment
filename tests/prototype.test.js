@@ -19,6 +19,7 @@ describe('prototype', () => {
     it('', () => {});
     it('should create an object with the properties: createdAt and dimensions', () => {
       expect(Object.prototype.hasOwnProperty.call(gameObject, 'createdAt')).toBe(true);
+      console.log('go is: ', gameObject);
       expect(gameObject.createdAt instanceof Date).toBe(true);
       expect(Object.prototype.hasOwnProperty.call(gameObject, 'dimensions')).toBe(true);
       expect(gameObject.dimensions.length).toBe(5);
