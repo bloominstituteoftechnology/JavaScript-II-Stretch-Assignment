@@ -20,6 +20,34 @@
 // property set on the Cat instance.
 
 // code here
+// function Animal (object) { //constructor function
+//   this.type = object.type;
+//   this.name = object.name;
+//   this.sound = object.sound;
+//   this.speak = function() {
+//     return this.sound;
+//   };
+// }
+
+// const doggo = new Animal({type: 'Dog', name: 'Murphy', sound: 'Woof'});
+// console.log(doggo);
+// console.log(doggo.name);
+// console.log(doggo.speak());
+// const liger = new Animal({type: 'Liger', name: 'Leroy', sound: 'Nyeeoow'});
+// console.log(liger);
+
+// Declaring a Class
+
+class Animal {
+  constructor(object) {
+    this.type = object.type;
+    this.name = object.name;
+    this.sound = object.sound;
+  }
+  speak() {
+    return this.sound;
+  }
+}
 
 /* eslint-disable no-undef */
 
