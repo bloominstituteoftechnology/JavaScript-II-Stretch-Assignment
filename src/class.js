@@ -6,7 +6,9 @@
 // Add a method called `comparePasswords`.  `comparePasswords` should have a parameter
 // for a potential password that will be compared to the `password` property.
 // Return true if the potential password matches the `password` property.  Otherwise return false.
+class User {
 
+}
 // code here
 
 // Part 2
@@ -18,7 +20,12 @@
 // Cat should have the property `name` that is set in the constructor and the method
 // `meow` that should return the string `<name> meowed!` where `<name>` is the `name`
 // property set on the Cat instance.
+class Animal {
+  
+}
+class cat extends Animal{
 
+}
 // code here
 
 /* eslint-disable no-undef */
