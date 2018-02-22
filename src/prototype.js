@@ -43,7 +43,6 @@
     ],
     language: 'Hamsterish',
   });
-  
   hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
