@@ -1,3 +1,4 @@
+// Random comment
 // Complete the following functions.
 
 const nFibonacci = (n) => {
@@ -14,6 +15,7 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+
 };
 
 /* eslint-enable no-unused-vars */
