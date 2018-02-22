@@ -9,13 +9,13 @@ const nFibonacci = (n) => {
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
-  
 };
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+
 };
 
 /* eslint-enable no-unused-vars */
