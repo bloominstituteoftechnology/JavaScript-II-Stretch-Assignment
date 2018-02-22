@@ -1,3 +1,4 @@
+// Random comment
 // Complete the following functions.
 
 const nFibonacci = (n) => {
@@ -8,6 +9,7 @@ const nFibonacci = (n) => {
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  
 };
 
 /* Extra Credit */
