@@ -34,6 +34,16 @@ class Animal {
   constructor(options) {
     this.age = options.age;
   }
+  growOlder() {
+    this.age += 1;
+    return this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(name) {
+    super(name);
+  }
 }
 
 /* eslint-disable no-undef */
