@@ -22,9 +22,32 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  let check = false;
+
+  let checker = null;
+  let conditioner = true;
+
+  const checkMatch = (object) => {
+    Object.keys(object).forEach((item) => {
+      if (checker === null && typeof item !== 'object') {
+        checker = object[item];
+      }
+      if (typeof object[item] === 'object') {
+        return checkMatch(object[item]);
+      }
+      if (object[item] !== checker) {
+        conditioner = false;
+      }
+    });
+  };
+  checkMatch(obj);
+  return conditioner;
+ /*  let check = false;
   let keyArray = [];
-  const size = Object.keys(obj);
+
+  const size = [];
+  for (const element in obj) {
+    size.push(obj[element]);
+  };
   for (let i = 0; i < size.length; i++) {
     if (typeof size[i] === 'object') {
       keyArray = keyArray.concat(checkMatchingLeaves(size[i]));
@@ -40,7 +63,7 @@ const checkMatchingLeaves = (obj) => {
       check = false;
     }
   }
-  return check;
+  return check; */
 };
 
 /* eslint-enable no-unused-vars */
