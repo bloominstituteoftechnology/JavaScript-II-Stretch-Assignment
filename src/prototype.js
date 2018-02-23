@@ -8,14 +8,34 @@
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.' */
 
-    /*
+    function GameObject(objAttrs) {
+      this.createdAt = objAttrs.createdAt;
+      this.dimensions = objAttrs.dimensions;
+    }
 
+    GameObject.prototype.destroy = function () {
+      return 'Game object was removed from the game.';
+    };
+
+    /*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+ */
 
+    function NPC(npcAttrs) {
+      GameObject.call(this, npcAttrs);
+      this.hp = npcAttrs.hp;
+      this.name = npcAttrs.name;
+    }
+
+    NPC.prototype = Object.create(GameObject.prototype);
+    NPC.prototype.takeDamage = function () {
+      return `${this.name} took damage.`;
+    };
+/*
   Humanoid
     faction
     weapons
@@ -24,36 +44,52 @@
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC
 
+    */
+    function Humanoid(humanAttrs) {
+      NPC.call(this, humanAttrs);
+      this.faction = humanAttrs.faction;
+      this.weapons = humanAttrs.weapons;
+      this.language = humanAttrs.language;
+    }
+
+    Humanoid.prototype = Object.create(NPC.prototype);
+
+    Humanoid.prototype.greet = function () {
+      return `${this.name} offers a greeting in ${this.language}.`;
+    };
+
+   /*
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
 
   Example:
+  */
 
-  const hamsterHuey = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Hamster Huey',
-    faction: 'Gooey Kablooie',
-    weapons: [
-      'bubblegum',
-    ],
-    language: 'Hamsterish',
-  });
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
+    const hamsterHuey = new Humanoid({
+      createdAt: new Date(),
+      dimensions: {
+        length: 2,
+        width: 1,
+        height: 1,
+      },
+      hp: 5,
+      name: 'Hamster Huey',
+      faction: 'Gooey Kablooie',
+      weapons: [
+        'bubblegum',
+      ],
+      language: 'Hamsterish',
+    });
+    hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
+    hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
+    hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
+
 
 /* eslint-disable no-undef */
 
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+    module.exports = {
+      GameObject,
+      NPC,
+      Humanoid,
+    };
