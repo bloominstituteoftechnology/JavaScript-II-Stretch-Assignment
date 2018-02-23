@@ -20,6 +20,18 @@
 // property set on the Cat instance.
 
 // code here
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords() {
+    if (this.password) {
+      return true;
+    }
+    return false;
+  }
+}
 
 /* eslint-disable no-undef */
 
