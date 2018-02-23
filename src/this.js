@@ -7,6 +7,9 @@
 class User {
   constructor(options) {
     // set a username and password property on the user object that is created
+    this.username = options.username;
+    this.password = options.password;
+    this.checkPassword = string => string === this.password;
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
@@ -19,7 +22,7 @@ const me = new User({
 });
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
-
+console.log(result);
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
@@ -38,14 +41,14 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // .bind
 
-function Animal (object) {
+function Animal(object) {
   this.type = object.type;
   this.name = object.name;
   this.sound = object.sound;
-  this.speak = function() {
+  this.speak = function () {
     return this.sound;
   };
 }
 
-const doggo = new Animal({type: 'Dog', name: 'Murphy', sound: 'Woof!'});
+const doggo = new Animal({ type: 'Dog', name: 'Murphy', sound: 'Woof!' });
 doggo.speak();
