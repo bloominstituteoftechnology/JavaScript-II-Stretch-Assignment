@@ -7,13 +7,38 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+   */ 
+  function GameObject(att) {
+    this.createdAt = att.createdAt;
+    this.dimensions = att.dimensions;
+  }
 
+  GameObject.prototype.destroy = function () {
+    return `Game object was removed from the game.`;
+  }
+
+   /*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+    */
+  function NPC(npcatt) {
+    this.hp = npcatt.hp;
+    this.name = npcatt.name;
+    GameObject.call(this, npcatt);
+  }
 
+  NPC.prototype = Object.create(GameObject.prototype);
+
+  NPC.prototype.takeDamage = function() {
+    return `${this.name} took damage.`;
+  };
+
+
+
+    /*
   Humanoid
     faction
     weapons
@@ -55,4 +80,4 @@ module.exports = {
   GameObject,
   NPC,
   Humanoid,
-};
+}; 
