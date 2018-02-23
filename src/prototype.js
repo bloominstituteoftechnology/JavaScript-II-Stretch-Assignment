@@ -87,7 +87,7 @@ const narwhalLord = new Humanoid({
   dimensions: {
     length: 12,
     width: 55,
-    height: 6,
+    height: 20,
   },
   hp: 1337,
   name: 'DasWasser',

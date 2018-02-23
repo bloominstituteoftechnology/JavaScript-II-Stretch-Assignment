@@ -27,7 +27,6 @@ const checkMatchingLeaves = (obj) => {
     }
     return true;
   };
-
   return testFunction(objArray, index);
 };
 
