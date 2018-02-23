@@ -31,6 +31,7 @@ class User {
 // code here
 class Animal {
   constructor(options) {
+    this.name = options.name;
     this.age = options.age;
   }
   growOlder() {
@@ -38,8 +39,9 @@ class Animal {
   }
 }
 
-class Cat {
+class Cat extends Animal {
   constructor(options) {
+    super(options);
     this.name = 'Felix';
   }
   meow() {
