@@ -28,8 +28,6 @@ const result = me.checkPassword('correcthorsebatterystaple'); // should return `
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
-  console.log(this.password)
-  console.log(passwordToCompare)
   return this.password === passwordToCompare;
   // recreate the `checkPassword` method that you made on the `User` class
   // use `this` to access the object's `password` property.
@@ -42,13 +40,13 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // .call
 
-console.log(checkPassword.call(me, 'correcthorsebatterystaple'))
+checkPassword.call(me, 'correcthorsebatterystaple');
 
 // .apply
 
-console.log(checkPassword.apply(me, ['correcthorsebatterystaple']))
+checkPassword.apply(me, ['correcthorsebatterystaple']);
 
 // .bind
 
 const boundCheckPW = checkPassword.bind(me);
-console.log(boundCheckPW('correcthorsebatterystaple'))
+boundCheckPW('correcthorsebatterystaple');
