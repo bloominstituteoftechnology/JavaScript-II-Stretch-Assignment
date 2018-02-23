@@ -49,17 +49,17 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
-///GameObject (parent)
+// GameObject (parent)
 function GameObject(attrs) {
   this.createdAt = attrs.createdAt;
-  this.dimensions = attrs.dimensions
+  this.dimensions = attrs.dimensions;
 }
 
 GameObject.prototype.destroy = function () {
   return 'Game object was removed from the game.';
-}
+};
 
-///NPC (child)
+// NPC (child)
 
 function NPC(npcAttrs) {
   GameObject.call(this, npcAttrs);
@@ -67,15 +67,25 @@ function NPC(npcAttrs) {
   this.name = npcAttrs.name;
 }
 
-NPC.prototype = Object.create(GameObject.prototype)
+NPC.prototype = Object.create(GameObject.prototype);
 
-GameObject.prototype.takeDamage = function () {
+NPC.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
+};
+
+// Humanoid (grandchild)
+function Humanoid(humanoidAttrs) {
+  NPC.call(this, humanoidAttrs);
+  this.faction = humanoidAttrs.faction;
+  this.weapons = humanoidAttrs.weapons;
+  this.language = humanoidAttrs.language;
 }
 
-//Humanoid (grandchild)
+Humanoid.prototype = Object.create(NPC.prototype);
 
-
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 /* eslint-disable no-undef */
 
