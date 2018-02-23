@@ -12,6 +12,10 @@ const nFibonacci = (n) => {
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  if (n > 1) {
+    return n * nFactorial(n - 1);
+  }
+  return n;
 };
 
 /* Extra Credit */
