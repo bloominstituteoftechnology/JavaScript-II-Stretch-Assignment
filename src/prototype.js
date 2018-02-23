@@ -3,6 +3,7 @@
   you will be implementing several classes with their correct inheritance heirarchy.
 
   In this file you will be creating three classes:
+
   GameObject
     createdAt
     dimensions
@@ -35,6 +36,7 @@
       width: 1,
       height: 1,
     },
+
     hp: 5,
     name: 'Hamster Huey',
     faction: 'Gooey Kablooie',
@@ -49,34 +51,39 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
-const NPC = {
-  hp: 0,
-  name: '',
-  takenDamage: () => {
-    return '<name> took damage.';
-  },
+function GameObject(attrs) {
+  this.createdAt = attrs.createdAt;
+  this.dimensions = attrs.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
 };
 
-const Humanoid = {
-  faction: '',
-  weapons: [],
-  language: '',
-  greet: () => {
-    return '<name> offers a greeting in <language>.';
-  },
+function NPC(npcAttrs) {
+  GameObject.call(this, npcAttrs);
+  this.hp = npcAttrs.hp;
+  this.name = npcAttrs.hp;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
 };
 
-const GameObject = {
-  createdAt: '',
-  dimensions: {
-    length: 0,
-    width: 0,
-    height: 0,
-  },
-  destroy: () => {
-    return 'Game object was removed from the game.';
-  },
-};
+function Humanoid(humanoidAttrs) {
+  NPC.call(this, humanoidAttrs);
+  this.faction = humanoidAttrs.faction;
+  this.weapons = humanoidAttrs.weapons;
+  this.language = humanoidAttrs.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}`;
+}
 
 /* eslint-disable no-undef */
 
