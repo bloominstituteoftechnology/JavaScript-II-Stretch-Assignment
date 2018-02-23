@@ -51,6 +51,41 @@
 
 /* eslint-disable no-undef */
 
+// ####################### GameObject #######################
+function GameObject(g) {
+  this.createdAt = g.createdAt;
+  this.dimensions = g.dimensions;
+}
+GameObject.prototype.destroy = function (item) {  // parameter ??
+  return ('Game object was removed from the game.');
+};
+// ####################### NPC #######################
+
+function NPC(n) {
+  GameObject.call(this, n);
+  this.hp = n.hp;
+  this.name = n.name;
+}
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function (td) { // parameter ??
+  return (`${this.name} took damage.`);
+};
+// ####################### HUMANOID #######################
+function Humanoid(h) {
+  NPC.call(this, h);
+  this.faction = h.faction;
+  this.weapons = h.weapons;
+  this.language = h.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function (g) { // parameter ??
+  return (`${this.name} offers a greeting in ${this.language}.`);
+};
+
+
 module.exports = {
   GameObject,
   NPC,
