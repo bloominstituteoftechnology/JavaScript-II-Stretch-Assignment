@@ -37,3 +37,15 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // .apply
 
 // .bind
+
+function Animal (object) {
+  this.type = object.type;
+  this.name = object.name;
+  this.sound = object.sound;
+  this.speak = function() {
+    return this.sound;
+  };
+}
+
+const doggo = new Animal({type: 'Dog', name: 'Murphy', sound: 'Woof!'});
+doggo.speak();
