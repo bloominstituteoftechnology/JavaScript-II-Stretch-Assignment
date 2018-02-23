@@ -13,8 +13,8 @@
       this.dimensions = gameAttrs.dimensions;
     }
 
-    GameObject.prototype.destroy = (destroyed) => {
-      return ('Game object was removed from the game.');
+    GameObject.prototype.destroy = function (destroyed) {
+      console.log('Game object was removed from the game.');
     };
     /*
   NPC
@@ -29,8 +29,10 @@
       this.name = npcAttrs.name;
     }
 
-    NPC.prototype.takeDamage = (damage) => {
-      return (`${this.name} took damage.`);
+    NPC.prototype = Object.create(GameObject.prototype);
+
+    NPC.prototype.takeDamage = function (damage) {
+      console.log(`${this.name} took damage.`);
     };
   /*
   Humanoid
@@ -50,8 +52,11 @@
       this.language = humAttrs.language;
     }
 
-    Humanoid.prototype.greet = (greetType) => {
-      return (`${this.name} offers a greeting in ${this.language}.`);
+    Humanoid.prototype = Object.create(GameObject.prototype);
+    Humanoid.prototype = Object.create(NPC.prototype);
+
+    Humanoid.prototype.greet = function (greetType) {
+      console.log(`${this.name} offers a greeting in ${this.language}.`);
     };
 
 
