@@ -49,7 +49,37 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+const NPC = {
+  hp: 0,
+  name: '',
+  takenDamage: () => {
+    return '<name> took damage.';
+  },
+};
+
+const Humanoid = {
+  faction: '',
+  weapons: [],
+  language: '',
+  greet: () => {
+    return '<name> offers a greeting in <language>.';
+  },
+};
+
+const GameObject = {
+  createdAt: '',
+  dimensions: {
+    length: 0,
+    width: 0,
+    height: 0,
+  },
+  destroy: () => {
+    return 'Game object was removed from the game.';
+  },
+};
+
 /* eslint-disable no-undef */
+
 
 module.exports = {
   GameObject,

@@ -9,6 +9,8 @@
 
 // code here
 
+
+
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -20,6 +22,8 @@
 // property set on the Cat instance.
 
 // code here
+
+
 
 /* eslint-disable no-undef */
 
