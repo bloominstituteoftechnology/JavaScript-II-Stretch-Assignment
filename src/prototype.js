@@ -51,6 +51,20 @@
 
 /* eslint-disable no-undef */
 
+function GameObject(option) {
+  this.createdAt = new Date();
+  this.dimensions = option.dimensions;
+}
+GameObject.prototype.destroy = () => {
+  return 'Game object was removed from the game.';
+};
+function NPC(option) {
+
+}
+function Humanoid(option) {
+
+}
+
 module.exports = {
   GameObject,
   NPC,
