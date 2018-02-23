@@ -22,8 +22,22 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  
+  // check if all the values in the object are the same
+  const valuesArr = Object.values(obj);
 };
+
+const tree1 = {
+  x: 1,
+  y: 1,
+  z: 1,
+};
+const tree2 = {
+  x: 1,
+  y: 1,
+  z: 2,
+};
+
+console.log(checkMatchingLeaves(tree2));
 
 /* eslint-enable no-unused-vars */
 
