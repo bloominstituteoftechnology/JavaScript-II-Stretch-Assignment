@@ -8,14 +8,16 @@
     dimensions
     destroy() prototype method -> returns the string 'Game object was removed from the game.'
     */
-    function GameObject(gameAttrs) {
+    class GameObject {
+      constructor(gameAttrs) {
       this.createdAt = gameAttrs.createdAt;
       this.dimensions = gameAttrs.dimensions;
     }
-
-    GameObject.prototype.destroy = function (destroyed) {
+    destroy() {
       console.log('Game object was removed from the game.');
     };
+  }
+
     /*
   NPC
     hp
@@ -23,17 +25,16 @@
     takeDamage()  prototype method -> returns the string '<object name> took damage.'
      should inherit destroy() from GameObject's prototype
     */
-    function NPC(npcAttrs) {
-      GameObject.call(this, npcAttrs);
+    class NPC extends GameObject {
+      constructor(npcAttrs) {
+      super(npcAttrs);
       this.hp = npcAttrs.hp;
       this.name = npcAttrs.name;
     }
-
-    NPC.prototype = Object.create(GameObject.prototype);
-
-    NPC.prototype.takeDamage = function (damage) {
+    takeDamage () {
       console.log(`${this.name} took damage.`);
     };
+  }
   /*
   Humanoid
     faction
@@ -43,21 +44,19 @@
       should inherit destroy() from GameObject through NPC
       should inherit takeDamage() from NPC
       */
-    function Humanoid(humAttrs) {
-      GameObject.call(this, humAttrs);
-      NPC.call(this, humAttrs);
+    class Humanoid extends NPC {
+      constructor(humAttrs) {
+      super(humAttrs);
       this.faction = humAttrs.faction;
       this.name = humAttrs.name;
       this.weapons = humAttrs.weapons;
       this.language = humAttrs.language;
     }
-
-    Humanoid.prototype = Object.create(GameObject.prototype);
-    Humanoid.prototype = Object.create(NPC.prototype);
-
-    Humanoid.prototype.greet = function (greetType) {
+    greet() {
       console.log(`${this.name} offers a greeting in ${this.language}.`);
     };
+  }
+    
 
 
 /*
@@ -88,7 +87,7 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
-    const javanoid = new Humanoid({
+    const javanoid = new Humanoid ({
       createdAt: '2/23/18',
       dimensions: {
         length: 2,
