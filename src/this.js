@@ -10,7 +10,7 @@ class User {
     this.username = options.username;
     this.password = options.password;
   }
-/*
+
   checkPassword(pass) {
     return pass === this.password;
   }
@@ -19,11 +19,12 @@ class User {
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
 }
-*/
-}
+
+
 const me = new User({
   username: 'LambdaSchool',
   password: 'correcthorsebatterystaple',
+
 });
 
 // const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
@@ -45,7 +46,12 @@ console.log(me.checkPassword('correcthorsebatterystaple'));
 // use .call, .apply, and .bind
 
 // .call
+console.log('.call ', checkPassword.call(me, 'correcthorsebatterystaple'));
 
 // .apply
+console.log('.apply ', checkPassword.apply(me, ['correcthorsebatterystaple']));
 
 // .bind
+const userCheckPassword = checkPassword.bind(me);
+console.log('userCheckPassword: ', userCheckPassword('correcthorsebatterystaple'));
+
