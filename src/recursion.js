@@ -10,12 +10,15 @@ const nFibonacci = (n) => {
 };
 
 const nFactorial = (n) => {
+  // negative factorials are undefine, So make sure this case is covered
+  if (n < 0) return;
+
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
   // n! = 1* 2 *3 *....*n
-
-  if (n <= 1) return 1;
-  return n * nFactorial(n - 1);
+  // Base case terminates and prevents and infinite loop
+  if (n < 2) return 1; // termination of the recursive function
+  return n * nFactorial(n - 1); // recursive part
 };
 
 /* Extra Credit */
