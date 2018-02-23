@@ -58,21 +58,31 @@ function GameObject(option) {
 GameObject.prototype.destroy = () => {
   return 'Game object was removed from the game.';
 };
+
+
 function NPC(option) {
+  GameObject.call(this, option);
   this.hp = option.hp;
   this.name = option.name;
 }
-NPC.prototype.takeDamage = () => {
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
 };
+
 function Humanoid(option) {
+  NPC.call(this, option);
   this.faction = option.faction;
   this.weapons = option.weapons;
   this.language = option.language;
 }
-Humanoid.prototype.greet = () => {
-  return `${this.name} offers a greeting in ${this.language}`;
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
 };
+
 
 module.exports = {
   GameObject,
