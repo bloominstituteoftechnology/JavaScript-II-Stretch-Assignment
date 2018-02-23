@@ -51,6 +51,42 @@
 
 /* eslint-disable no-undef */
 
+// #########################  Function Declared Classes #########################
+
+// function GameObject(option) {
+//   this.createdAt = new Date();
+//   this.dimensions = option.dimensions;
+// }
+// GameObject.prototype.destroy = () => {
+//   return 'Game object was removed from the game.';
+// };
+
+
+// function NPC(option) {
+//   GameObject.call(this, option);
+//   this.hp = option.hp;
+//   this.name = option.name;
+// }
+// NPC.prototype = Object.create(GameObject.prototype);
+
+// NPC.prototype.takeDamage = function () {
+//   return `${this.name} took damage.`;
+// };
+
+// function Humanoid(option) {
+//   NPC.call(this, option);
+//   this.faction = option.faction;
+//   this.weapons = option.weapons;
+//   this.language = option.language;
+// }
+// Humanoid.prototype = Object.create(NPC.prototype);
+
+// Humanoid.prototype.greet = function () {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+// ############################ Actual Classes #################################
+
 function GameObject(option) {
   this.createdAt = new Date();
   this.dimensions = option.dimensions;
