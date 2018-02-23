@@ -21,9 +21,9 @@ class User {
 // `meow` that should return the string `<name> meowed!` where `<name>` is the `name`
 // property set on the Cat instance.
 class Animal {
-  
+
 }
-class cat extends Animal{
+class cat extends Animal {
 
 }
 // code here
