@@ -22,8 +22,10 @@
 // code here
 
 /* eslint-disable no-undef */
-
+/*
 module.exports = {
   User,
   Cat,
 };
+*/
+console.log('test')
