@@ -30,16 +30,22 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
+  this.checkPassword(passwordToCompare);
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
+
 // .call
+console.log(me.checkPassword.call(me, 'correcthorsebatterystaple'));
 
 // .apply
+console.log(me.checkPassword.apply(me, ['correcthorsebatterystaple']));
 
 // .bind
+const boundFunction = me.checkPassword.bind(me);
+console.log(boundFunction('correcthorsebatterystaple'));
 
 function Animal(object) {
   this.type = object.type;
