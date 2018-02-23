@@ -6,7 +6,9 @@
   GameObject
     createdAt
     dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+    destroy() // prototype method -> returns the string 'Game object was removed from the game.' */
+
+    /*
 
   NPC
     hp
@@ -43,7 +45,6 @@
     ],
     language: 'Hamsterish',
   });
-
   hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
