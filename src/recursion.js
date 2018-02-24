@@ -26,15 +26,19 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  // property: values
-  // obj.key(obj)
-  const objectValue = Object.values(obj);
-  const firstValue = obj[objectValue[0]];
-  Object.keys(obj).forEach((key) => {
-    if (typeof obj[key] === 'object') return checkMatchingLeaves(obj[key]);
-    else if (obj[key] === firstValue) { return true; }
-  });
-  return false;
+  const result = [];
+  let dupCheck = true;
+  const recurse = (innerObj) => {
+    Object.keys(innerObj).forEach((key) => {
+      if (typeof innerObj[key] === 'object') recurse(innerObj[key]);
+      else {
+        result.push(innerObj[key]);
+        if (innerObj[key] !== result[0]) dupCheck = false;
+      }
+    });
+  };
+  recurse(obj);
+  return dupCheck;
 };
 
 /* eslint-enable no-unused-vars */
