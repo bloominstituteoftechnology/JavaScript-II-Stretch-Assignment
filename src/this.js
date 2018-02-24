@@ -49,3 +49,4 @@ checkPassword.call(me);
 // .apply
 checkPassword.apply(me);
 // .bind
+checkPassword.bind(me);
