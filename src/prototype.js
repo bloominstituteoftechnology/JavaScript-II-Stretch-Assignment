@@ -7,14 +7,14 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-   */ 
+   */
   function GameObject(att) {
     this.createdAt = att.createdAt;
     this.dimensions = att.dimensions;
   }
 
-  GameObject.prototype.destroy = function () {
-    return `Game object was removed from the game.`;
+  GameObject.prototype.destroy = () => {
+    return 'Game object was removed from the game.';
   };
 
    /*
@@ -33,12 +33,9 @@
 
   NPC.prototype = Object.create(GameObject.prototype);
 
-  NPC.prototype.takeDamage = function() {
+  NPC.prototype.takeDamage = () => {
     return `${this.name} took damage.`;
   };
-
-
-
     /*
   Humanoid
     faction
@@ -48,26 +45,22 @@
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC */
 
-    function Humanoid(humanoidatt) {
-      NPC.call(this, humanoidatt);
-      GameObject.call(this, humanoidatt);
-      this.faction = humanoidatt.faction;
-      this.weapons = humanoidatt.weapons;
-      this.language = humanoidatt.language;
+  function Humanoid(humanoidatt) {
+    NPC.call(this, humanoidatt);
+    GameObject.call(this, humanoidatt);
+    this.faction = humanoidatt.faction;
+    this.weapons = humanoidatt.weapons;
+    this.language = humanoidatt.language;
+  }
 
-    }
+  Humanoid.prototype = Object.create(GameObject.prototype);
+  Humanoid.prototype = Object.create(NPC.prototype);
 
-    Humanoid.prototype = Object.create(GameObject.prototype);
-    Humanoid.prototype = Object.create(NPC.prototype);
+  Humanoid.prototype.greet = () => {
+    return `${this.name} offers a greeting in ${this.language}`;
+  };
 
-    Humanoid.prototype.greet = function () {
-      return `${this.name} offers a greeting in ${this.language}`;
-    };
-
-    
-
-
-    /*
+/*
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
@@ -90,16 +83,14 @@
     language: 'Hamsterish',
   });
 
-  console.log(hamsterHuey.greet()); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  console.log(hamsterHuey.takeDamage()); // returns 'Hamster Huey took damage.'
-  console.log(hamsterHuey.destroy()); // returns 'Game object was removed from the game.'
-  console.log(hamsterHuey.language); 
-
+  // console.log(hamsterHuey.greet()); // returns 'Hamster Huey offers a greeting in Hamsterish'
+  // console.log(hamsterHuey.takeDamage()); // returns 'Hamster Huey took damage.'
+  // console.log(hamsterHuey.destroy()); // returns 'Game object was removed from the game.'
 
 /* eslint-disable no-undef */
 
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+  module.exports = {
+    GameObject,
+    NPC,
+    Humanoid,
+  };
