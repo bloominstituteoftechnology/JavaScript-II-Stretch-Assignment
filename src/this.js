@@ -11,11 +11,10 @@ class User {
     // set a username and password property on the user object that is created
   }
   checkPassword(password) {
-    if (this.password === password){
-         return true;
-    }else {
-        return false;
+    if (this.password === password) {
+      return true;
     }
+    return false;
   }
 
   // create a method on the User class called `checkPassword`
@@ -38,11 +37,10 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
-  if(this.password === passwordToCompare) {
+  if (this.password === passwordToCompare) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context

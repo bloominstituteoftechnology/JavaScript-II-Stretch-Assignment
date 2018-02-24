@@ -11,13 +11,13 @@ class User {
   constructor(email, password) {
     this.email = email;
     this.password = password;
-  };
+  }
   comparePasswords(password) {
-    if(this.password = password){
+    if (this.password === password) {
       return true;
     }
-      return false;
-  } 
+    return false;
+  }
 }
 
 // Part 2
@@ -33,9 +33,9 @@ class User {
 class Animal {
   constructor(options) {
     this.age = options.age;
-  };
+  }
   growOlder() {
-   return this.age++;
+    return this.age++;
   }
 }
 

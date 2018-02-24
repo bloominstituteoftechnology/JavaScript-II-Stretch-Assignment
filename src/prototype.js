@@ -12,7 +12,7 @@
     this.createdAt = attrs.createdAt;
     this.dimensions = attrs.dimensions;
   }
-  GameObject.prototype.destroy = function () {
+  GameObject.prototype.destroy = () => {
     return 'Game object was removed from the game';
   };
 /*
@@ -23,12 +23,12 @@
     // should inherit destroy() from GameObject's prototype
 */
   function NPC(npcAttrs) {
-    GameObject.call(this, npcAttrs); 
+    GameObject.call(this, npcAttrs);
     this.hp = npcAttrs.hp;
-    this.name = npcAttrs.name;   
+    this.name = npcAttrs.name;
   }
-  NPC.prototype.takeDamage = function () {
-    return `${name} took damage.`;
+  NPC.prototype.takeDamage = () => {
+    return `${this.name} took damage.`;
   };
 /*
   Humanoid
@@ -45,8 +45,8 @@
     this.weapons = hmnAttrs.weapons;
     this.language = hmnAttrs.language;
   }
-  Humanoid.prototype.greet = function () {
-    return `${name} offers a greeting in ${language}`;
+  Humanoid.prototype.greet = () => {
+    return `${this.name} offers a greeting in ${this.language}`;
   };
 /*
   Inheritance chain: Humanoid -> NPC -> GameObject
