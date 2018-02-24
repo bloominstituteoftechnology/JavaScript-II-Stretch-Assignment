@@ -87,38 +87,38 @@
 
 // ############################ Actual Classes #################################
 
-function GameObject(option) {
-  this.createdAt = new Date();
-  this.dimensions = option.dimensions;
+class GameObject {
+  constructor(option) {
+    this.createdAt = new Date();
+    this.dimensions = option.dimensions;
+  }
+  destroy() {
+    return 'Game object was removed from the game.';
+  }
 }
-GameObject.prototype.destroy = () => {
-  return 'Game object was removed from the game.';
-};
 
-
-function NPC(option) {
-  GameObject.call(this, option);
-  this.hp = option.hp;
-  this.name = option.name;
+class NPC extends GameObject {
+  constructor(option) {
+    super(option);
+    this.hp = option.hp;
+    this.name = option.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
-NPC.prototype = Object.create(GameObject.prototype);
 
-NPC.prototype.takeDamage = function takeDamage() {
-  return `${this.name} took damage.`;
-};
-
-function Humanoid(option) {
-  NPC.call(this, option);
-  this.faction = option.faction;
-  this.weapons = option.weapons;
-  this.language = option.language;
+class Humanoid extends NPC {
+  constructor(option) {
+    super(option);
+    this.faction = option.faction;
+    this.weapons = option.weapons;
+    this.language = option.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
 }
-Humanoid.prototype = Object.create(NPC.prototype);
-
-Humanoid.prototype.greet = function greet() {
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
-
 
 module.exports = {
   GameObject,
