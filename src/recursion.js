@@ -3,6 +3,7 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+<<<<<<< HEAD
   if (n === 1 || n === 0) return n;
   const numLimit = n;
   let numSequence = 2;
@@ -16,6 +17,10 @@ const nFibonacci = (n) => {
     return nextNumber(numSequence);
   };
   return nextNumber(numLimit);
+=======
+  if (n <= 1) return 1;
+  return nFibonacci(n - 2) + nFibonacci(n - 1);
+>>>>>>> 566b3ad1ec17f86faad64d11921a7bce101d56dd
 };
 
 // function fibonacci(num) {
@@ -25,6 +30,7 @@ const nFibonacci = (n) => {
 // console.log(fibonacci(5))
 
 const nFactorial = (n) => {
+<<<<<<< HEAD
     // factorial example: !5 = 5 * 4 * 3 * 2 * 1
     // return the factorial of `n`
   let count = n;
@@ -34,6 +40,12 @@ const nFactorial = (n) => {
     return n1;
   };
   return nextFactorial(n);
+=======
+  // factorial example: !5 = 5 * 4 * 3 * 2 * 1
+  // return the factorial of `n`
+  if (n === 0) return 1;
+  return n * nFactorial(n - 1);
+>>>>>>> 566b3ad1ec17f86faad64d11921a7bce101d56dd
 };
 
 // console.log(nFactorial(5));
