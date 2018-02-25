@@ -20,9 +20,44 @@
 // property set on the Cat instance.
 
 // code here
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+}
 
-/* eslint-disable no-undef */
+User.prototype.comparePasswords = function comparePasswords(password) {
+  return this.password === password;
+};
 
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+}
+
+Animal.prototype.growOlder = function growOlder() {
+  return ++this.age;
+};
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+}
+
+Cat.prototype = Object.create(Animal.prototype);
+
+Cat.prototype.meow = function meow() {
+  return `${this.name} meowed!`;
+};
+
+const snowball = new Cat({
+  name: 'Snowball II',
+  age: 5,
+});
 module.exports = {
   User,
   Cat,

@@ -84,42 +84,6 @@ Humanoid.prototype.greet = function greet(offer) {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
 
-const gameObject = new GameObject({
-  createdAt: new Date(),
-  dimensions: {
-    length: 5,
-    width: 5,
-    height: 15,
-  },
-});
-
-const npc = new NPC({
-  createdAt: new Date(),
-  dimensions: {
-    length: 5,
-    width: 5,
-    height: 15,
-  },
-  hp: 100,
-  name: 'Foofie',
-});
-
-const humanoid = new Humanoid({
-  createdAt: new Date(),
-  dimensions: {
-    length: 5,
-    width: 5,
-    height: 15,
-  },
-  hp: 100,
-  name: 'Foofie',
-  faction: 'Lannister',
-  weapons: [
-    'boomerang',
-  ],
-  language: 'Common Tongue',
-});
-
 /* eslint-disable no-undef */
 
 module.exports = {
