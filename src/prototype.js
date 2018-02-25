@@ -124,9 +124,12 @@ const hamsterHuey = new Humanoid({
 });
 
 
-hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
+// returns 'Hamster Huey offers a greeting in Hamsterish'
+console.log(hamsterHuey.greet());
+// returns 'Hamster Huey took damage.'
+console.log(hamsterHuey.takeDamage()); 
+// returns 'Game object was removed from the game.'
+console.log(hamsterHuey.destroy());
 
 /* eslint-disable no-undef */
 

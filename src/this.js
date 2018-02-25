@@ -13,8 +13,8 @@ class User {
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
-  checkPassword() {
-    return this.password === me.password;
+  checkPassword (passwordToCompare) {
+    return this.password === passwordToCompare;
   }
 }
 
@@ -23,8 +23,23 @@ const me = new User({
   password: 'correcthorsebatterystaple',
 });
 
-const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
-console.log(result);
+const john = new User({
+  username: 'LambdaSchool',
+  password: '7mango',
+});
+
+const edward = new User({
+  username: 'LambdaSchool',
+  password: 'secret',
+});
+
+const result = me.checkPassword('correcthorsebatterystaple'); 
+// should return `true`
+const result2 = john.checkPassword('7mango'); 
+const result3 = edward.checkPassword('secret'); 
+console.log(result3);
+console.log(result2);
+
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
@@ -39,7 +54,9 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
+console.log(checkPassword.call(me, 'correcthorsebatterystaple')); //pass
 // .apply
-console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
+console.log(checkPassword.apply(edward, ['correcthorsebatterystaple']));//fail
 // .bind
+console.log(checkPassword.apply(john, ['lkadf;lkasjdf;la']));//fail
+
