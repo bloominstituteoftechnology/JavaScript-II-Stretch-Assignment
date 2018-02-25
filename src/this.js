@@ -43,9 +43,11 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
-me.checkPassword('correcthorsebatterystaple');
+
 // .call
-
+console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
 // .apply
-
+console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
 // .bind
+const three = checkPassword.bind(me, 'correcthorsebatterystaple');
+console.log(three());
