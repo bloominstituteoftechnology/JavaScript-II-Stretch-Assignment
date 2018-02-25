@@ -49,6 +49,77 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+
+function GameObject(args) {
+  this.createdAt = args.createdAt;
+  this.dimensions = args.dimensions;
+}
+
+GameObject.prototype.destroy = function destroy() {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(args) {
+  GameObject.call(this, args);
+  this.hp = args.hp;
+  this.name = args.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function takeDamage() {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(args) {
+  NPC.call(this, args);
+  this.faction = args.faction;
+  this.weapons = args.weapons;
+  this.language = args.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function greet(offer) {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
+const gameObject = new GameObject({
+  createdAt: new Date(),
+  dimensions: {
+    length: 5,
+    width: 5,
+    height: 15,
+  },
+});
+
+const npc = new NPC({
+  createdAt: new Date(),
+  dimensions: {
+    length: 5,
+    width: 5,
+    height: 15,
+  },
+  hp: 100,
+  name: 'Foofie',
+});
+
+const humanoid = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 5,
+    width: 5,
+    height: 15,
+  },
+  hp: 100,
+  name: 'Foofie',
+  faction: 'Lannister',
+  weapons: [
+    'boomerang',
+  ],
+  language: 'Common Tongue',
+});
+
 /* eslint-disable no-undef */
 
 module.exports = {
