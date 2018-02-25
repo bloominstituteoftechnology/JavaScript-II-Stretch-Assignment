@@ -7,13 +7,33 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+    */
+  function GameObject(attr1) {
+    this.createdAt = attr1.createdAt;
+    this.dimensions = attr1.dimensions;
+  }
+  GameObject.prototype.destroy = () => {
+    return 'Game object was removed from the game.';
+  };
 
+/*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+*/
+  function NPC(attr2) {
+    GameObject.call(this, attr2);
+    this.hp = attr2.hp;
+    this.name = attr2.name;
+  }
+  NPC.prototype = Object.create(GameObject.prototype);
+  NPC.prototype.takeDamage = function () {
+    return `${this.name} took damage.`;
+  };
 
+/*
   Humanoid
     faction
     weapons
@@ -21,11 +41,25 @@
     greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC
+*/
+  function Humanoid(attr3) {
+    NPC.call(this, attr3);
+    this.faction = attr3.faction;
+    this.weapons = attr3.weapons;
+    this.language = attr3.language;
+  }
+  Humanoid.prototype = Object.create(NPC.prototype);
+  Humanoid.prototype.greet = function () {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  };
 
+/*
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
+*/
 
+/*
   Example:
 
   const hamsterHuey = new Humanoid({
@@ -47,12 +81,10 @@
   hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
 
 /* eslint-disable no-undef */
-
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+  module.exports = {
+    GameObject,
+    NPC,
+    Humanoid,
+  };
