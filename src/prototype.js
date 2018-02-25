@@ -13,7 +13,7 @@
     this.dimensions = attrs.dimensions;
   }
   GameObject.prototype.destroy = () => {
-    return 'Game object was removed from the game';
+    return 'Game object was removed from the game.';
   };
 /*
   NPC
@@ -27,9 +27,13 @@
     this.hp = npcAttrs.hp;
     this.name = npcAttrs.name;
   }
+
+  NPC.prototype = Object.create(GameObject.prototype);
+
   NPC.prototype.takeDamage = () => {
     return `${this.name} took damage.`;
   };
+
 /*
   Humanoid
     faction
@@ -45,8 +49,11 @@
     this.weapons = hmnAttrs.weapons;
     this.language = hmnAttrs.language;
   }
+
+  Humanoid.prototype = Object.create(NPC.prototype);
+
   Humanoid.prototype.greet = () => {
-    return `${this.name} offers a greeting in ${this.language}`;
+    return `${this.name} offers a greeting in ${this.language}.`;
   };
 /*
   Inheritance chain: Humanoid -> NPC -> GameObject

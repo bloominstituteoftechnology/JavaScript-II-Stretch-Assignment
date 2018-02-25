@@ -8,9 +8,9 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 class User {
-  constructor(email, password) {
-    this.email = email;
-    this.password = password;
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
   }
   comparePasswords(password) {
     if (this.password === password) {
@@ -35,7 +35,8 @@ class Animal {
     this.age = options.age;
   }
   growOlder() {
-    return this.age++;
+    this.age++;
+    return this.age;
   }
 }
 
