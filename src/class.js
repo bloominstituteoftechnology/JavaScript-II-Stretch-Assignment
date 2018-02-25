@@ -5,9 +5,18 @@
 // Set the `email` and `password` properties on the class.
 // Add a method called `comparePasswords`.  `comparePasswords` should have a parameter
 // for a potential password that will be compared to the `password` property.
-// Return true if the potential password matches the `password` property.  Otherwise return false.
-
-// code here
+// Return true if the potential password matches the `password` property.
+// Otherwise return false.
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(enteredPassword) {
+    if (this.password === enteredPassword) return true;
+    return false;
+  }
+}
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
@@ -19,7 +28,25 @@
 // `meow` that should return the string `<name> meowed!` where `<name>` is the `name`
 // property set on the Cat instance.
 
-// code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    this.age++;
+    return this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
 
 /* eslint-disable no-undef */
 
