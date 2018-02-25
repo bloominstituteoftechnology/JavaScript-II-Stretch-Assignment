@@ -7,7 +7,7 @@
 class User {
   constructor(options) {
     // set a username and password property on the user object that is created
-    this.username = options.user;
+    this.username = options.username;
     this.password = options.password;
   }
   // create a method on the User class called `checkPassword`
@@ -18,11 +18,10 @@ class User {
     return false;
   }
 }
+const filler = { username: 'LambdaSchool',
+  password: 'correcthorsebatterystaple' };
 
-const me = new User({
-  username: 'LambdaSchool',
-  password: 'correcthorsebatterystaple',
-});
+const me = new User(filler);
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 // console.log(result);
@@ -47,7 +46,6 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // .call
 // console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
-
 // .apply
 // console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
 

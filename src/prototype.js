@@ -49,6 +49,80 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+// function GameObject(attr) {
+//   this.createdAt = attr.createdAt;
+//   this.dimensions = attr.dimensions;
+// }
+
+// GameObject.prototype.destroy = function () {
+//   return 'Game object was removed from the game.';
+// };
+
+// function NPC(npcAttrs) {
+//   GameObject.call(this, npcAttrs);
+//   this.hp = npcAttrs.hp;
+//   this.name = npcAttrs.name;
+// }
+
+// NPC.prototype = Object.create(GameObject.prototype);
+
+// NPC.prototype.takeDamage = function () {
+//   return `${this.name} took damage.`;
+// };
+
+// function Humanoid(humanAttrs) {
+//   NPC.call(this, humanAttrs);
+//   this.faction = humanAttrs.faction;
+//   this.weapons = humanAttrs.weapons;
+//   this.language = humanAttrs.language;
+// }
+
+// Humanoid.prototype = Object.create(NPC.prototype);
+
+// Humanoid.prototype.greet = function () {
+//   return `${this.name} offers a greeting in ${this.language}.`;
+// };
+
+class GameObject {
+  constructor(attrs) {
+    this.createdAt = attrs.createdAt;
+    this.dimensions = attrs.dimensions;
+  }
+  //This method was causing 'this expected' linter error.
+  // destroy() {
+  //   return 'Game object was removed from the game.';
+  // }
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+class NPC extends GameObject {
+  constructor(npcAttrs) {
+    super(npcAttrs);
+    this.hp = npcAttrs.hp;
+    this.name = npcAttrs.name;
+  }
+
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humanoidAttrs) {
+    super(humanoidAttrs);
+    this.faction = humanoidAttrs.faction;
+    this.weapons = humanoidAttrs.weapons;
+    this.language = humanoidAttrs.language;
+  }
+
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
 /* eslint-disable no-undef */
 
 module.exports = {
