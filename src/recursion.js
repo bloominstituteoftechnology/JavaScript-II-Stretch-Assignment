@@ -8,6 +8,9 @@ const nFibonacci = (n) => {
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  const nextN = n - 1;
+  if (n === 1) return n;
+  return n * nFactorial(nextN);
 };
 
 /* Extra Credit */
