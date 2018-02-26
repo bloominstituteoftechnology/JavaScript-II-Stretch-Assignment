@@ -52,72 +52,71 @@ Humanoid
 
 // ############ GameObject ##########
 
-function GameObject(gameObjAttr) {
-  this.createdAt = gameObjAttr.createdAt;
-  this.dimensions = gameObjAttr.dimensions;
-}
+class GameObject {
+  constructor(gameObjAttr) {
+    this.createdAt = gameObjAttr.createdAt;
+    this.dimensions = gameObjAttr.dimensions;
+    this.objectname = 'Game object ';
+  }
 
-GameObject.prototype.destroy = () => {
-  return 'Game object was removed from the game.';
-};
+  destroy() {
+    return `${this.objectname}was removed from the game.`;
+  }
+}
 
 
 // ############ NPC ##################
 
-function NPC(npcAttr) {
-  GameObject.call(this, npcAttr);
-  this.hp = npcAttr.hp;
-  this.name = npcAttr.name;
+class NPC extends GameObject {
+  constructor(npcAttr) {
+  //  GameObject.call(this, npcAttr);
+    super(npcAttr);
+    this.hp = npcAttr.hp;
+    this.name = npcAttr.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
 }
-
-NPC.prototype = Object.create(GameObject.prototype);
-
-NPC.prototype.takeDamage = function () {
-  return `${this.name} took damage.`;
-};
 
 // ########### Humanoid ################
 
-function Humanoid(humanAttr) {
-  this.faction = humanAttr.faction;
-  this.weapons = humanAttr.weapons;
-  this.language = humanAttr.language;
-  this.companion = humanAttr.companion;
-  NPC.call(this, humanAttr);
-  GameObject.call(this, humanAttr);
+class Humanoid extends NPC {
+  constructor(humanAttr) {
+    super(humanAttr);
+    this.faction = humanAttr.faction;
+    this.weapons = humanAttr.weapons;
+    this.language = humanAttr.language;
+    this.companion = humanAttr.companion;
+  // NPC.call(this, humanAttr);
+  // GameObject.call(this, humanAttr);
+  }
+
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+
+  attack() {
+    return `${this.name} uses ${this.weapon}`;
+  }
 }
 
-Humanoid.prototype = Object.create(NPC.prototype);
-
-Humanoid.prototype.greet = function () {
-  // if (language === 'English') {
-  //   return 'Hello!';
-  // }
-  // if (language === 'Russian') {
-  //   return 'Здравствуйте';
-  // }
-
-  return `${this.name} offers a greeting in ${this.language}.`;
-};
-
-Humanoid.prototype.attack = (attackMove) => {
-  return `${Humanoid.name} uses ${humanAttr.weapon}`;
-};
 
  // ########## Animal #############
 
-function Animal(animalAttr) {
-  this.species = animalAttr.species;
-  this.owner = animalAttr.owner;
-}
-
-Animal.prototype = Object.create(NPC.prototype);
-
-Animal.prototype.sound = () => {
-  if (animalAttr.species === 'Dog') {
-    return 'Bark!' || 'Woof!' || 'Grrrr...';
+class Animal extends NPC {
+  constructor(animalAttr) {
+    super(animalAttr);
+    this.species = animalAttr.species;
+    this.owner = animalAttr.owner;
   }
-};
+
+  sound() {
+    if (this.species === 'Dog') {
+      return 'Bark!' || 'Woof!' || 'Grrrr...';
+    }
+  }
+}
 
 
  // ########### Hero ############
