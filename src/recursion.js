@@ -5,7 +5,7 @@ const nFibonacci = (n) => {
   // return the nth number in the sequence
   if (n === 1 || n === 0) return n;
   let result = 0;
-  result += nFibonacci(n - 2) + nFibonacci(n - 1);
+  result = nFibonacci(n - 2) + nFibonacci(n - 1);
   return result;
 };
 
