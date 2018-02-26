@@ -43,6 +43,7 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
+User.prototype.checkPassword = checkPassword;
 // .call
 
 // .apply
