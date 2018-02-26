@@ -37,7 +37,6 @@ class Animal {
   }
   growOlder(age) {
     return ++this.age;
-    // increment before
   }
 }
 
