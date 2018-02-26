@@ -7,13 +7,36 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+*/
 
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
+
+GameObject.prototype.destroy = function destroy() {
+  return 'Game object was removed from the game.';
+};
+
+/*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+*/
+function NPC(options) {
+  GameObject.call(this, options);
+  this.hp = options.hp;
+  this.name = options.name;
+}
 
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function takeDamage() {
+  return (`${this.name} took damage.`);
+};
+
+/*
   Humanoid
     faction
     weapons
@@ -27,27 +50,40 @@
   Instances of NPC should have all of the same properties as GameObject.
 
   Example:
+ */
 
-  const hamsterHuey = new Humanoid({
-    createdAt: new Date(),
-    dimensions: {
-      length: 2,
-      width: 1,
-      height: 1,
-    },
-    hp: 5,
-    name: 'Hamster Huey',
-    faction: 'Gooey Kablooie',
-    weapons: [
-      'bubblegum',
-    ],
-    language: 'Hamsterish',
-  });
+function Humanoid(options) {
+  NPC.call(this, options);
+  GameObject.call(this, options);
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+}
 
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function greet() {
+  return (`${this.name} offers a greeting in ${this.language}.`);
+};
+
+const hamsterHuey = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: [
+    'bubblegum',
+  ],
+  language: 'Hamsterish',
+});
+
+hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
+hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
+hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 
 /* eslint-disable no-undef */
 
