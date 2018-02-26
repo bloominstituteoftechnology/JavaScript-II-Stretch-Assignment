@@ -22,6 +22,11 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const keys = Object.keys(obj);
+  keys.forEach((item) => {
+    const firstElement = keys[0];
+    if (item === firstElement) return item;
+  });
 };
 
 /* eslint-enable no-unused-vars */
