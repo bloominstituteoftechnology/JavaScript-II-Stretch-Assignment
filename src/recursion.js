@@ -3,11 +3,21 @@
 const nFibonacci = (n) => {
   // fibonacci sequence: 1 1 2 3 5 8 13 ...
   // return the nth number in the sequence
+  if (n <= 1) return n;
+  return nFibonacci(n - 2) + nFibonacci(n - 1);
+  // let x = 5
+  // nFibonnaci(x)
+  // nFibonnaci(3) + nFibonnaci(4)
+  // nFib(1) + nFib(2) + nFib(2) + nFib(3)
+  // 1 + 0
 };
 
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
+  if (n === 0) {
+    return 1;
+  } return n * nFactorial(n - 1);
 };
 
 /* Extra Credit */
