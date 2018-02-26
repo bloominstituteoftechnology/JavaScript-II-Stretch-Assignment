@@ -29,10 +29,12 @@
   }
 
   NPC.prototype = Object.create(GameObject.prototype);
+  NPC.prototype.constructor = NPC;
 
-  NPC.prototype.takeDamage = () => {
+  NPC.prototype.takeDamage = function () {
     return `${this.name} took damage.`;
   };
+
 
 /*
   Humanoid
@@ -51,8 +53,9 @@
   }
 
   Humanoid.prototype = Object.create(NPC.prototype);
+  Humanoid.prototype.constructor = Humanoid;
 
-  Humanoid.prototype.greet = () => {
+  Humanoid.prototype.greet = function () {
     return `${this.name} offers a greeting in ${this.language}.`;
   };
 /*
@@ -77,11 +80,11 @@
     ],
     language: 'Hamsterish',
   });
-
   hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+
 /* eslint-disable no-undef */
   module.exports = {
     GameObject,
