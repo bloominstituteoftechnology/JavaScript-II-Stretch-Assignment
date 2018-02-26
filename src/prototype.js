@@ -49,6 +49,39 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+class GameObject {
+  constructor(att) {
+    this.createdAt = att.createdAt;
+    this.dimensions = att.dimensions;
+  }
+  destroy() {
+    return 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(att) {
+    super(att);
+    this.hp = att.hp;
+    this.name = att.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+  }
+
+class Humanoid extends NPC {
+  constructor(att) {
+    super(att);
+    this.faction = att.faction;
+    this.weapons = att.weapons;
+    this.language = att.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+    }
+
 /* eslint-disable no-undef */
 
 module.exports = {
