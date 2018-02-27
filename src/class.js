@@ -21,6 +21,14 @@
 
 // code here
 
+class User {
+  constructor(options) {
+    this.email = email;
+    this.password = password;
+  }
+  comparePasswords(passwords)
+}
+
 /* eslint-disable no-undef */
 
 module.exports = {
