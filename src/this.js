@@ -7,6 +7,13 @@
 class User {
   constructor(options) {
     // set a username and password property on the user object that is created
+    this.username = options.username;
+    this.password = options.password;
+    };
+    
+    checkPassword (pw) {
+      if(this.password === pw) return true;
+      return false;
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
@@ -19,6 +26,8 @@ const me = new User({
 });
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
+
+console.log(result);
 
 /* part 2 */
 
