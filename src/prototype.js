@@ -42,7 +42,7 @@ function NPC(options) {
 
 NPC.prototype = Object.create(GameObject.prototype);
 
-NPC.prototype.takeDamage = function () {
+NPC.prototype.takeDamage = function takeDamage() {
   return `${this.name} took damage.`;
 };
 
@@ -56,7 +56,7 @@ function Humanoid(options) {
 
 Humanoid.prototype = Object.create(NPC.prototype);
 
-Humanoid.prototype.greet = function () {
+Humanoid.prototype.greet = function greet() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
 
