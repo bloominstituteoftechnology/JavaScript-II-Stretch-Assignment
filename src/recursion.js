@@ -17,23 +17,12 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  const limitFunctionCallCount = (n, testvalue) => {
-    // Should return a function that invokes `cb`.
-    // The returned function should only allow `cb` to be invoked `n` times.
-    let count = 0;
-    return () => {
-      if (count === n) return null;
-      count++;
-      return testvalue;
-    };
-  };
 
   // return true if every property on `obj` is the same
   // otherwise return false
   const arrValues = Object.values(obj);
   for (let i = 0; i < arrValues.length; i++) {
     if (typeof obj === typeof arrValues[i]) return checkMatchingLeaves(arrValues[i]);
-    
     if (arrValues[i] !== 1) return false;
   }
   return true;
