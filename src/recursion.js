@@ -17,16 +17,35 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-
   // return true if every property on `obj` is the same
   // otherwise return false
-  const arrValues = Object.values(obj);
-  for (let i = 0; i < arrValues.length; i++) {
-    if (typeof obj === typeof arrValues[i]) return checkMatchingLeaves(arrValues[i]);
-    if (arrValues[i] !== 1) return false;
+  let flag = true;
+  let val = 0;
+
+  const valueScimmer = Object.values(obj);
+
+  valueScimmer.forEach((el) => {
+    if (val === 0 && typeof el !== 'object') {
+      val = el;
+      return undefined;
+    }
+  });
+
+  function checkLeaves(ob) {
+    const arrValues = Object.values(ob);
+
+    for (let i = 0; i < arrValues.length; i++) {
+      if (typeof arrValues[i] === 'object') {
+        checkLeaves(arrValues[i]);
+      } else {
+        if (arrValues[i] !== val) flag = false;
+      }
+    }
   }
-  return true;
-};
+  
+  checkLeaves(obj);
+  return flag;
+  };
 
 /* eslint-enable no-unused-vars */
 
