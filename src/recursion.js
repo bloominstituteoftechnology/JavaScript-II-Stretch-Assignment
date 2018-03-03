@@ -37,15 +37,14 @@ const checkMatchingLeaves = (obj) => {
     for (let i = 0; i < arrValues.length; i++) {
       if (typeof arrValues[i] === 'object') {
         checkLeaves(arrValues[i]);
-      } else {
-        if (arrValues[i] !== val) flag = false;
+      } else if (arrValues[i] !== val) {
+        flag = false;
       }
     }
   }
-  
   checkLeaves(obj);
   return flag;
-  };
+};
 
 /* eslint-enable no-unused-vars */
 
