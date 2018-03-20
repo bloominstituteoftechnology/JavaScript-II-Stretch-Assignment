@@ -48,6 +48,55 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+// GameObject
+//     createdAt
+//     dimensions
+//     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+function GameObject(construct) {
+  this.createdAt = construct.createdAt;
+  this.dimensions = construct.dimensions;
+}
+GameObject.prototype = {
+  destroy() {
+    return 'Game object was removed from the game.';
+  },
+};
+
+// NPC
+// hp
+// name
+// takeDamage() // prototype method -> returns the string '<object name> took damage.'
+// // should inherit destroy() from GameObject's prototype
+function NPC(construct) {
+  GameObject.call(this, construct);
+  this.hp = construct.hp;
+  this.name = construct.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.constructor = NPC;
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+// Humanoid
+//     faction
+//     weapons
+//     language
+//     greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+//     // should inherit destroy() from GameObject through NPC
+//     // should inherit takeDamage() from NPC
+function Humanoid(construct) {
+  NPC.call(this, construct);
+  this.faction = construct.faction;
+  this.weapons = construct.weapons;
+  this.language = construct.language;
+}
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.constructor = Humanoid;
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 /* eslint-disable no-undef */
 
