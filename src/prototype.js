@@ -1,3 +1,65 @@
+// const GameObject = {
+//   createdAt: new Date(),
+//   dimensions: {
+//     length: 5,
+//     width: 6,
+//     height: 7,
+//   },
+//   destroy: () => {
+//     return 'Game object was removed from the game';
+//   },
+// };
+
+// const NPC = Object.create(GameObject);
+// NPC.hp = 100;
+// NPC.name = 'Cesar';
+// NPC.takeDamage = () => {
+//   return `${NPC.name} took damage.`;
+// };
+
+// const Humanoid = Object.create(NPC);
+// Humanoid.faction = 'LA Locos';
+// Humanoid.weapons = 'bat';
+// Humanoid.language = 'Spanglish';
+// Humanoid.greet = () => {
+//   return `${Humanoid.name} offers a greeting in ${Humanoid.language}.`;
+// };
+
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
+}
+
+GameObject.prototype.destroy = () => {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(options) {
+  GameObject.call(this, options);
+  this.hp = options.hp;
+  this.name = options.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function takeDamage() {
+  return `${this.name} took damage.`;
+};
+
+
+function Humanoid(options) {
+  NPC.call(this, options);
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function greet() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
