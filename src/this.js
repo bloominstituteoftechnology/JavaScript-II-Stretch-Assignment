@@ -15,7 +15,7 @@ class User {
   // return `true` if they match, otherwise return `false`
   checkPassword(check) {
     return this.password === check;
-  };
+  }
 }
 
 const me = new User({
@@ -41,10 +41,10 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // .call
 checkPassword.call(me, 'correcthorsebatterystaple');
 // .apply
-let passwords = ['correcthorsebatterystaple'];
+const passwords = ['correcthorsebatterystaple'];
 checkPassword.apply(me, passwords);
 
 // .bind
-let newFunc = checkPassword.bind(me);
+const newFunc = checkPassword.bind(me);
 
 newFunc('correcthorsebatterystaple');
