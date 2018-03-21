@@ -14,52 +14,33 @@ const nFactorial = (n) => {
   return n * nFactorial(n - 1);
 };
 
+/* Extra Credit */
 // flatten object
 // TODO
-// var flattenObject = function(ob) {
-//   return Object.keys(ob).reduce(function(toReturn, k) {
-//     if (Object.prototype.toString.call(ob[k]) === '[object Date]') {
-//       toReturn[k] = ob[k].toString();
-//     } else if (typeof ob[k] === 'object' && ob[k]) {
-//       var flatObject = flattenObject(ob[k]);
-//       Object.keys(flatObject).forEach(function(k2) {
-//         toReturn[k + '.' + k2] = flatObject[k2];
-//       });
-//     } else {
-//       toReturn[k] = ob[k];
-//     }
+// https://jsbin.com/qomajibine/edit?js,console
 
-//     return toReturn;
-//   }, {});
-// };
-// var now = new Date();
-// var o = {
-//   a: 4,
-//   b: 'string b',
-//   c: {
-//     d: null,
-//     e: 3,
-//     f: {
-//       g: 'string g',
-//       h: ['in', 'an', 'array', { i: 'sneaky string in object of array' }],
-//       i: undefined,
-//     },
-//     j: now,
-//   },
-// };
-// console.log(flattenObject(o));
-const flattenObject = nestedObject => nestedObject;
+const flattenObject = (nestedObject) => {
+  return Object.keys(nestedObject).reduce((toReturn, curKey) => {
+    // check if current key/val is an object
+    if (typeof nestedObject[curKey] === 'object' && nestedObject[curKey]) {
+      // flatten the object
+      const flatObject = flattenObject(nestedObject[curKey]);
+      // add that flattened object back into the main object
+      Object.keys(flatObject).map(key => (toReturn[key] = flatObject[key]));
+    } else toReturn[curKey] = nestedObject[curKey];
+    return toReturn;
+  }, {});
+};
 
-/* Extra Credit */
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
 
   // flatten object
-  flattenObject(Object.assign({}, obj));
+  const flat = flattenObject(Object.assign({}, obj));
 
   // obj needs to be flattened
-  const t = new Set(Object.values(obj));
+  const t = new Set(Object.values(flat));
 
   if (t.size === 1) return true;
   return false;
