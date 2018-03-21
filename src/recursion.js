@@ -39,7 +39,7 @@ const checkMatchingLeaves = (obj) => {
   };
 
   // Work function, recurses object by pruning a leaf and returning false if
-  // the leaf does not match the next to be prune. Returns true if all leaves 
+  // the leaf does not match the next to be prune. Returns true if all leaves
   // but the last have been pruned
   const recurse = (object) => {
     const keys = Object.keys(object);
