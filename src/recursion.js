@@ -22,23 +22,39 @@ const nFactorial = (n) => {
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
-  // return true if every property on `obj` is the same
-  // otherwise return false
-  const keys = Object.keys(obj);
-  if (keys.length === 1) {
-    return true;
-  }
+  obj = Object.assign({}, obj);
 
-  if (typeof obj[keys[0]] === 'object') {
-    return checkMatchingLeaves(Object.assign(obj, obj[keys[0]]));
-  }
+  // Work should only be done on leaves, turn the object into only leaves first
+  // Any leaves overwritten by nested copies will not cause incorrect return
+  const flatten = (object) => {
+    const keys = Object.keys(object);
+    for (let i = 0; i < keys.length; i++) {
+      if (typeof object[keys[i]] === 'object') {
+        object = Object.assign(object, object[keys[i]]);
+        delete object[keys[i]];
+        return flatten(object);
+      }
+    }
+    return object;
+  };
 
-  if (obj[keys[0]] !== obj[keys[1]]) {
-    return false;
-  }
+  // Work function, recurses object by pruning a leaf and returning false if
+  // the leaf does not match the next to be prune. Returns true if all leaves 
+  // but the last have been pruned
+  const recurse = (object) => {
+    const keys = Object.keys(object);
+    if (keys.length === 1) {
+      return true;
+    }
+    if (object[keys[0]] !== object[keys[1]]) {
+      return false;
+    }
+    delete object[keys[0]];
+    return recurse(object);
+  };
 
-  delete obj[keys[0]];
-  return checkMatchingLeaves(obj);
+  obj = flatten(obj);
+  return recurse(obj);
 };
 
 /* eslint-enable no-unused-vars */
