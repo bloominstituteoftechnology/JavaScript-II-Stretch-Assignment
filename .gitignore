@@ -1,2 +1,9 @@
 *.swp
 node_modules
+.idea/inspectionProfiles/Project_Default.xml
+.idea/JavaScript-II.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/watcherTasks.xml
+.idea/workspace.xml
