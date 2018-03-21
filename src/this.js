@@ -13,13 +13,12 @@ class User {
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
-  checkPassword (passwordCheck) {
-    if(this.password === passwordCheck) {
+  checkPassword(passwordCheck) {
+    if (this.password === passwordCheck) {
       return true;
-    } else {
-      return false;
     }
-  };
+    return false;
+  }
 }
 
 const me = new User({
@@ -37,11 +36,10 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
-  if(this.password === passwordToCompare) {
+  if (this.password === passwordToCompare) {
     return true;
-  } else {
-    return false;
   }
+  return false;
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
@@ -50,7 +48,7 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // .call
 console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
 // .apply
-const possiblePasswords = ['correcthorsebatterystaple', 'notcorrecthorsebatterystaple']
-console.log(checkPassword.apply(me, possiblePasswords)); //only checks the first element, but I needed an array for syntax apparently
+const possiblePasswords = ['correcthorsebatterystaple', 'notcorrecthorsebatterystaple'];
+console.log(checkPassword.apply(me, possiblePasswords)); // only checks the first element, but I needed an array for syntax apparently
 // .bind
 console.log(checkPassword.bind(me, 'correcthorsebatterystaple'));
