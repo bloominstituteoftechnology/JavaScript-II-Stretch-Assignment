@@ -46,8 +46,10 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 checkPassword.call(me, 'correcthorsebatterystaple')
 
 // .apply
-checkPassword.apply(me, this.password)
+checkPassword.apply(me, ['correcthorsebatterystaple'])
 
 
 // .bind
-let newBind = checkPassword.bind(me, 'correcthorsebatterystaple')
+let newBind = checkPassword.bind(me, 'correcthorsebatterystaple');
+newBind();
+// console.log("newBind: "  + newBind());
