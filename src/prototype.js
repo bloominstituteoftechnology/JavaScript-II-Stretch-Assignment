@@ -49,6 +49,7 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+
 /* eslint-disable no-undef */
 
 module.exports = {
