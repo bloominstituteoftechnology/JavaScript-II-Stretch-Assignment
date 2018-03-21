@@ -45,8 +45,15 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
+console.log(checkPassword.call(me, 'correcthorsebatterystaple')); //returns true
+console.log(checkPassword.call(me, 'negative')); //returns false
 
 // .apply
+console.log(checkPassword.apply(me, ['correcthorsebatterystaple'])); //returns true
+console.log(checkPassword.apply(me, ['negative'])); //returns false
 
 // .bind
+const bind = checkPassword.bind(me, ['correcthorsebatterystaple']);
+bind(); //returns true
+const bindz= checkPassword.bind(me, ['negative']);
+bindz(); //returns false
