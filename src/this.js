@@ -45,4 +45,4 @@ checkPassword.call(me, ['correcthorsebatterystaple']);
 checkPassword.apply(me, ['correcthorsebatterystaple']);
 
 // .bind
-checkPassword.bind(me, ['correcthorsebatterystaple']);
+checkPassword.bind(me, ['correcthorsebatterystaple'])
