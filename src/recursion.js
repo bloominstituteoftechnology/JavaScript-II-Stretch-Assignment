@@ -43,7 +43,7 @@ const checkMatchingLeaves = (obj) => {
     return false;
   }
   // recursive case
-  delete obj.[keys[i]];
+  // delete obj.[keys[i]];
   i++;
   return checkMatchingLeaves(obj);
 };
@@ -53,17 +53,16 @@ const checkMatchingLeaves = (obj) => {
 //   // otherwise return false
 //   let keys = Object.keys(obj);
 //   let initial = keys[0];
-  
 //   for (let key of keys) {
 //     if (initial != key) {
-//       return false;  
-//     }  
+//       return false;
+//     }
 //   }
 //   return true;
 // };
 // // let obj = {a : 1, a : 1, a : 1, a : 1, a : 1};
-let obj = {a : 1, b : 1, c: 1, d : 1, e : 1};
-console.log(checkMatchingLeaves(obj));
+const obj = { a: 1, b: 1, c: 1, d: 1, e: 1 };
+// console.log(checkMatchingLeaves(obj));
 
 /* eslint-enable no-unused-vars */
 
