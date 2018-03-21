@@ -5,8 +5,16 @@
 /* part 1 */
 
 class User {
-  constructor(options) {
+  constructor(username, password) {
     // set a username and password property on the user object that is created
+    this.username = username;
+    this.password = password;
+  }
+  checkPassword(str) {
+    if (str === constructor.password) {
+      return true;
+    }
+    else { return false; }
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
