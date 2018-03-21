@@ -6,6 +6,9 @@
 
 class User {
   constructor(options) {
+    this.username = options.username;
+    this.password = options.password;
+    this.checkPassword = options.checkPassword;
     // set a username and password property on the user object that is created
   }
   // create a method on the User class called `checkPassword`
@@ -15,14 +18,20 @@ class User {
 
 const me = new User({
   username: 'LambdaSchool',
-  password: 'correcthorsebatterystaple',
+  password: 'SCisCool',
+  checkPassword(passwordToCompare) {
+    return this.password === passwordToCompare;
+  },
 });
 
-const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
+const result = me.checkPassword('CSisCool'); // should return `true`
+
+console.log(result);
 
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
+  return this.password === passwordToCompare;
   // recreate the `checkPassword` method that you made on the `User` class
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
@@ -33,7 +42,9 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-
+console.log(checkPassword.call(me, ...'CSisCool'));
 // .apply
-
+console.log(checkPassword.apply(me, ['CSisCool']));
 // .bind
+const checkPasswordMe = checkPassword.bind(me);
+console.log(checkPassword.bind(...'CSisCool'));
