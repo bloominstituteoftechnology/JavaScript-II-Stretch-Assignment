@@ -36,13 +36,19 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
+  if (passwordToCompare === this.password) {
+    return true;
+  }
+  return false;
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
 // .call
-
+checkPassword.call(me, 'inputpassword');
 // .apply
-
+checkPassword.apply(me 'inputpassword');
 // .bind
+checkPassword.bind(me);
+checkpassword('input password');
