@@ -7,30 +7,14 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-*/
 
-function GameObject(params) {
-  this.createdAt = params.createdAt; 
-  this.dimensions = params.dimensions; 
-}
-GameObject.prototype.destroy = () => 'Game object was removed from the game.';
-/*
-  NPC
+    NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
-*/
 
-function NPC(params) {
-  this.hp = params.hp; 
-  this.name = params.name;
-  GameObject.call(this, params); // inherit all the properties only from GameObject, not any method.
-}
-NPC.prototype = Object.create(GameObject.prototype); // inherit all the methods from GameObject, but not properties.
-NPC.prototype.takeDamage = () => `${this.name} took damage.`; 
-/*
-  Humanoid
+   Humanoid
     faction
     weapons
     language
@@ -42,19 +26,73 @@ NPC.prototype.takeDamage = () => `${this.name} took damage.`;
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
 */
+
+
+function GameObject(params) {
+  this.createdAt = params.createdAt; 
+  this.dimensions = params.dimensions; 
+}
+GameObject.prototype.destroy = function() {
+  return 'Game object was removed from the game.'
+};
+
+// es6
+// class GameObject {
+//   constructor(params) {
+//   this.createdAt = params.createdAt; 
+//   this.dimensions = params.dimensions; 
+//   }
+//   destroy(){
+//     return 'Game object was removed from the game.'
+//   }
+// }
+
+
+function NPC(params) {
+  GameObject.call(this, params); 
+  this.hp = params.hp; 
+  this.name = params.name;
+}
+NPC.prototype = Object.create(GameObject.prototype); 
+NPC.prototype.takeDamage = function(){ 
+  return `${this.name} took damage.`
+}; 
+
+// es6
+// class NPC extends GameObject {
+//   constructor(params) {
+//     super(params); 
+//     this.hp = params.hp; 
+//     this.name = params.name;
+//   }
+//   takeDamage(){
+//     return `${this.name} took damage.`
+//   }
+// }
+
 function Humanoid(params) {
+  NPC.call(this,params); 
   this.faction = params.faction; 
   this.weapons = params.weapons; 
   this.language = params.language; 
-  NPC.call(this,params); // to inherit all the properties form NPC, but not the methods.
 }
-Humanoid.prototype.greet = () => `${this.name} offers a greeting in ${this.language}.`;
-Humanoid.prototype = Object.create(NPC.prototype); // we are inheriting all the methods from NPC, NPC is inheriting form GameObject
-                                                  // Humanoin <-- NPC <--- GameObject.
+Humanoid.prototype = Object.create(NPC.prototype); 
+Humanoid.prototype.greet = function() { 
+  return `${this.name} offers a greeting in ${this.language}.`
+};
 
-Humanoid.prototype = Object.create(GameObject.prototype); // we dont need this as NPC already inherits all methods from GameObject.
-
-
+// es6
+// class Humanoid extends NPC {
+//   constructor(params) {
+//     super(params); 
+//     this.faction = params.faction; 
+//     this.weapons = params.weapons; 
+//     this.language = params.language; 
+//   }
+//   greet(){
+//     return `${this.name} offers a greeting in ${this.language}.`
+//   }
+// }
 
 /*
 Example:
