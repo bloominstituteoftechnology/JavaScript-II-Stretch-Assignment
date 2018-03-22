@@ -65,7 +65,7 @@ function NPC(npcAttributes) {
   this.name = npcAttributes.name;
 }
 
-NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype = Object.create(GameObject.prototype); //bridges NPC and Gameobject, always put BEFORE methods
 
 NPC.prototype.takeDamage = function() {
   return `${this.name} took damage.`;
@@ -78,14 +78,14 @@ function Humanoid(humanAttributes) {
   this.language = humanAttributes.language;
 }
 
-Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype = Object.create(NPC.prototype); //bridges Humanoid and NPC, always put BEFORE methods
 
 Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
 
 
-
+//creates a bob object, has NPC and GameObject attributes
 const bob = new Humanoid ({
   createdAt: 'now',
   dimensions: 'manlet',
