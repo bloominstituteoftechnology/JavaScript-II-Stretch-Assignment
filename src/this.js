@@ -44,5 +44,12 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // .call
 checkPassword.call(me,'correcthorsebatterystaple');
 // .apply
-
+let arr = [];
+arr.push(me.password);
+checkPassword.apply(me, arr);
 // .bind
+//let arr = [];
+arr.push(me.password);
+let binder = checkPassword.bind(me, ...arr);
+binder();
+//Pretty sure I am doing .apply and .bind in a weird contrived way
