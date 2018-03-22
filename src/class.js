@@ -13,8 +13,8 @@ class User {
     this.email = options.email;
     this.password = options.password;
   }
-  comparePasswords() {
-    if this.password === this.password {
+  comparePasswords(potentialPassword) {
+    if this.password === this.potentialPassword {
       return true;
       else {
         return false;
