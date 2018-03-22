@@ -13,8 +13,8 @@ class User {
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
-  checkPassword(str){
-    console.log(str === this.password);
+  checkPassword(str) {
+    // console.log(str === this.password);
     return str === this.password;
   }
 }
