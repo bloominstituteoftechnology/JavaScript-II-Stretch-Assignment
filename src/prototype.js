@@ -59,6 +59,7 @@ GameObject.prototype.destroy = function() {
 }
 
 function NPC(feature) {
+  GameObject.call(this, feature);
   this.hp = feature.hp;
   this.name = feature.name;
 }
@@ -68,6 +69,7 @@ NPC.prototype.takeDamage = function() {
 }
 
 function Humanoid(feature) {
+  NPC.call(this, feature);
   this.faction = feature.faction;
   this.weapons = feature.weapons;
   this.language = feature.language;
