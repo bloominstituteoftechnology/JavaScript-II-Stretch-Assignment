@@ -14,22 +14,29 @@ class User {
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
   checkPassword(str) {
-    // console.log(str === this.password);
-    return str === this.password;
-  }
+    if(str === this.password) {
+    console.log("true")
+    return true;
+    } console.log("false");
+     return false;
+  } 
 }
 const me = new User({
   username: 'LambdaSchool',
   password: 'correcthorsebatterystaple',
 });
 
-const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
-
+const result = me.checkPassword('lol'); // should return `true` or 'false' if false
+// will return false as a test^^^
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
-  if (this.password === passwordToCompare) return true;
+  if (passwordToCompare === this.password) {
+    console.log("true test 2");
+    return true;
+  }console.log("false test 2");
   return false;
+
   // recreate the `checkPassword` method that you made on the `User` class
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
@@ -40,7 +47,9 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-
+checkPassword.call(me, 'correcthorseblatterystaple');
+// will also return false as a test^^^^^
 // .apply
-
+checkPassword.apply(me, ['correcthorsebatterystaple']);
 // .bind
+checkPassword.bind(me, 'correcthorsebatterystaple')();
