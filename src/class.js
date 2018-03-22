@@ -13,7 +13,16 @@ class User {
     this.email = options.email;
     this.password = options.password;
   }
+  comparePasswords() {
+    if this.password === this.password {
+      return true;
+      else {
+        return false;
+      }
+    }
+  }
 }
+
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
