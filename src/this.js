@@ -16,7 +16,13 @@ class User {
 const me = new User({
   username: 'LambdaSchool',
   password: 'correcthorsebatterystaple',
-});
+  checkPassword: function(n) {
+    if((this.password === n)
+    return true;
+    return false;
+  )};
+};
+
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 
@@ -33,6 +39,17 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
+
+const me = new User({
+  username: 'LambdaSchool',
+  password: 'correcthorsebatterystaple',
+  checkPassword: function(n) {
+    if((this.password === n)
+    return true;
+    return false;
+  )};
+};
+
 
 // .apply
 
