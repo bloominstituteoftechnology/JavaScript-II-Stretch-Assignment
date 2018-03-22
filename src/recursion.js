@@ -1,3 +1,5 @@
+// DONE - stretch goal
+
 // Complete the following functions.
 
 const nFibonacci = (n) => {
