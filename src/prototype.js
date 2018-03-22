@@ -21,7 +21,7 @@
     greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC
-
+  
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
@@ -49,7 +49,37 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+function GameObject(feature) {
+  this.createdAt = feature.createdAt;
+  this.dimensions = feature.dimensions;
+}
+
+GameObject.prototype.destroy = function() {
+  return `Game object was removed from the game.`;
+}
+
+function NPC(feature) {
+  this.hp = feature.hp;
+  this.name = feature.name;
+}
+
+NPC.prototype.takeDamage = function() {
+  return `${this.name} took damage.`;
+}
+
+function Humanoid(feature) {
+  this.faction = feature.faction;
+  this.weapons = feature.weapons;
+  this.language = feature.language;
+}
+
+Humanoid.prototype.greet = function() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+}
+
+
 /* eslint-disable no-undef */
+
 
 module.exports = {
   GameObject,
