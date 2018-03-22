@@ -7,13 +7,29 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+*/
 
+function GameObject(params) {
+  this.createdAt = params.createdAt; 
+  this.dimensions = params.dimensions; 
+}
+GameObject.prototype.destroy = () => 'Game object was removed from the game.';
+/*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+*/
 
+function NPC(params) {
+  this.hp = params.hp; 
+  this.name = params.name;
+  GameObject.call(this, params); // inherit all the properties only from GameObject, not any method.
+}
+NPC.prototype = Object.create(GameObject.prototype); // inherit all the methods from GameObject, but not properties.
+NPC.prototype.takeDamage = () => `${this.name} took damage.`; 
+/*
   Humanoid
     faction
     weapons
@@ -25,8 +41,23 @@
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
+*/
+function Humanoid(params) {
+  this.faction = params.faction; 
+  this.weapons = params.weapons; 
+  this.language = params.language; 
+  NPC.call(this,params); // to inherit all the properties form NPC, but not the methods.
+}
+Humanoid.prototype.greet = () => `${this.name} offers a greeting in ${this.language}.`;
+Humanoid.prototype = Object.create(NPC.prototype); // we are inheriting all the methods from NPC, NPC is inheriting form GameObject
+                                                  // Humanoin <-- NPC <--- GameObject.
 
-  Example:
+Humanoid.prototype = Object.create(GameObject.prototype); // we dont need this as NPC already inherits all methods from GameObject.
+
+
+
+/*
+Example:
 
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
@@ -48,7 +79,6 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
-
 /* eslint-disable no-undef */
 
 module.exports = {
