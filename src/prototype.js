@@ -56,7 +56,17 @@ function GameObject(options) {
 
 GameObject.prototype.destroy = function () {
   return 'Game object was removed from the game.';
+};
+
+function NPC(options) {
+  GameObject.call(this, options);
+  this.hp = options.hp;
+  this.name = options.name;
 }
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
 
 /* eslint-disable no-undef */
 
