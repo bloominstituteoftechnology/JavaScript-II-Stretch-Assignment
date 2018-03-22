@@ -86,7 +86,7 @@ Humanoid.prototype.greet = function() {
 
 
 //creates a bob object, has NPC and GameObject attributes
-const bob = new Humanoid ({
+const bob = new Humanoid({
   createdAt: 'now',
   dimensions: 'manlet',
   hp: 5,
