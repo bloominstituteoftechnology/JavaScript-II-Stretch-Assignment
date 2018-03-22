@@ -81,7 +81,7 @@ class Humanoid extends NPC {
     this.weapons = obj.weapons;
     this.language = obj.language;
   }
-  greet(params) {
+  greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
   }
   destroy() {
@@ -91,6 +91,21 @@ class Humanoid extends NPC {
     return `${this.name} took damage`;
   }
 }
+
+
+let hilal = new Humanoid({
+
+  faction: 'aissani',
+  weapons: 'caboss',
+  createdAt: 'settara',
+  dimentions: '2900000',
+  name: 'hilalala',
+  language: 'english',
+  hp: 7,
+
+});
+console.log(hilal);
+console.log(Humanoid.takeDamage());
 
 
 /* eslint-disable no-undef */
