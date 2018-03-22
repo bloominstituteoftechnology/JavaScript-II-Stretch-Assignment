@@ -6,18 +6,18 @@
 // GameObject
 //   createdAt
 //   dimensions
-//   destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+
 function GameObject(attribute) {
   this.createdAt = attribute.createdAt;
   this.dimensions = attribute.dimensions;
 }
-
+//   destroy() // prototype method -> returns the string 'Game object was removed from the game.'
 GameObject.prototype.destroy = () => {
   // const t = this;
-  return 'Game object was remmoved from the game.';
+  return 'Game object was removed from the game.';
 };
 
-// <alternative syntax method to avove>
+// <alternative syntax method to above>
 // GameObject.prototype.destroy = function() {
 //   if(this.destroy){
 //     return `Game object was remmoved from the game.`;
@@ -86,9 +86,9 @@ const hamsterHuey = new Humanoid({
   language: 'Hamsterish',
 });
 
-hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
+console.log(hamsterHuey.greet()); // returns 'Hamster Huey offers a greeting in Hamsterish'
+console.log(hamsterHuey.takeDamage()); // returns 'Hamster Huey took damage.'
+console.log(hamsterHuey.destroy()); // returns 'Game object was removed from the game.'
 
 
 /* eslint-disable no-undef */
