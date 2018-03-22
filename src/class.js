@@ -14,6 +14,10 @@ class User {
     this.email = options.email;
     this.password = options.password;
   }
+
+  comaprePassword(potentialPassword) {
+    return this.comaprePassword.password === potentialPassword;
+  }
 }
 
 // Part 2
