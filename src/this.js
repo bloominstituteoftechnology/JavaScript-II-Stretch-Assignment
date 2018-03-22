@@ -52,11 +52,11 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-checkPassword.call(User);
+checkPassword.call(User, string);
 
 // .apply
 checkPassword.apply(User, arr)
 
 // .bind
-newfFunction = checkPassword.bind(User,...arr)
+newfFunction = checkPassword.bind(User, ...arr)
 newFuncrtion();
