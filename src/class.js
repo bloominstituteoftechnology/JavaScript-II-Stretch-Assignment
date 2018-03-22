@@ -41,6 +41,16 @@ class Animal {
   }
 }
 
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
 
 /* eslint-disable no-undef */
 
