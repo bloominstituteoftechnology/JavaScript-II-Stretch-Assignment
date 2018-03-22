@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test recursion
+  C:\Program Files\nodejs\node.exe C:\Users\Natalie\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test class
 
 PATH: 
   C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files (x86)\Skype\Phone\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\Scripts\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\;C:\Users\Natalie\AppData\Local\Programs\Python\Python36-32\python.exe;;C:\Program Files\Microsoft VS Code\bin;C:\Users\Natalie\AppData\Local\Microsoft\WindowsApps;C:\Users\Natalie\AppData\Roaming\npm
@@ -55,7 +55,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c eslint tests/*.test.js && eslint src/*.js && jest --verbose recursion
+  Arguments: /d /s /c eslint tests/*.test.js && eslint src/*.js && jest --verbose class
   Directory: C:\Users\Natalie\Documents\LambdaSchool\JavaScript-II
   Output:
   

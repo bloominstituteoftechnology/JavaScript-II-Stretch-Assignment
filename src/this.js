@@ -24,27 +24,22 @@ const me = new User({
   },
 });
 
-const result = me.checkPassword('CSisCool'); // should return `true`
-
-console.log(result);
-
 /* part 2 */
-
-const checkPassword = function comparePasswords(passwordToCompare) {
-  return this.password === passwordToCompare;
+const myself = new User { 
+  return passwordToCompare === this.password;
+};
   // recreate the `checkPassword` method that you made on the `User` class
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
-};
+
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
 // .call
-console.log(checkPassword.call(me, ...'CSisCool'));
+checkPassword.call(me, ...'CSisCool');
 // .apply
-console.log(checkPassword.apply(me, ['CSisCool']));
+checkPassword.apply(me, ['CSisCool']);
 // .bind
-const checkPasswordMe = checkPassword.bind(me);
-console.log(checkPassword.bind(...'CSisCool'));
+checkPassword.bind(...'CSisCool');
