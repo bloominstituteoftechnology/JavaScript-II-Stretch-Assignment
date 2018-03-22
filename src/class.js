@@ -31,6 +31,16 @@ class User {
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+
+  growOlder() {
+    return ++this.age;
+  }
+}
+
 
 /* eslint-disable no-undef */
 
