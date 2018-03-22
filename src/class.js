@@ -6,6 +6,16 @@
 // Add a method called `comparePasswords`.  `comparePasswords` should have a parameter
 // for a potential password that will be compared to the `password` property.
 // Return true if the potential password matches the `password` property.  Otherwise return false.
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+
+  comparePasswords(input) {
+    return input === password;
+  }
+}
 
 // code here
 
@@ -20,6 +30,36 @@
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+
+  growOlder() {
+    return ++this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
+
+// const MrWhiskers = new Cat({
+//   age: 4,
+//   name: 'MrWhiskers'
+// });
+
+// console.log(MrWhiskers.meow());
+// console.log(MrWhiskers.age);
+// MrWhiskers.growOlder();
+// console.log(MrWhiskers.age);
 
 /* eslint-disable no-undef */
 
