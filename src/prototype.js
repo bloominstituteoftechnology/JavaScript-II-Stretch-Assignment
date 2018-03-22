@@ -38,7 +38,7 @@
      this.hp = npcAttributes.hp;
      this.name = npcAttributes.name;
    }
-      NPC.prototype = Object.create(GameObject.prototype);
+  NPC.prototype = Object.create(GameObject.prototype);
    NPC.prototype.takeDamage = function() {
     return `${this.name} took damage.`;
    }
