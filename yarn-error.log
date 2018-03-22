@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/bin/yarn test prototype
+  /usr/local/bin/node /usr/local/bin/yarn test class
 
 PATH: 
   /Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
@@ -55,7 +55,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: sh
-  Arguments: -c eslint tests/*.test.js && eslint src/*.js && jest --verbose prototype
+  Arguments: -c eslint tests/*.test.js && eslint src/*.js && jest --verbose class
   Directory: /Users/kevintan/git/Week3/JavaScript-II
   Output:
   

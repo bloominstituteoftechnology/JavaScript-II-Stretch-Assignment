@@ -15,9 +15,8 @@ class User {
     this.password = options.password;
   }
   comparePasswords(pass) {
-    if (pass === this.password) {
-      return true;
-    }
+    if (pass === this.password) return true;
+    return false;
   }
 }
 
