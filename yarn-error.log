@@ -1,8 +1,8 @@
 Arguments: 
-  E:\nodejs\node.exe C:\Users\harri\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test recursion
+  E:\nodejs\node.exe C:\Users\harri\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js test prototype
 
 PATH: 
-  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;E:\nodejs\;C:\Users\harri\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\harri\AppData\Local\GitHubDesktop\bin;C:\Users\harri\AppData\Roaming\npm
+  C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Git\cmd;E:\nodejs\;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Users\harri\AppData\Local\Microsoft\WindowsApps;C:\Program Files\Microsoft VS Code\bin;C:\Users\harri\AppData\Local\GitHubDesktop\bin;C:\Users\harri\AppData\Roaming\npm
 
 Yarn version: 
   1.5.1
@@ -3614,7 +3614,7 @@ Trace:
   Error: Command failed.
   Exit code: 1
   Command: C:\WINDOWS\system32\cmd.exe
-  Arguments: /d /s /c eslint tests/*.test.js && eslint src/*.js && jest --verbose recursion
+  Arguments: /d /s /c eslint tests/*.test.js && eslint src/*.js && jest --verbose prototype
   Directory: E:\JavaScript-II
   Output:
   

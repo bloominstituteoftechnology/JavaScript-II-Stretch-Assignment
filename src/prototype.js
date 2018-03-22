@@ -8,6 +8,7 @@
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
 
+
   NPC
     hp
     name
@@ -48,6 +49,34 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+
+/**
+ *   In this file you will be creating three classes:
+  GameObject
+    createdAt
+    dimensions
+    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+ */
+
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+}
+GameObject.prototype.destroy = () => 'Game object was removed from the game.';
+
+class NPC {
+  constructor(name) {
+    this.name = name;
+  }
+}
+
+class Humanoid {
+  constructor(name) {
+    this.name = name;
+  }
+}
 
 /* eslint-disable no-undef */
 
