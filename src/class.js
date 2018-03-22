@@ -15,8 +15,8 @@ class User {
     this.password = options.password;
   }
 
-  comaprePassword(potentialPassword) {
-    return this.comaprePassword.password === potentialPassword;
+  comparePasswords(potentialPassword) {
+    return this.password === potentialPassword;
   }
 }
 
