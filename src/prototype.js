@@ -1,32 +1,48 @@
-/*
-  Object oriented design is commonly used in video games.  For this part of the assignment
+
+ /* Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
+  In this file you will be creating three classes:*/
+ class GameObject {
+   constructor(options){
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+   }
+    destroy(){
+      return `Game object was removed from the game.`;
+    } // prototype method -> returns the string 'Game object was removed from the game.'
+}
 
-  In this file you will be creating three classes:
-  GameObject
-    createdAt
-    dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
+ class NPC extends GameObject {
+   constructor(npcOptions){
+    super(npcOptions)
+    this.isNPC = npcOptions.isNPC;
+    this.hp = npcOptions.hp;
+    this.name = npcOptions.name;
+   }
+    takeDamage() {
+      return `${this.name} took damage.`;
+    } // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
-
-  Humanoid
-    faction
-    weapons
-    language
-    greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+  }
+  class Humanoid extends NPC {
+    constructor(humanoidOptions){
+    super(humanoidOptions)
+    this.isHumanoid = humanoidOptions.isHumanoid;  
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+    }
+    greet() {
+      return `${this.name} offers a greeting in ${this.language}`;
+    } // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC
-
-  Inheritance chain: Humanoid -> NPC -> GameObject
+  }
+  /*Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
 
-  Example:
+  Example:*/
 
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
@@ -44,10 +60,10 @@
     language: 'Hamsterish',
   });
 
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
+ console.log(hamsterHuey.greet()); // returns 'Hamster Huey offers a greeting in Hamsterish'
+ console.log(hamsterHuey.takeDamage()); // returns 'Hamster Huey took damage.'
+ console.log(hamsterHuey.destroy()); // returns 'Game object was removed from the game.'
+
 
 /* eslint-disable no-undef */
 
