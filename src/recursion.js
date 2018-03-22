@@ -35,34 +35,38 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-  // base case: mismatched keys
-  let i = 1;
-  const keys = Object.keys(obj);
-  const initial = keys[0];
-  if (initial !== keys[i]) {
-    return false;
-  }
-  // recursive case
-  // delete obj.[keys[i]];
-  i++;
-  return checkMatchingLeaves(obj);
-};
 
-// const checkMatchingLeaves = (obj) => {
-//   // return true if every property on `obj` is the same
-//   // otherwise return false
-//   let keys = Object.keys(obj);
-//   let initial = keys[0];
-//   for (let key of keys) {
-//     if (initial != key) {
-//       return false;
-//     }
-//   }
-//   return true;
-// };
-// // let obj = {a : 1, a : 1, a : 1, a : 1, a : 1};
-const obj = { a: 1, b: 1, c: 1, d: 1, e: 1 };
-// console.log(checkMatchingLeaves(obj));
+  // initialize an array to hold properties only
+  const leaves = [];
+  const checkBranches = (object) => {
+    // test the properties of obj
+      // push 'branches' that are not objects {} to leaves
+    const keys = Object.keys(object);
+    keys.forEach((key) => {
+      if (typeof object[key] !== 'object') {
+        leaves.push(object[key]);
+      }
+      if (typeof object[key] === 'object') {
+        // recursive case: key is an obj
+          // go deeper into the obj to pull keys
+        checkBranches(object[key]);
+      }
+    });
+  };
+  // adds all non object keys into leaves array
+  checkBranches(obj);
+  // bool is a switch to let us know if all leaves are equal
+  let bool = true;
+  // check to see if each key is the same
+  leaves.reduce((a, b) => {
+    // false case
+    if (a !== b) {
+      bool = false;
+    }
+    return a;
+  });
+  return bool;
+};
 
 /* eslint-enable no-unused-vars */
 
