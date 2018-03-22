@@ -51,21 +51,30 @@
 
 /* eslint-disable no-undef */
 
-class GameObject {
-  constructor() {
-    this.createdAt = createdAt;
-    this.dimensions = dimensions;
-  }
-  static destroy() {
-    return 'Game object was removed from the game.';
-  }
+// class GameObject {
+//   constructor(options) {
+//     this.createdAt = options.createdAt;
+//     this.dimensions = options.dimensions;
+//   }
+//   static destroy() {
+//     return 'Game object was removed from the game.';
+//   }
+// }
+
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
 }
 
+GameObject.prototype.destroy = function destroy() {
+  return 'Game object was removed from the game.';
+};
+
 class NPC extends GameObject {
-  constructor() {
-    super(destroy());
-    this.hp = hp;
-    this.name = name;
+  constructor(npcOptions) {
+    super(npcOptions);
+    this.hp = npcOptions.hp;
+    this.name = npcOptions.name;
   }
   takeDamage() {
     return `${this.name} took damage.`;
@@ -73,11 +82,11 @@ class NPC extends GameObject {
 }
 
 class Humanoid extends NPC {
-  constructor() {
-    super(takeDamage());
-    this.faction = faction;
-    this.weapons = weapons;
-    this.language = language;
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
   }
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
