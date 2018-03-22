@@ -13,6 +13,7 @@ class User {
     this.email = options.email;
     this.password = options.password;
   }
+  //comparePasswords will compare .password with potentialPassword
   comparePasswords(potentialPassword) {
     if this.password === this.potentialPassword {
       return true;
@@ -35,6 +36,28 @@ class User {
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return ++this.age;
+  }
+}
+class Cat extends Animal {
+  constructor(options) {
+    super(options)
+    this.name = options.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
+
+const felix = new Cat({
+  age: 2,
+  name: 'Felix',
+});
 
 /* eslint-disable no-undef */
 
