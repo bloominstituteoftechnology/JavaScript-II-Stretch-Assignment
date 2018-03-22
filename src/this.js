@@ -45,5 +45,4 @@ checkPassword.call(me, 'sdflksjfesf');
 // .apply
 checkPassword.apply(me, 'sldfkjsdfsl');
 // .bind
-const myCheckPassword = checkPassword.bind(me, 'correcthorsebatterystaple')
-myCheckPassword();
+const myCheckPassword = checkPassword.bind(me, 'correcthorsebatterystaple');

@@ -14,7 +14,7 @@ const nFactorial = (n) => {
   if (n === 1 || n === 0) return n;
   result *= n * nFactorial(n - 1);
   return result;
-  };
+};
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {

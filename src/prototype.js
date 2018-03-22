@@ -56,7 +56,7 @@ class GameObject {
   destroy() {
     return 'Game object was removed from the game';
   }
-};
+}
 
 class NPC extends GameObject {
   constructor(npcOptions) {
@@ -65,17 +65,21 @@ class NPC extends GameObject {
     this.name = npcOptions.name;
   }
   takeDamage() {
-    return `${this.name} took damage.`
+    return `${this.name} took damage.`;
   }
 }
-// Humanoid
-// faction
-// weapons
-// language
-// greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
-// // should inherit destroy() from GameObject through NPC
-// // should inherit takeDamage() from NPC
 
+class Humanoid extends NPC {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
 // Inheritance chain: Humanoid -> NPC -> GameObject
 // Instances of Humanoid should have all of the same properties as NPC and GameObject.
 // Instances of NPC should have all of the same properties as GameObject.
