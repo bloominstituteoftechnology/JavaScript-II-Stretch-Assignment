@@ -5,22 +5,22 @@
 /* part 1 */
 
 class User {
-  constructor(options) {
+ // !!!! this had to be changed to take multiple arguments.......
+  constructor(username, password) {
     // set a username and password property on the user object that is created
-username: this.username,
-password: this.password
+    this.username = username;
+    this.password = password;
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
-  checkPassword: function(str){
-    if(me.password === this.password){
-    return true;
-  } else {
+  checkPassword(str) {
+    if (this.password === str) {
+      return true;
+    }
     return false;
   }
 }
-
 const me = new User({
   username: 'LambdaSchool',
   password: 'correcthorsebatterystaple',
@@ -41,7 +41,9 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-
+checkPassword.call(me, this.password);
 // .apply
-
+checkPassword.apply(me, this.password);
 // .bind
+const bindCheck = checkPassword.bind(me, this.password);
+
