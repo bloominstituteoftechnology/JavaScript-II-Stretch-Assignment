@@ -75,6 +75,10 @@ function Humanoid(attributes) {
   this.language = attributes.language;
 }
 
+Humanoid.prototype.greet = function() {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
 /* eslint-disable no-undef */
 
 module.exports = {
