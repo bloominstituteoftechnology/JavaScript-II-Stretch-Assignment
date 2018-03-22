@@ -26,7 +26,7 @@ const me = new User({
 });
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
-
+//console.log(result);
 /* part 2 */
 
 const checkPassword = function comparePasswords(passwordToCompare) {
@@ -40,6 +40,7 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
+//console.log(checkPassword.call(password, result));
 
 // .apply
 
