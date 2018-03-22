@@ -37,3 +37,6 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // .apply
 
 // .bind
+
+
+
