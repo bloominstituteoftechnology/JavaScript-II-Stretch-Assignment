@@ -79,6 +79,8 @@ Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
 
+Humanoid.protoype = Object.create(NPC.prototype);
+
 /* eslint-disable no-undef */
 
 module.exports = {
