@@ -7,8 +7,59 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
-  NPC
+*/
+class GameObject {
+  this.createdAt = gameOptions.createdAt;
+  this.dimensions = gameOptions.dimensions
+}
+{
+  {
+destroy()
+return this `${this.dimensions} was removed from the game.`;
+}
+}
+class NPC extends GameObject {
+  constructor(npcOptions) {
+    super(npcOptions) {
+      this.hp = npcOptions.hp;
+      this.name = npcOptions.name
+    }
+    takeDamage() {
+      return `${this.name} took damage.`;
+    }
+  }
+}
+  class newHumanoid extends NPC {
+    constructor(humanoidOptions) {
+      super(humanoidOptions);
+      this.factions = humanoidOptions.factions;
+      this.weapons = humanoidOptions.weapons;
+      this.language = humanoidOptions.language;
+    }
+    greet() {
+      return `${this.name} offers a gretting in ${this.languge}`;
+    }
+  }
+  const newHumanoid = newHumanoid({
+    createdAt: new Date(),
+    dimensions: {
+      length: 2,
+      width: 1,
+      height: 1,
+    },
+    gameName: 'Game Object',
+    hp: 1,
+    name: 'PUBG',
+    faction: 'Sverny',
+    weapons: [
+      'akm',
+      'sickle'
+    ],
+    language: 'Ruby',
+  });
+  newHumanoid.greet();
+  console.log(newHumanoid.dimensions);
+  /* NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'

@@ -18,13 +18,13 @@ class User {
 
 const me = new User({
   username: 'LambdaSchool',
-  password: 'correcthorsebatterystaple',
+  password: 'correct',
   checkPassword(otherpassword) {
     return this.password === otherpassword;
   },
 });
 
-const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
+const result = me.checkPassword('correct'); // should return `true`
 console.log(result);
 /* part 2 */
 
@@ -40,9 +40,9 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
+console.log(checkPassword.call(me, 'correct'));
 // .apply
-console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
+console.log(checkPassword.apply(me, ['correct']));
 // .bind
 const checkPasswordme = checkPassword.bind(me);
-console.log(checkPasswordme('coorecthorsebatterystaple'));
+console.log(checkPasswordme('coorect'));
