@@ -18,8 +18,8 @@ const me = new User({
   password: 'correcthorsebatterystaple',
   checkPassword(passwordToCompare) {
     return this.password === passwordToCompare;
-  };
-};
+  }
+}
 
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`

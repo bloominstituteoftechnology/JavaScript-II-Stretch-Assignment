@@ -51,7 +51,7 @@ class Cat extends Animal {
     this.name = catOptions.name;
   }
   meow() {
-    return ('${this.name} meowed!');
+    return ${this.name} ' meowed!';
   }
 }
 
