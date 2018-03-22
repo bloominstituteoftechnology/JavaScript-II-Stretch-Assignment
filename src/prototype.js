@@ -7,7 +7,18 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
+*/
+  // parent class
+  class GameObject {
+    constructor(options) {
+      this.createdAt: options.createdAt;
+      this.dimensions: options.dimensions;
+    }
+    destroy() {
+      return `Game object was removed from the game.`;
+    }
+  }
+/*
   NPC
     hp
     name
