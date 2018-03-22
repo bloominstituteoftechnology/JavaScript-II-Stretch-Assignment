@@ -13,7 +13,7 @@ class User {
     this.password = options.password;
   }
   comparePasswords(potential) {
-    return this.password !== potential;
+    return this.password === potential;
   }
 }
 
@@ -48,6 +48,7 @@ class Cat extends Animal {
 }
 
 /* eslint-disable no-undef */
+
 
 module.exports = {
   User,
