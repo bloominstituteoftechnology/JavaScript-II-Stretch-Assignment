@@ -24,9 +24,38 @@
 
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
-  Instances of NPC should have all of the same properties as GameObject.
+  Instances of NPC should have all of the same properties as GameObject. */
 
-  Example:
+  function GameObject(attributes) {
+    this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
+   }
+   GameObject.prototype.destroy = function() {
+    return `Game object was removed from the game.`;
+   }
+   function NPC(npcAttributes) {
+     GameObject.call(this, npcAttributes);
+     this.hp = npcAttributes.hp;
+     this.name = npcAttributes.name;
+   }
+      NPC.prototype = Object.create(GameObject.prototype);
+   NPC.prototype.takeDamage = function() {
+    return `${this.name} took damage.`;
+   }
+ 
+   function Humanoid(humanoidAttributes) {
+     GameObject.call(this, humanoidAttributes);
+     NPC.call(this, humanoidAttributes);
+     this.faction = humanoidAttributes.faction;
+     this.weapons = humanoidAttributes.weapons;
+     this.language = humanoidAttributes.language;
+   }
+     Humanoid.prototype = Object.create(GameObject.prototype);
+   Humanoid.prototype = Object.create(NPC.prototype);
+   Humanoid.prototype.greet = function () {
+    return `${this.name} offers a greeting in ${this.language}.`;
+   };
+ // Example:
 
   const hamsterHuey = new Humanoid({
     createdAt: new Date(),
@@ -44,10 +73,10 @@
     language: 'Hamsterish',
   });
 
-  hamsterHuey.greet(); // returns 'Hamster Huey offers a greeting in Hamsterish'
-  hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
-  hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
-*/
+ console.log(hamsterHuey.greet()); // returns 'Hamster Huey offers a greeting in Hamsterish'
+  console.log(hamsterHuey.takeDamage()); // returns 'Hamster Huey took damage.'
+  console.log(hamsterHuey.destroy()); // returns 'Game object was removed from the game.'
+
 
 /* eslint-disable no-undef */
 
