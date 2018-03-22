@@ -13,10 +13,10 @@ class User {
     this.email = options.email;
     this.password = options.password;
   }
-  comparePasswords() {
-    if (this.password === options.password) {
+  comparePasswords(password) {
+    if (this.password === password) {
       return true;
-    }
+    } return false;
   }
 }
 
@@ -43,12 +43,17 @@ class Animal {
   }
   growOlder() {
     this.age = this.age + 1;
+    return this.age;
   }
 }
 
 class Cat extends Animal {
+  constructor(options) {
+    super(options, options);
+    this.name = options.name;
+  }
   meow() {
-    return this.name + ' meowed!';
+    return `${this.name} meowed!`;
   }
 }
 
