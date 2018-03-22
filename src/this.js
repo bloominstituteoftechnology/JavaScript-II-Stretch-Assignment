@@ -48,7 +48,8 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
 
 // .apply
-console.log(checkPassword.apply(me, 'correcthorsebatterystaple'));
+console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
 
 // .bind
-console.log(checkPassword.bind(me, 'correcthorsebatterystaple'));
+checkPasswordMe = checkPassword.bind(me);
+console.log(checkPasswordMe('correcthorsebatterystaple'));
