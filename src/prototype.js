@@ -13,6 +13,7 @@ function GameObject(attribute) {
 }
 
 GameObject.prototype.destroy = () => {
+  // const t = this;
   return 'Game object was remmoved from the game.';
 };
 
@@ -35,7 +36,7 @@ function NPC(npcAttribute) {
 
 NPC.prototype = Object.create(GameObject.prototype);
 
-NPC.prototype.takeDamage = () => {
+NPC.prototype.takeDamage = function () {
   return `${this.name} took damage.`;
 };
 
@@ -58,7 +59,7 @@ function Humanoid(humanoidAttribute) {
 Humanoid.prototype = Object.create(GameObject.prototype);
 Humanoid.prototype = Object.create(NPC.prototype);
 
-Humanoid.prototype.greet = () => {
+Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in ${this.language}`;
 };
 
