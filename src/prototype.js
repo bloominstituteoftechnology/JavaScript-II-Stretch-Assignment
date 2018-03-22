@@ -67,6 +67,8 @@ NPC.prototype.takeDamage = function() {
   return `${this.name} took damage.`;
 };
 
+NPC.prototype = Object.create(GameObject.prototype);
+
 /* eslint-disable no-undef */
 
 module.exports = {
