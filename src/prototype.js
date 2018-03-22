@@ -60,42 +60,52 @@
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
  */
 
-class GameObject {
-  constructor(options) {
-    this.createdAt = options.createdAt;
-    this.dimensions = options.dimensions;
-  }
+// class GameObject {
+//   constructor(options) {
+//     this.createdAt = options.createdAt;
+//     this.dimensions = options.dimensions;
+//   }
 
-  destroy() {
-    return 'Game object was removed from the game.';
-  }
+//   destroy() {
+//     return 'Game object was removed from the game.';
+//   }
+// }
+function GameObject(options) {
+  this.createdAt = options.createdAt;
+  this.dimensions = options.dimensions;
 }
-// GameObject.prototype.destroy = () => 'Game object was removed from the game.';
-
-class NPC extends GameObject {
-  // noinspection JSAnnotator
-  constructor(options) {
-    super(options);
-    this.hp = options.hp;
-    this.name = options.name;
-  }
-  takeDamage() {
-    return `${this.name} took damage.`;
-  }
+GameObject.prototype.destroy = () => 'Game object was removed from the game.';
+// class NPC extends GameObject {
+//   // noinspection JSAnnotator
+//   constructor(options) {
+//     super(options);
+//     this.hp = options.hp;
+//     this.name = options.name;
+//   }
+//   takeDamage() {
+//     return `${this.name} took damage.`;
+//   }
+// }
+function NPC(options) {
+  GameObject.call(this, options);
+  this.hp = options.hp;
+  this.name = options.name;
+}
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+function Humanoid(options) {
+  NPC.call(this, options);
+  this.faction = options.faction;
+  this.weapons = options.weapons;
+  this.language = options.language;
 }
 
-class Humanoid extends NPC {
-  constructor(options) {
-    super(options);
-    this.faction = options.faction;
-    this.weapons = options.weapons;
-    this.language = options.language;
-  }
-
-  greet() {
-    return `${this.name} offers a greeting in ${this.language}.`;
-  }
-}
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 /* eslint-disable no-undef */
 
