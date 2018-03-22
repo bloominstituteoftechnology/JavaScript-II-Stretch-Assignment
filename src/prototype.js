@@ -53,26 +53,25 @@ function GameObject(props) {
   this.dimensions = props.dimensions;
 }
 
-GameObject.prototype.destroy = function() {
+GameObject.prototype.destroy = function () {
   return 'Game object was removed from the game.';
-}
+};
 
 function NPC(props) {
   GameObject.call(this, props);
   this.hp = props.hp;
   this.name = props.name;
-
 }
 
 NPC.prototype = Object.create(GameObject.prototype);
 
-NPC.prototype.takeDamage = function(amnt) {
+NPC.prototype.takeDamage = function (amnt) {
   this.hp = amnt !== undefined ? this.hp - amnt : this.hp - 1;
-  if(this.hp <= 0) {
+  if (this.hp <= 0) {
     return this.destroy();
   }
   return `${this.name} took damage. ${this.hp} health points left.`;
-}
+};
 
 function Humanoid(props) {
   NPC.call(this, props);
@@ -82,9 +81,9 @@ function Humanoid(props) {
 }
 Humanoid.prototype = Object.create(NPC.prototype);
 
-Humanoid.prototype.greet = function() {
+Humanoid.prototype.greet = function () {
   return `${this.name} offers a greeting in <object language>.`;
-}
+};
 
 const playerOne = new Humanoid({
   date: new Date(),
@@ -94,7 +93,7 @@ const playerOne = new Humanoid({
     height: 2,
   },
   hp: 100,
-  name: "bob",
+  name: 'bob',
   faction: 'el oh el',
   weapons: [
     'WMD',
@@ -103,7 +102,7 @@ const playerOne = new Humanoid({
   language: 'weeb',
 });
 
-console.log(playerOne.takeDamage(65));
+// console.log(playerOne.takeDamage(65));
 
 /* eslint-disable no-undef */
 

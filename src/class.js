@@ -39,7 +39,7 @@ class Animal {
   constructor(options) {
     this.age = options.age,
   }
-  growOlder() {
+  growOlder(){
     return this.age += 7;
   }
 }
