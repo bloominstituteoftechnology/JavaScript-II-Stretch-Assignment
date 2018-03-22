@@ -5,12 +5,26 @@
 /* part 1 */
 
 class User {
-  constructor(options) {
+  constructor(username, password) {
     // set a username and password property on the user object that is created
+    this.username = username;
+    this.password = password;
+
+    this.checkPassword = function(str) {
+      console.log('I am here!')
+ 
+     if(this.password === str) {
+       return true;
+     }
+      return false;
+ 
+   }
+
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
+  
 }
 
 const me = new User({
@@ -20,7 +34,10 @@ const me = new User({
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 
+console.log(result);
+
 /* part 2 */
+const args = [5, 6 ,7 ,8 ];
 
 const checkPassword = function comparePasswords(passwordToCompare) {
   // recreate the `checkPassword` method that you made on the `User` class
@@ -33,7 +50,11 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
+checkPassword.call(User, passwordToCompare);
 
 // .apply
+checkPassword.apply(User, passwordToCompare, args);
 
 // .bind
+let test = checkPassword.bind(User. passwordToCompare); // what is wrong with this? 
+let test('this is bind?');
