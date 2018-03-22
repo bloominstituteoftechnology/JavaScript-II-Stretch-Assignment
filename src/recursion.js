@@ -1,7 +1,7 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  // fibonacci sequence: 1 1 2 3 5 8 13 ...
+  // fibonacci sequence: 1 1 2 3 5 8 13  ...
   // return the nth number in the sequence
   if (n <= 1) {
     return n;
@@ -17,10 +17,18 @@ const nFactorial = (n) => {
 };
 
 /* Extra Credit */
-const checkMatchingLeaves = (obj) => {
+const checkMatchingLeaves = (obj, c) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  if (Object.keys(obj)[0] !== Object.keys(obj)[c]) {
+    return false;
+  } else if (Object.keys(obj)[0] === Object.keys(obj)[c]) {
+    return true;
+  }
+  checkMatchingLeaves(c + 1);
 };
+// attempted but failed, oh well!
+
 
 /* eslint-enable no-unused-vars */
 

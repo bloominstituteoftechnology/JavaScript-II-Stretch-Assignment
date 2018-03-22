@@ -19,16 +19,9 @@ class User {
     } return false;
   }
 }
-
-// this.comparePasswords = (password) => {
-//   if(password === this.password) {
-//     return true;
-//   }
-// }
-
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
-// `Cat` should extend the `Animal` class.
+// `Cat`  should extend the `Animal` class.
 // Animal and Cat should both have a parameter called `options` in their constructors.
 // Animal should have the property `age` that's set in the constructor and the method
 // `growOlder` that returns the age after incrementing it.
@@ -47,6 +40,7 @@ class Animal {
   }
 }
 
+
 class Cat extends Animal {
   constructor(options) {
     super(options, options);
@@ -59,7 +53,6 @@ class Cat extends Animal {
 
 
 /* eslint-disable no-undef */
-
 module.exports = {
   User,
   Cat,

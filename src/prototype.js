@@ -1,15 +1,15 @@
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
-  In this file you will be creating three classes:
+  In this  file you will be creating three classes:
   GameObject
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
    */
-  function GameObject(object) {
-    this.createdAt = object.createdAt;
-    this.dimensions = object.dimensions;
+  function GameObject(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
   }
   GameObject.prototype.destroy = () => {
     return 'Game object was removed from the game.';
@@ -22,10 +22,10 @@
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
     */
-  function NPC(npc) {
-    GameObject.call(this, npc);
-    this.hp = npc.hp;
-    this.name = npc.name;
+  function NPC(options) {
+    GameObject.call(this, options);
+    this.hp = options.hp;
+    this.name = options.name;
     // GameObject.call(this, options);
   }
 
@@ -42,12 +42,12 @@
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC */
 
-  function Humanoid(player) {
-    NPC.call(this, player);
-    GameObject.call(this, player);
-    this.faction = player.faction;
-    this.weapons = player.weapons;
-    this.language = player.language;
+  function Humanoid(options) {
+    NPC.call(this, options);
+    GameObject.call(this, options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
   }
   // Humanoid.prototype = Object.create(GameObject.prototype);
   Humanoid.prototype = Object.create(NPC.prototype);
