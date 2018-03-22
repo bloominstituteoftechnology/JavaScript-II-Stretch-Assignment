@@ -48,11 +48,67 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+function GameObject(props) {
+  this.date = props.date;
+  this.dimensions = props.dimensions;
+}
+
+GameObject.prototype.destroy = function() {
+  return 'Game object was removed from the game.';
+}
+
+function NPC(props) {
+  GameObject.call(this, props);
+  this.hp = props.hp;
+  this.name = props.name;
+
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function(amnt) {
+  this.hp = amnt !== undefined ? this.hp - amnt : this.hp - 1;
+  if(this.hp <= 0) {
+    return this.destroy();
+  }
+  return `${this.name} took damage. ${this.hp} health points left.`;
+}
+
+function Humanoid(props) {
+  NPC.call(this, props);
+  this.faction = props.faction;
+  this.weapons = props.weapons;
+  this.language = props.language;
+}
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function() {
+  return `${this.name} offers a greeting in <object language>.`;
+}
+
+const playerOne = new Humanoid({
+  date: new Date(),
+  dimensions: {
+    length: 2,
+    width: 2,
+    height: 2,
+  },
+  hp: 100,
+  name: "bob",
+  faction: 'el oh el',
+  weapons: [
+    'WMD',
+    'pistol',
+  ],
+  language: 'weeb',
+});
+
+console.log(playerOne.takeDamage(65));
 
 /* eslint-disable no-undef */
 
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+// module.exports = {
+//   GameObject,
+//   NPC,
+//   Humanoid,
+// };
