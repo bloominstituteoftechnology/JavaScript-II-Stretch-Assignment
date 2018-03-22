@@ -48,6 +48,41 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() {
+    return 'Game object was removed from the game';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(npcOptions) {
+    super(npcOptions);
+    this.hp = npcOptions.hp;
+    this.name = npcOptions.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(humanoidOptions) {
+    super(humanoidOptions);
+    this.faction = humanoidOptions.faction;
+    this.weapons = humanoidOptions.weapons;
+    this.language = humanoidOptions.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+// Inheritance chain: Humanoid -> NPC -> GameObject
+// Instances of Humanoid should have all of the same properties as NPC and GameObject.
+// Instances of NPC should have all of the same properties as GameObject.
 
 /* eslint-disable no-undef */
 
