@@ -69,6 +69,12 @@ NPC.prototype.takeDamage = function() {
 
 NPC.prototype = Object.create(GameObject.prototype);
 
+function Humanoid(attributes) {
+  this.faction = attributes.faction;
+  this.weapons = attributes.weapons;
+  this.language = attributes.language;
+}
+
 /* eslint-disable no-undef */
 
 module.exports = {
