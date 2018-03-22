@@ -52,4 +52,6 @@ console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
 
 // .bind
 checkPasswordMe = checkPassword.bind(me);
-console.log(checkPasswordMe('correcthorsebatterystaple'));
+const boundPasswordCheck = checkPassword.bind(me);
+console.log(boundPasswordCheck('correcthorsebatterystaple'));
+
