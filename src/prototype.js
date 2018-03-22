@@ -88,7 +88,7 @@ class Humanoid extends NPC {
   constructor(options) {
     super(options);
     this.faction = options.faction;
-    this.weapon = options.weapon;
+    this.weapons = options.weapons;
     this.language = options.language;
   }
 
