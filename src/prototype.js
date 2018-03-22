@@ -50,68 +50,70 @@
 */
 
 class GameObject {
-	constructor(data) {
-		this.createdAt = data.createdAt;
-		this.dimensions = data.dimensions;
-	}
+  constructor(data) {
+    this.createdAt = data.createdAt;
+    this.dimensions = data.dimensions;
+  }
 
-	destroy() {
-		return 'Game object was removed from the game.';
-	}
+  destroy() {
+    return `${this.name} was removed from the game.`;
+  }
 }
 
 class NPC extends GameObject {
-	constructor(data) {
-		super(data);
-		this.hp = data.hp;
-		this.name = data.name;
-		this.alive = true;
-	}
+  constructor(data) {
+    super(data);
+    this.hp = data.hp;
+    this.name = data.name;
+    this.alive = true;
+  }
 
-	takeDamage() {
-		if (this.alive) {
-			if (this.hp > 0) {
-				this.hp -= 1; //for fun, actually takes damage
-				console.log(`${this.name} took damage. HP is now ${this.hp}`);
-				return `${this.name} took damage. HP is now ${this.hp}`;
-			}
-			if (this.hp === 0) { 
-				console.log(`${this.name} has reached ${this.hp} HP.`);
-				console.log(this.destroy());
-				this.alive = false;  //for realism, upon 0 hp runs destroy()
-				return this.destroy();
-			}
-		}
-	}
+  takeDamage() {
+    if (this.alive) {
+      if (this.hp > 0) {
+        this.hp -= 1;
+        //for fun, actually takes damage
+        console.log(`${this.name} took damage. HP is now ${this.hp}`);
+        return `${this.name} took damage. HP is now ${this.hp}`;
+      }
+      if (this.hp === 0) {
+        console.log(`${this.name} has reached ${this.hp} HP.`);
+        console.log(this.destroy());
+        this.alive = false;
+        //for realism, upon 0 hp runs destroy()
+        return this.destroy();
+      }
+    }
+  }
 }
 
 class Humanoid extends NPC {
-	constructor(data) {
-		super(data);
-		this.faction = data.faction;
-		this.weapons = data.weapons;
-		this.language = data.language;
-	}
+  constructor(data) {
+    super(data);
+    this.faction = data.faction;
+    this.weapons = data.weapons;
+    this.language = data.language;
+  }
 
-	greet() {
-		if (this.alive) {
-			return `${this.name} offers a greeting in ${this.language}.`;
-		}
-	}
+  greet() {
+    if (this.alive) {
+      return `${this.name} offers a greeting in ${this.language}.`;
+    }
+  }
 }
 
 const hamsterHuey = new Humanoid({
-	createdAt: new Date(),
-	dimensions: {
-		length: 2,
-		width: 1,
-		height: 1,
-	},
-	hp: 5,
-	name: 'Hamster Huey',
-	faction: 'Gooey Kablooie',
-	weapons: ['bubblegum'],
-	language: 'Hamsterish',
+  createdAt: new Date(),
+  dimensions: {
+    length: 2,
+    width: 1,
+    height: 1,
+  },
+  hp: 5,
+  name: 'Hamster Huey',
+  faction: 'Gooey Kablooie',
+  weapons: ['bubblegum'],
+  language: 'Hamsterish',
 });
 
 
