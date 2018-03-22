@@ -43,7 +43,7 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
-
+/*
 // .call
 console.log(checkPassword.call(me, 'correcthorsebatterystaple')); //returns true
 console.log(checkPassword.call(me, 'negative')); //returns false
@@ -55,5 +55,13 @@ console.log(checkPassword.apply(me, ['negative'])); //returns false
 // .bind
 const bind = checkPassword.bind(me, ['correcthorsebatterystaple']);
 bind(); //returns true
+
 const bindz= checkPassword.bind(me, ['negative']);
 bindz(); //returns false
+
+const bind = checkPassword.bind(me);
+bind('correcthorsebatterystaple'); //returns true
+
+const bind = checkPassword.bind(me);
+bind('negative'); //returns false
+*/
