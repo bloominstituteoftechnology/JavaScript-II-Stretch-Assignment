@@ -7,7 +7,16 @@
 // for a potential password that will be compared to the `password` property.
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
-// code here
+
+class User {
+  constructor() {
+    this.
+    this.
+  }
+}
+
+
+
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
