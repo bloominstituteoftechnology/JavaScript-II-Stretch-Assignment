@@ -9,6 +9,16 @@
 
 // code here
 
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(password) {
+    return (this.password === password);
+  }
+}
+
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -19,7 +29,40 @@
 // `meow` that should return the string `<name> meowed!` where `<name>` is the `name`
 // property set on the Cat instance.
 
-// code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return ++this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
+
+// function Animal (object) { //constructor function
+//   this.type = object.type;
+//   this.name = object.name;
+//   this.sound = object.sound;
+//   this.speak = function() {
+//     return this.sound;
+//   };
+// }
+
+// const doggo = new Animal({type: 'Dog', name: 'Murphy', sound: 'Woof'});
+// console.log(doggo);
+// console.log(doggo.name);
+// console.log(doggo.speak());
+// const liger = new Animal({type: 'Liger', name: 'Leroy', sound: 'Nyeeoow'});
+// console.log(liger);
 
 /* eslint-disable no-undef */
 
