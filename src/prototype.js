@@ -49,10 +49,60 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+  function GameObject(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  GameObject.prototype.destroy = function destroy() {
+    return 'Game object was removed from the game.';
+  };
+
+  function NPC(options) {
+    GameObject.call(this, options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  NPC.prototype = Object.create(GameObject.prototype);
+
+  NPC.prototype.takeDamage = function takeDamage() {
+    return `${this.name} took damage.`;
+  };
+
+  function Humanoid(options) {
+    NPC.call(this, options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  Humanoid.prototype = Object.create(NPC.prototype);
+
+  Humanoid.prototype.greet = function greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  };
+
+  const michaelJordan = new Humanoid({
+    createdAt: '12/7/2017',
+    dimensions: {
+      length: 12,
+      width: 24,
+      height: 74,
+    },
+    hp: 9000,
+    name: 'Michael Jordan',
+    faction: 'elf',
+    weapons: ['basketball', 'M-16'],
+    language: 'English',
+  });
+
+  michaelJordan.greet();
+  // michaelJordan.takeDamage();
+  michaelJordan.destroy();
+
+
 /* eslint-disable no-undef */
 
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+  module.exports = {
+    GameObject,
+    NPC,
+    Humanoid,
+  };
