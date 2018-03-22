@@ -51,6 +51,40 @@
 
 /* eslint-disable no-undef */
 
+class GameObject {
+  constructor() {
+    this.createdAt = createdAt;
+    this.dimensions = dimensions;
+  }
+  static destroy() {
+    return 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor() {
+    super(destroy());
+    this.hp = hp;
+    this.name = name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor() {
+    super(takeDamage());
+    this.faction = faction;
+    this.weapons = weapons;
+    this.language = language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+
 module.exports = {
   GameObject,
   NPC,
