@@ -1,3 +1,5 @@
+/* eslint-disable class-methods-use-this */
+
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
@@ -63,18 +65,35 @@ class GameObject {
     this.createdAt = options.createdAt;
     this.dimensions = options.dimensions;
   }
-}
-GameObject.prototype.destroy = () => 'Game object was removed from the game.';
 
-class NPC {
-  constructor(name) {
-    this.name = name;
+  destroy() {
+    return 'Game object was removed from the game.';
+  }
+}
+// GameObject.prototype.destroy = () => 'Game object was removed from the game.';
+
+class NPC extends GameObject {
+  // noinspection JSAnnotator
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
   }
 }
 
-class Humanoid {
-  constructor(name) {
-    this.name = name;
+class Humanoid extends NPC {
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapon = options.weapon;
+    this.language = options.language;
+  }
+
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
 
