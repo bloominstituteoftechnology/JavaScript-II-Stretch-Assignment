@@ -1,31 +1,63 @@
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
   you will be implementing several classes with their correct inheritance heirarchy.
-
-  In this file you will be creating three classes:
+  In this  file you will be creating three classes:
   GameObject
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+   */
+  function GameObject(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  GameObject.prototype.destroy = () => {
+    return 'Game object was removed from the game.';
+  };
 
+   /*
   NPC
     hp
     name
     takeDamage() // prototype method -> returns the string '<object name> took damage.'
     // should inherit destroy() from GameObject's prototype
+    */
+  function NPC(options) {
+    GameObject.call(this, options);
+    this.hp = options.hp;
+    this.name = options.name;
+    // GameObject.call(this, options);
+  }
 
+  NPC.prototype = Object.create(GameObject.prototype);
+  NPC.prototype.takeDamage = function () {
+    return `${this.name} took damage.`;
+  };
+    /*
   Humanoid
     faction
     weapons
     language
     greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     // should inherit destroy() from GameObject through NPC
-    // should inherit takeDamage() from NPC
+    // should inherit takeDamage() from NPC */
 
+  function Humanoid(options) {
+    NPC.call(this, options);
+    GameObject.call(this, options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  // Humanoid.prototype = Object.create(GameObject.prototype);
+  Humanoid.prototype = Object.create(NPC.prototype);
+  Humanoid.prototype.greet = function () {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  };
+    /*
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
-
   Example:
 
   const hamsterHuey = new Humanoid({
@@ -51,8 +83,8 @@
 
 /* eslint-disable no-undef */
 
-module.exports = {
-  GameObject,
-  NPC,
-  Humanoid,
-};
+  module.exports = {
+    GameObject,
+    NPC,
+    Humanoid,
+  };
