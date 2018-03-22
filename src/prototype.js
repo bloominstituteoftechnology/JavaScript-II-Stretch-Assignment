@@ -1,6 +1,6 @@
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
-  you will be implementing several classes with their correct inheritance heirarchy.
+  you will be implementing several classes with their correct inheritance hierarchy.
 
   In this file you will be creating three classes:
   GameObject
@@ -48,6 +48,40 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+
+function GameObject(attributes) {
+  this.createdAt = attributes.createdAt;
+  this.dimensions = attributes.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(npcAttributes) {
+  GameObject.call(this, npcAttributes);
+  this.hp = npcAttributes.hp;
+  this.name = npcAttributes.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(humAttributes) {
+  NPC.call(this, humAttributes);
+  this.faction = humAttributes.faction;
+  this.weapons = humAttributes.weapons;
+  this.language = humAttributes.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
 
 /* eslint-disable no-undef */
 
