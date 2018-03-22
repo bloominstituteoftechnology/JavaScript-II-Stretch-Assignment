@@ -49,6 +49,7 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+
 function GameObject(attributes) {
   this.createdAt = attributes.createdAt;
   this.dimensions = attributes.dimensions;
@@ -58,28 +59,42 @@ GameObject.prototype.destroy = function() {
   return 'Game object was removed from the game.';
 };
 
-function NPC(attributes) {
-  this.hp = attributes.hp;
-  this.name = attributes.name;
+function NPC(npcAttributes) {
+  GameObject.call(this, npcAttributes);
+  this.hp = npcAttributes.hp;
+  this.name = npcAttributes.name;
 }
+
+NPC.prototype = Object.create(GameObject.prototype);
 
 NPC.prototype.takeDamage = function() {
   return `${this.name} took damage.`;
 };
 
-NPC.prototype = Object.create(GameObject.prototype);
-
-function Humanoid(attributes) {
-  this.faction = attributes.faction;
-  this.weapons = attributes.weapons;
-  this.language = attributes.language;
+function Humanoid(humanAttributes) {
+  NPC.call(this, humanAttributes);
+  this.faction = humanAttributes.faction;
+  this.weapons = humanAttributes.weapons;
+  this.language = humanAttributes.language;
 }
+
+Humanoid.prototype = Object.create(NPC.prototype);
 
 Humanoid.prototype.greet = function() {
   return `${this.name} offers a greeting in ${this.language}.`;
 };
 
-Humanoid.protoype = Object.create(NPC.prototype);
+
+
+const bob = new Humanoid ({
+  createdAt: 'now',
+  dimensions: 'manlet',
+  hp: 5,
+  name: 'Bob The Great',
+  faction: 'Lambda',
+  weapons: 'stick',
+  language: 'bing bong',
+});
 
 /* eslint-disable no-undef */
 
