@@ -11,7 +11,18 @@ const nFibonacci = (n) => {
 //   return nFibonacci(n - 1) + nFibonacci(n - 2);
 // };
 // nFibonacci(3);
-if (n <= 1 ) return n;
+
+// var loop = function(n) {
+//   var a = 0, b = 1, f = 1;
+//   for(var i = 2; i <= n; i++) {
+//     f = a + b;
+//     a = b;
+//     b = f;
+//   }
+//   return f;
+// };
+
+if (n <= 1 ) return 1;
 return nFibonacci(n - 1) + nFibonacci(n - 2);
 };
 nFibonacci(5);
@@ -33,6 +44,18 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
+  const green = Object.values(obj)[0];
+  result = true;
+  const a = Object.keys(obj);
+
+  a.forEach((yellow) => {
+    if (obj[yellow] !== sample && Object.values(obj[yellow]).length < 1) {
+      result = false;
+    } else if (Object.values(obj[yellow]).length > 0) {
+      result = leaves(obj[yellow], orange, result);
+    }
+  });
+  return result;
 };
 
 /* eslint-enable no-unused-vars */
