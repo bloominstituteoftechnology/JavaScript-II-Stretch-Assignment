@@ -6,22 +6,76 @@
   GameObject
     createdAt
     dimensions
-    destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+    destroy() // prototype method -> returns the string 'Game object was removed from the game.'*/
+    function GameObject(gameobject) {
+      this.createdAt = gameobject.createdAt;
+      this.dimensions = gameobject.dimensions;
+      this.name = gameobject.name;
 
-  NPC
-    hp
-    name
-    takeDamage() // prototype method -> returns the string '<object name> took damage.'
-    // should inherit destroy() from GameObject's prototype
+    }
 
-  Humanoid
-    faction
-    weapons
-    language
-    greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+    GameObject.prototype.destroy = function() { // this is a function for
+      console.log(this.name + ' was removed from the game!');
+    }
+
+     const gameobject = {
+      name: this.GameObject,
+    }
+    
+ 
+
+    const pawn = new GameObject ({ // creates a new object
+      name: 'pawn',
+    })
+
+    pawn.destroy(); //calls destroy on the pawn object
+
+    function NPC(NPCgameobjects) {
+      GameObject.call(this, NPCgameobjects);
+      this.hp = NPCgameobjects.hp;
+      this.name = NPCgameobjects.name;
+    }
+
+    NPC.prototype = Object.create(GameObject.prototype);
+
+    NPC.prototype.takeDamage = function() {
+      console.log(this.name + ' took damage');
+    }
+
+    const Enemy = new NPC ({
+      hp: 100,
+      name: 'The Destroyer!',
+    })
+    
+    function Humanoid(options) {
+      NPC.call(this, options)
+      this.faction = options.faction;
+      this.weapons = options.weapons;
+      this.language = options.language;
+    }
+
+    Humanoid.prototype = Object.create(NPC.prototype);
+
+    Humanoid.prototype.greet = function() {
+      console.log(this.name + " offers a greeting in " + this.language);
+    }
+
+    const Player = new Humanoid ({
+      hp: 100,
+      name: 'Player1',
+      faction: 'Blue Team',
+      weapons: 'Swords',
+      language: 'Japanese',
+    })
+
+    Enemy.takeDamage();
+    Player.takeDamage();
+    Player.greet();
+    
+     // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
     // should inherit destroy() from GameObject through NPC
     // should inherit takeDamage() from NPC
-
+/*
   Inheritance chain: Humanoid -> NPC -> GameObject
   Instances of Humanoid should have all of the same properties as NPC and GameObject.
   Instances of NPC should have all of the same properties as GameObject.
