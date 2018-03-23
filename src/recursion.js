@@ -21,23 +21,19 @@ const checkMatchingLeaves = (obj) => {
   // otherwise return false
 
   const keys = Object.keys(obj);
-  const propToCheck = keys[0];
-  const propToCheck2 = keys[1];
-  const matches = obj[propToCheck] === obj[propToCheck2];
-  delete obj[propToCheck];
+  const key1 = keys.pop();
+  const value1 = obj[key1];
 
-  // if (!matches) return false;
-  if (Object.keys(obj).length <= 1) return matches;
+  if (typeof value1 === 'object') return checkMatchingLeaves(value1);
 
-  return checkMatchingLeaves(obj);
+  const key2 = keys.pop();
+  const value2 = obj[key2];
+  delete obj[key1];
+
+  if (Object.keys(obj).length === 0) return true;
+
+  return checkMatchingLeaves(obj) && value1 === value2;
 };
-
-// checkMatchingLeaves({
-//           x: 1,
-//         y: 1,
-//         z: 1,
-// });
-/* eslint-enable no-unused-vars */
 
 module.exports = {
   nFibonacci,
