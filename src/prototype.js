@@ -7,7 +7,6 @@
     createdAt
     dimensions
     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
-
   NPC
     hp
     name
@@ -48,7 +47,39 @@
   hamsterHuey.takeDamage(); // returns 'Hamster Huey took damage.'
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
+class GameObject {
+  constructor(options) {
+    this.createdAt = options.createdAt;
+    this.dimensions = options.dimensions;
+  }
+  destroy() { // destroy function within the GameObject class.
+    const t = this;
+    return 'Game object was removed from the game.';
+  }
+}
 
+class NPC extends GameObject { // extends GameObject gives NPC access to GameObject properties.
+  constructor(options) {
+    super(options);
+    this.hp = options.hp;
+    this.name = options.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`; // this keyword referring to the object created with this constructor function.
+  }
+}
+
+class Humanoid extends NPC { // extends gives up access to NPC, which has access to Gameobject. Allowing us to use name, when it is not declare in current function/ class.
+  constructor(options) {
+    super(options);
+    this.faction = options.faction;
+    this.weapons = options.weapons;
+    this.language = options.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
 /* eslint-disable no-undef */
 
 module.exports = {
