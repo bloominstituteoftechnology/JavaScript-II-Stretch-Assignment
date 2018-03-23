@@ -8,6 +8,7 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 // code here
+
 class User {
   constructor(options) {
     this.email = options.email;
@@ -30,6 +31,7 @@ class User {
 // property set on the Cat instance.
 
 // code here
+
 class Animal {
   constructor(options) {
     this.age = options.age;

@@ -50,25 +50,26 @@
 */
 
 class GameObject {
-  constructor(att) {
-    this.createdAt = att.createdAt;
-    this.dimensions = att.dimensions;
-  }
-  destroy() {
-    return 'Game object was removed from the game.';
+  constructor(attributes) {
+    this.createdAt = attributes.createdAt;
+    this.dimensions = attributes.dimensions;
   }
 }
 
+GameObject.prototype.destroy = function destroy() {
+  return 'Game object was removed from the game.';
+};
+
 class NPC extends GameObject {
-  constructor(att) {
-    super(att);
-    this.hp = att.hp;
-    this.name = att.name;
+  constructor(npcAtt) {
+    super(npcAtt);
+    this.hp = npcAtt.hp;
+    this.name = npcAtt.name;
   }
   takeDamage() {
     return `${this.name} took damage.`;
   }
-  }
+}
 
 class Humanoid extends NPC {
   constructor(att) {
@@ -80,7 +81,12 @@ class Humanoid extends NPC {
   greet() {
     return `${this.name} offers a greeting in ${this.language}.`;
   }
+  checkIfHumanoid() {
+    if (this.isHumanoid) {
+      return this.destroy();
     }
+  }
+}
 
 /* eslint-disable no-undef */
 
