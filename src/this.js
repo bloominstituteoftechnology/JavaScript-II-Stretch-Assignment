@@ -5,10 +5,10 @@
 /* part 1 */
 
 class User {
-  constructor(un,pw) {
+  constructor(user, pass) {
     // set a username and password property on the user object that is created
-    this.username = un;
-    this.password = pw;
+    this.username = user;
+    this.password = pass;
     this.checkPassword = function(inputPass) {
       if (inputPass === this.password) {
         return true;
@@ -16,10 +16,11 @@ class User {
       return false;
     }
   }
+}
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
-}
+
 
 const me = new User('LambdaSchool', 'correcthorsebatterystaple');
 
@@ -27,7 +28,7 @@ const result = me.checkPassword('correcthorsebatterystaple'); // should return `
 
 // node this.js says that me.checkPassword is not a function so it throws an error.. hmmmmm
 
-console.log(result);
+return result();
 
 /* part 2 */
 

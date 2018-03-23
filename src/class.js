@@ -13,7 +13,7 @@ class User {
     this.email = options.email;
     this.password = options.password;
   }
-  comparePasswords (potentialPassword) {
+  comparePasswords(potentialPassword) {
     if (potentialPassword === this.password) {
       return true;
     }
@@ -21,14 +21,14 @@ class User {
   }
 }
 
-const account1 = new User ({
-  email: `tacoman@gmail.com`,
-  password: `llamallama1122`
+const account1 = new User({
+  email: 'tacoman@gmail.com',
+  password: 'llamallama1122',
 });
 
-//to test I would probably do:
-//console.log(account1.comparePasswords(potentialPasswordInput));
-
+// to test I would probably do:
+// console.log(account1.comparePasswords(potentialPasswordInput));
+//
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -45,16 +45,18 @@ class Animal {
   constructor(options) {
     this.age = options.age;
   }
-  growOlder () {
+  growOlder() {
     return ++this.age;
+  }
 }
 
 class Cat extends Animal {
   constructor(options) {
+    super(options);
     this.name = options.name;
   }
-  meow () {
-    return `${this.name} meowed!`
+  meow() {
+    return `${this.name} meowed!`;
   }
 }
 /* eslint-disable no-undef */

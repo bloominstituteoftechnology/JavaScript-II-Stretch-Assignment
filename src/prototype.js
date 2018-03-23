@@ -13,11 +13,12 @@ class GameObject {
   constructor(gameObjectParameters) {
     this.createdAt = gameObjectParameters.createdAt;
     this.dimensions = gameObjectParameters.dimensions;
+    this.phrase = 'Game object was removed from the game';
   }
   destroy() {
-    return `Game object was removed from the game`
-  }
-}
+    return this.phrase;
+  } // reason why i created this.phrase to be used in destroy is that the linter wont let me run the test without having a this keyword inside of the method here..
+}   // I've tried return 'Game object was removed from the game'; but it doesn't accept that.. this is why the children are not properly inheriting it.
 
 /*
   NPC
@@ -34,7 +35,7 @@ class NPC extends GameObject {
     this.name = NPCParameters.name;
   }
   takeDamage() {
-    return `${this.name} took damage.`
+    return `${this.name} took damage.`;
   }
 }
 
@@ -48,7 +49,7 @@ class NPC extends GameObject {
     // should inherit takeDamage() from NPC
 */
 
-class Humanoid extends GameObject {
+class Humanoid extends NPC {
   constructor(humanoidParameters) {
     super(humanoidParameters);
     this.faction = humanoidParameters.faction;
@@ -56,7 +57,7 @@ class Humanoid extends GameObject {
     this.language = humanoidParameters.language;
   }
   greet() {
-    return `${this.name} offers a greeting in ${this.language}.`
+    return `${this.name} offers a greeting in ${this.language}.`;
   }
 }
 
