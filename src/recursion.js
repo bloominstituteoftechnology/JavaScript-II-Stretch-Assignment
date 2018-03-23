@@ -19,8 +19,8 @@ const nFactorial = (n) => {
 const checkMatchingLeaves = (obj) => {
   // return true if every property on `obj` is the same
   // otherwise return false
-
   const keys = Object.keys(obj);
+
   const key1 = keys.pop();
   const value1 = obj[key1];
 
@@ -28,6 +28,7 @@ const checkMatchingLeaves = (obj) => {
 
   const key2 = keys.pop();
   const value2 = obj[key2];
+
   delete obj[key1];
 
   if (Object.keys(obj).length === 0) return true;
