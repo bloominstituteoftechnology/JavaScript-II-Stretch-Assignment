@@ -48,12 +48,14 @@ const checkMatchingLeaves = (obj) => {
   */
   var values = [];
 
-  (function rec(param) {
-    Object.keys(param).forEach(function(key) {
-      if (typeof param[key] === 'object') return rec(param[key]);
-      values.push(param[key])
-    })  
-  })(obj);
+  (
+    function rec(param) {
+      Object.keys(param).forEach(function(key) {
+        if (typeof param[key] === 'object') return rec(param[key]);
+        values.push(param[key])
+      })  
+    }
+  )(obj);
 
   return values.every( x => values[0] === x);
 };
