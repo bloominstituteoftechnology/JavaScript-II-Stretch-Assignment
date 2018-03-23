@@ -1,5 +1,6 @@
 // Part 1
 // Create a class called User using the ES6 class keyword.
+
 // The constructor of the class should have a parameter called `options`.
 // `options` will be an object that will have the properties `email` and `password`.
 // Set the `email` and `password` properties on the class.
@@ -8,7 +9,15 @@
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
 // code here
-
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+  comparePasswords(password) {
+    return this.password === password;
+  }
+  };
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -20,7 +29,24 @@
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return this.age++;
+  }
+};
 
+class Cat extends Animal{
+  constructor(options) {
+    super(CatOptions)
+    this.name = options.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+};
 /* eslint-disable no-undef */
 
 module.exports = {
