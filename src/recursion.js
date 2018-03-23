@@ -41,7 +41,7 @@ const checkMatchingLeaves = (obj) => {
   //we take a empty array where we will store all the values form the inner objects. 
   // we invoke an Immidiately Invoked Functional Expression(IIFE), with the object passed as parameter. 
     // we get all the keys of the params and loop through and check if any key is an object or not
-      // if we find any inner object, we call the rec, recursively with the found key(inner object).
+      // if we find any inner object, we call the rec, recursively with that key's corresponding value(inner object).
       // if its not an object we populate the empty array with its corresponding value.
     //after the foreach is finished, we exit the IIFE. 
     // check if the values array contains all same item or not , if yes return true, else return false.  
@@ -51,8 +51,8 @@ const checkMatchingLeaves = (obj) => {
   (
     function rec(param) {
       Object.keys(param).forEach(function(key) {
-        if (typeof param[key] === 'object') return rec(param[key]);
-        values.push(param[key])
+        if (typeof param[key] === 'object') return rec(param[key]);// keep repeating until it is not an object.
+        values.push(param[key])// push the value. 
       })  
     }
   )(obj);
