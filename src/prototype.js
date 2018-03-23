@@ -27,67 +27,65 @@
   Instances of NPC should have all of the same properties as GameObject.
 */
 
-
 function GameObject(params) {
-  this.createdAt = params.createdAt; 
-  this.dimensions = params.dimensions; 
+  this.createdAt = params.createdAt;
+  this.dimensions = params.dimensions;
 }
-GameObject.prototype.destroy = function() {
-  return 'Game object was removed from the game.'
+GameObject.prototype.destroy = function any() {
+  return 'Game object was removed from the game.';
 };
 
 // es6
 // class GameObject {
 //   constructor(params) {
-//   this.createdAt = params.createdAt; 
-//   this.dimensions = params.dimensions; 
+//   this.createdAt = params.createdAt;
+//   this.dimensions = params.dimensions;
 //   }
 //   destroy(){
 //     return 'Game object was removed from the game.'
 //   }
 // }
 
-
 function NPC(params) {
-  GameObject.call(this, params); 
-  this.hp = params.hp; 
+  GameObject.call(this, params);
+  this.hp = params.hp;
   this.name = params.name;
 }
-NPC.prototype = Object.create(GameObject.prototype); 
-NPC.prototype.takeDamage = function(){ 
-  return `${this.name} took damage.`
-}; 
+NPC.prototype = Object.create(GameObject.prototype);
+NPC.prototype.takeDamage = function any() {
+  return `${this.name} took damage.`;
+};
 
 // es6
 // class NPC extends GameObject {
 //   constructor(params) {
-//     super(params); 
-//     this.hp = params.hp; 
+//     super(params);
+//     this.hp = params.hp;
 //     this.name = params.name;
 //   }
 //   takeDamage(){
-//     return `${this.name} took damage.`
+//     return `${this.name} took damage.`;
 //   }
 // }
 
 function Humanoid(params) {
-  NPC.call(this,params); 
-  this.faction = params.faction; 
-  this.weapons = params.weapons; 
-  this.language = params.language; 
+  NPC.call(this, params);
+  this.faction = params.faction;
+  this.weapons = params.weapons;
+  this.language = params.language;
 }
-Humanoid.prototype = Object.create(NPC.prototype); 
-Humanoid.prototype.greet = function() { 
-  return `${this.name} offers a greeting in ${this.language}.`
+Humanoid.prototype = Object.create(NPC.prototype);
+Humanoid.prototype.greet = function any() {
+  return `${this.name} offers a greeting in ${this.language}.`;
 };
 
 // es6
 // class Humanoid extends NPC {
 //   constructor(params) {
-//     super(params); 
-//     this.faction = params.faction; 
-//     this.weapons = params.weapons; 
-//     this.language = params.language; 
+//     super(params);
+//     this.faction = params.faction;
+//     this.weapons = params.weapons;
+//     this.language = params.language;
 //   }
 //   greet(){
 //     return `${this.name} offers a greeting in ${this.language}.`

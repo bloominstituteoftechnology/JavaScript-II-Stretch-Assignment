@@ -11,8 +11,8 @@
 
 class User {
   constructor(options) {
-    this.email = options.email; 
-    this.password = options.password; 
+    this.email = options.email;
+    this.password = options.password;
   }
   comparePasswords(potentialPassword) {
     return potentialPassword === this.password;
@@ -33,7 +33,7 @@ class User {
 
 class Animal {
   constructor(options) {
-    this.age = options.age; 
+    this.age = options.age;
   }
   growOlder() {
     this.age++;
@@ -41,13 +41,13 @@ class Animal {
   }
 }
 
-class Cat extends Animal{
+class Cat extends Animal {
   constructor(options) {
     super(options);
     this.name = options.name;
   }
-  meow(){
-    return `${this.name} meowed!`
+  meow() {
+    return `${this.name} meowed!`;
   }
 }
 
