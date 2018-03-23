@@ -1,2 +1,6 @@
 *.swp
 node_modules
+
+yarn-error\.log
+
+yarn\.lock
