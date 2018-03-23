@@ -37,7 +37,7 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
-let example = ['example1', 'example2', 'example3'];
+const example = ['example1', 'example2', 'example3'];
 
 // .call
 checkPassword.call(me, ...example);

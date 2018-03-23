@@ -9,7 +9,7 @@
 
 // code here
 class User {
-  constructor (options) {
+  constructor(options) {
     this.email = options.email;
     this.password = options.password;
   }
@@ -29,7 +29,7 @@ class User {
 
 // code here
 class Animal {
-  constructor(options){
+  constructor(options) {
     this.age = options.age;
   }
 
@@ -48,7 +48,7 @@ class Cat extends Animal {
     return `${this.name} meowed!`;
   }
 }
-  
+
 /* eslint-disable no-undef */
 
 module.exports = {
