@@ -12,7 +12,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LambdaSchool/javascript-ii.git"
-  },  
+  },
   "devDependencies": {
     "babel-jest": "^19.0.0",
     "eslint": "^3.17.1",
@@ -25,6 +25,7 @@
     "babel-preset-es2015": "^6.24.0",
     "eslint-config-airbnb": "^14.1.0",
     "eslint-plugin-jsx-a11y": "^3.0.2 || ^4.0.0",
-    "eslint-plugin-react": "6.9.0"
+    "eslint-plugin-react": "6.9.0",
+    "yarn": "^1.5.1"
   }
 }

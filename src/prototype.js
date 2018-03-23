@@ -51,6 +51,60 @@
 
 /* eslint-disable no-undef */
 
+function GameObject(attributes) {
+  this.createdAt = attributes.createdAt;
+  this.dimensions = attributes.dimensions;
+}
+
+GameObject.prototype.destroy = function () {
+  return 'Game object was removed from the game.';
+};
+
+function NPC(npcAttributes) {
+  GameObject.call(this, npcAttributes);
+  this.hp = npcAttributes.hp;
+  this.name = npcAttributes.name;
+}
+
+NPC.prototype = Object.create(GameObject.prototype);
+
+NPC.prototype.takeDamage = function () {
+  return `${this.name} took damage.`;
+};
+
+function Humanoid(humAttributes) {
+  NPC.call(this, humAttributes);
+  this.faction = humAttributes.faction;
+  this.weapons = humAttributes.weapons;
+  this.language = humAttributes.language;
+}
+
+Humanoid.prototype = Object.create(NPC.prototype);
+
+Humanoid.prototype.greet = function () {
+  return `${this.name} offers a greeting in ${this.language}.`;
+};
+
+const JesusChrist = new Humanoid({
+  createdAt: new Date(),
+  dimensions: {
+    length: 3,
+    width: 3,
+    height: 3,
+  },
+  hp: 333,
+  name: 'JesusChrist',
+  faction: 'Jewish',
+  weapons: [
+    'Cross',
+    'Pardon',
+    'Fishes',
+    'Bread',
+    'Wine',
+  ],
+  language: 'Hebrew',
+});
+
 module.exports = {
   GameObject,
   NPC,
