@@ -8,16 +8,16 @@ class User {
   constructor(options) {
     this.username = options.username;
     this.password = options.password;
-    this.checkPassword = (string) => {
+    // set a username and password property on the user object that is created
+    User.prototype.checkPassword = function (string) {
       if (this.password === string) return true;
       return false;
     };
-    // set a username and password property on the user object that is created
   }
   // create a method on the User class called `checkPassword`
   // this method should take in a string and compare it to the object's password property
   // return `true` if they match, otherwise return `false`
-};
+}
 
 const me = new User({
   username: 'LambdaSchool',
@@ -32,10 +32,8 @@ const checkPassword = function comparePasswords(passwordToCompare) {
   // use `this` to access the object's `password` property.
   // do not modify this function's parameters
   // note that we use the `function` keyword and not `=>`
-    console.log("Password: " +passwordToCompare);
-    if (this.password === passwordToCompare) return console.log("true and true");
-    return false;
-  
+  if (this.password === passwordToCompare) return true;
+  return false;
 };
 
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
@@ -43,13 +41,12 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 
 
 // .call
-checkPassword.call(me, 'correcthorsebatterystaple')
+console.log(checkPassword.call(me, 'correcthorsebatterystaple'));
 
 // .apply
-checkPassword.apply(me, ['correcthorsebatterystaple'])
-
+console.log(checkPassword.apply(me, ['correcthorsebatterystaple']));
 
 // .bind
-let newBind = checkPassword.bind(me, 'correcthorsebatterystaple');
-newBind();
+const newBind = checkPassword.bind(me, 'correcthorsebatterystaple');
+console.log(newBind());
 // console.log("newBind: "  + newBind());

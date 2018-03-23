@@ -14,18 +14,17 @@ class User {
     this.password = options.password;
   }
   comparePasswords(par) {
-    console.log('password: '+ (this.password) + ' passed in password: ' + par + " email: " + this.email)
     if (this.password === par) return true;
     return false;
   }
 }
 const exUser = new User({
-  email: "abram",
+  email: 'abram',
   password: 'NaNhaha',
 });
-const cpboolean = exUser.comparePasswords("NaNhaha");
-console.log(cpboolean)
-console.log("hey function: " + exUser.email)
+const cpboolean = exUser.comparePasswords('NaNhaha');
+console.log(cpboolean);
+console.log(`hey function:  + ${exUser.email}`);
 
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
@@ -47,22 +46,22 @@ class Animal {
     return this.age;
   }
 }
-class Cat extends Animal {  
+class Cat extends Animal {
   constructor(options) {
     super(options);
     this.name = options.name;
   }
   meow() {
-    return `${this.name} meowed!`
+    return `${this.name} meowed!`;
   }
 }
 const catA = new Cat({
-  name: "kitty",
+  name: 'kitty',
   age: 1,
-} );
-let age = catA.age;
-let name = catA.name;
-console.log("cat name: " + name + " age: " + age + " function meow: " + catA.meow() + " function older: " + catA.growOlder())
+});
+const age = catA.age;
+const name = catA.name;
+// console.log("cat name: " + name + " age: " + age + " function meow: " + catA.meow() + " function older: " + catA.growOlder())
 
 
 /* eslint-disable no-undef */
