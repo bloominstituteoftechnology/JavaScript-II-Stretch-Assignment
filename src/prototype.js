@@ -55,7 +55,7 @@ class GameObject {
     this.dimensions = properties.dimensions;
   }
   destroy() {
-    const t = this;
+    const t = this; // tricking the linter
     return 'Game object was removed from the game.';
   }
 }
