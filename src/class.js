@@ -9,6 +9,22 @@
 
 // code here
 
+class Use {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+
+  comparePasswords(param) {
+    if (param === this.password) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+}
+
 // Part 2
 // Create a class called `Animal` and a class called `Cat` using ES6 classes.
 // `Cat` should extend the `Animal` class.
@@ -21,6 +37,24 @@
 
 // code here
 
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+  growOlder() {
+    return ++this.age;
+  }
+}
+
+class Cat extends Animal {
+  constructor(options) {
+    super(options);
+    this.name = options.name;
+  }
+  meow() {
+    return `$(this.name)`;
+  }
+}
 /* eslint-disable no-undef */
 
 module.exports = {
