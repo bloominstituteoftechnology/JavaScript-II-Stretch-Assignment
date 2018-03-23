@@ -16,11 +16,10 @@ class User {
 const me = new User({
   username: 'LambdaSchool',
   password: 'correcthorsebatterystaple',
-  checkPassword(passwordToCompare) {
-    return this.password === passwordToCompare;
-  }
-}
-
+  checkPassword(altPassword) {
+    return this.password === altPassword;
+  },
+});
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
 
@@ -35,7 +34,8 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // invoke `checkPassword` on `me` by explicitly setting the `this` context
 // use .call, .apply, and .bind
 
-checkPassword(passwordToCompare){
+const checkPassword = function 
+checkPassword(passwordToCompare) {
   return this.password === passwordToCompare;
 }
 
@@ -44,27 +44,14 @@ checkPassword(passwordToCompare){
 const me = new User({
   username: 'LambdaSchool',
   password: 'correcthorsebatterystaple',
-  )};
-};
+});
 
 checkPassword.call(me);
 
 // .apply
 
-const me = new User({
-  username: 'LambdaSchool',
-  password: 'correcthorsebatterystaple',
-  )};
-};
-
 checkPassword.apply(me);
 
 // .bind
 
-const me = new User({
-  username: 'LambdaSchool',
-  password: 'correcthorsebatterystaple',
-  )};
-};
-
-var newCheckPassword.bind(me);
+const checkPasswordOne = checkPassword.bind(me);
