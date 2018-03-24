@@ -82,7 +82,7 @@ function Humanoid(props) {
 Humanoid.prototype = Object.create(NPC.prototype);
 
 Humanoid.prototype.greet = function () {
-  return `${this.name} offers a greeting in <object language>.`;
+  return `${this.name} offers a greeting in ${this.language}`;
 };
 
 const playerOne = new Humanoid({
@@ -102,7 +102,7 @@ const playerOne = new Humanoid({
   language: 'weeb',
 });
 
-// console.log(playerOne.takeDamage(65));
+console.log(playerOne.greet());
 
 /* eslint-disable no-undef */
 

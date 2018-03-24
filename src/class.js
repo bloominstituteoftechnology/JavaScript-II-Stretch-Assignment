@@ -37,17 +37,17 @@ const playerOne = new User({
 // code here
 class Animal {
   constructor(options) {
-    this.age = options.age,
+    this.age = options.age;
   }
-  growOlder(){
+  growOlder() {
     return this.age += 7;
   }
 }
 
 class Cat extends Animal {
   constructor(options) {
-    super(options),
-    this.name = options.name,
+    super(options);
+    this.name = options.name;
   }
   meow() {
     return `${this.name} meowed!`;
