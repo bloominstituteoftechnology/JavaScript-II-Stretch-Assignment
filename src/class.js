@@ -59,7 +59,7 @@ const mrWhiskers = new Cat({
   age: 2,
 });
 
-// console.log(mrWhiskers.meow());
+// console.log(mrWhiskers.age);
 /* eslint-disable no-undef */
 
 module.exports = {

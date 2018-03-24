@@ -102,12 +102,12 @@ const playerOne = new Humanoid({
   language: 'weeb',
 });
 
-console.log(playerOne.greet());
+// console.log(playerOne.greet());
 
 /* eslint-disable no-undef */
 
-// module.exports = {
-//   GameObject,
-//   NPC,
-//   Humanoid,
-// };
+module.exports = {
+  GameObject,
+  NPC,
+  Humanoid,
+};
