@@ -55,7 +55,7 @@ class GameObject {
   }
 
   destroy() {
-    const t = this;
+    const t = this; // linting rule, not a JS rule
     return 'Game object was removed from the game.';
   }
 }
