@@ -7,6 +7,20 @@
 // for a potential password that will be compared to the `password` property.
 // Return true if the potential password matches the `password` property.  Otherwise return false.
 
+class User {
+  constructor(options) {
+    this.email = options.email;
+    this.password = options.password;
+  }
+
+  comparePasswords(potentialPassword) {
+    if (this.password === potentialPassword) {
+      return true;
+    }
+    return false;
+  }
+}
+
 // code here
 
 // Part 2
@@ -20,6 +34,26 @@
 // property set on the Cat instance.
 
 // code here
+class Animal {
+  constructor(options) {
+    this.age = options.age;
+  }
+
+  growOlder() {
+    const olderAge = this.age + 1;
+    return olderAge;
+  }
+}
+
+class Cat extends Animal {
+  constructor(catOptions) {
+    super(catOptions);
+    this.name = catOptions.name;
+  }
+  meow() {
+    return `${this.name} meowed!`;
+  }
+}
 
 /* eslint-disable no-undef */
 
