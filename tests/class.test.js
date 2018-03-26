@@ -4,6 +4,7 @@ const {
 } = require('../src/class');
 
 /* eslint-disable no-undef */
+//testing
 describe('classes', () => {
   describe('User', () => {
     it('should be a valid JS class', () => {
