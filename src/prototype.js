@@ -1,6 +1,6 @@
 /*
   Object oriented design is commonly used in video games.  For this part of the assignment
-  you will be implementing several classes with their correct inheritance heirarchy.
+  you will be implementing several classes with their correct inheritance hierarchy.
 
   In this file you will be creating three classes:
   GameObject
