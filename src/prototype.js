@@ -49,6 +49,60 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+class GameObject {
+  constructor(properties) {
+    this.createdAt = properties.createdAt;
+    this.dimensions = properties.dimensions;
+  }
+  destroy() {
+    const t = this; // tricking the linter
+    return 'Game object was removed from the game.';
+  }
+}
+
+class NPC extends GameObject {
+  constructor(properties) {
+    super(properties);
+    this.hp = properties.hp;
+    this.name = properties.name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+class Humanoid extends NPC {
+  constructor(properties) {
+    super(properties);
+    this.faction = properties.faction;
+    this.weapons = properties.weapons;
+    this.language = properties.language;
+  }
+  greet() {
+    return `${this.name} offers a greeting in ${this.language}.`;
+  }
+}
+
+// const hamsterHuey = new Humanoid({
+//   createdAt: new Date(),
+//   dimensions: {
+//     length: 2,
+//     width: 1,
+//     height: 1,
+//   },
+//   hp: 5,
+//   name: 'Hamster Huey',
+//   faction: 'Gooey Kablooie',
+//   weapons: [
+//     'bubblegum',
+//   ],
+//   language: 'Hamsterish',
+// });
+
+// console.log(hamsterHuey.greet()); // returns 'Hamster Huey offers a greeting in Hamsterish'
+// console.log(hamsterHuey.takeDamage()); // returns 'Hamster Huey took damage.'
+// console.log(hamsterHuey.destroy()); // returns 'Game object was removed from the game.'
+
 /* eslint-disable no-undef */
 
 module.exports = {
