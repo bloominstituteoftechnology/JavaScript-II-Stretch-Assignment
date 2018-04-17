@@ -49,6 +49,61 @@
   hamsterHuey.destroy(); // returns 'Game object was removed from the game.'
 */
 
+// GameObject
+//     createdAt
+//     dimensions
+//     destroy() // prototype method -> returns the string 'Game object was removed from the game.'
+
+class GameObject {
+  constructor(createdAt, dimensions = [2, 1, 1]) {
+    this.createdAt = createdAt;
+    this.dimensions = {
+      width: dimensions[0],
+      length: dimensions[1],
+      height: dimensions[2],
+    };
+  }
+  destroy() {
+    return `${this} was removed from the game.`;
+  }
+}
+
+// NPC
+//     hp
+//     name
+//     takeDamage() // prototype method -> returns the string '<object name> took damage.'
+//     // should inherit destroy() from GameObject's prototype
+class NPC extends GameObject {
+  constructor(hp = 5, name, dimensions) {
+    super(dimensions);
+    this.hp = hp;
+    this.name = name;
+  }
+  takeDamage() {
+    return `${this.name} took damage.`;
+  }
+}
+
+// Humanoid
+//   faction
+//   weapons
+//   language
+// greet() // prototype method -> returns the string '<object name> offers a greeting in <object language>.'
+// // should inherit destroy() from GameObject through NPC
+// // should inherit takeDamage() from NPC
+class Humanoid extends NPC {
+  constructor(faction, weapons = ['knife'], language, hp, name, dimensions) {
+    super(hp, name, dimensions);
+    this.faction = faction;
+    this.weapons = weapons;
+    this.language = language;
+  }
+  greet() {
+    return `${this.name} offers a greating in ${this.language}`;
+  }
+}
+
+
 /* eslint-disable no-undef */
 
 module.exports = {
