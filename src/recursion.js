@@ -12,9 +12,9 @@ const nFactorial = (n) => {
     return 0;
   } else if (n === 0) {
     return 1;
-  } else {
-    return (n * (nFactorial(n - 1)));
   }
+    return (n * (nFactorial(n - 1)));
+  
 };
 
 /* Extra Credit */
