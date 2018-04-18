@@ -28,7 +28,7 @@ console.log(nFibonacci(8));
 const nFactorial = (n) => {
   // factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
-  let i = 2;
+  let i = 1;
   let factorial = 1;
   do {
     factorial *= i;
