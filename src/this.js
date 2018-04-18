@@ -22,12 +22,12 @@ const me = new User({
   username: 'LambdaSchool',
   password: 'correcthorsebatterystaple',
 });
-console.log(me);
-console.log(me.checkPassword("hola"));
+// console.log(me);
+// console.log(me.checkPassword('hola'));
 
 
 const result = me.checkPassword('correcthorsebatterystaple'); // should return `true`
-console.log(result);
+// console.log(result);
 
 /* part 2 */
 
@@ -43,11 +43,11 @@ const checkPassword = function comparePasswords(passwordToCompare) {
 // use .call, .apply, and .bind
 
 // .call
-console.log(checkPassword.call(me, "hola"));
+// console.log(checkPassword.call(me, 'hola'));
 
 // .apply
-console.log(checkPassword.apply(me, ["hola"]));
+// console.log(checkPassword.apply(me, ['hola']));
 
 // .bind
-let bindToMe = checkPassword.bind(me, "hola")
-console.log(bindToMe());
+const bindToMe = checkPassword.bind(me, 'hola');
+// console.log(bindToMe());

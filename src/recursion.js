@@ -6,7 +6,7 @@ const nFibonacci = (n) => {
   let previous = 0;
   let current = 1;
   let auxiliar = 0;
-  let i = 0;
+  let i = 1;
   do {
     auxiliar = previous + current;
     previous = current;
@@ -14,6 +14,7 @@ const nFibonacci = (n) => {
   } while (++i < n);
   return current;
 };
+
 console.log(nFibonacci(0));
 console.log(nFibonacci(1));
 console.log(nFibonacci(2));
@@ -35,11 +36,11 @@ const nFactorial = (n) => {
   } while (i++ < n);
   return factorial;
 };
-console.log(nFactorial(1));
-console.log(nFactorial(2));
-console.log(nFactorial(3));
-console.log(nFactorial(4));
-console.log(nFactorial(5));
+// console.log(nFactorial(1));
+// console.log(nFactorial(2));
+// console.log(nFactorial(3));
+// console.log(nFactorial(4));
+// console.log(nFactorial(5));
 
 /* Extra Credit */
 const checkMatchingLeaves = (obj) => {
