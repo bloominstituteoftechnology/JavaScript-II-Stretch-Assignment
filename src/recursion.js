@@ -1,12 +1,19 @@
 // Complete the following functions.
 
 const nFibonacci = (n) => {
-  // fibonacci sequence: 1 1 2 3 5 8 13 ...
-  // return the nth number in the sequence
+  if (n <= 1) {
+    return n;
+  }
+  return nFibonacci(n - 1) + nFibonacci(n - 2); // fibonacci sequence: 1 1 2 3 5 8 13 ...
+    // return the nth number in the sequence
 };
 
 const nFactorial = (n) => {
-  // factorial example: !5 = 5 * 4 * 3 * 2 * 1
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;// factorial example: !5 = 5 * 4 * 3 * 2 * 1
   // return the factorial of `n`
 };
 
